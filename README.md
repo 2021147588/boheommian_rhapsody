@@ -1,2 +1,2 @@
 # boheommian_rhapsody
-Upstage X YBIGTA Hackathon
+Upstage X YBIGTA Hackathon Project
