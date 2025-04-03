@@ -57,7 +57,8 @@ if __name__ == "__main__":
     with open(user_info_json_path, "r", encoding="utf-8") as file:
         user_info_list = json.load(file)
     
-    for user_info in user_info_list:
+    for user_info_dict in user_info_list:
+        user_info = UserInfo(**user_info_dict)
         conversation = AgentConversation(user_info)
         conversation.simulate_conversation()
         
@@ -65,7 +66,7 @@ if __name__ == "__main__":
         chat_data = {
             "conversation": conversation.chat_log
         }
-        # 모든 대화 로그를 하나의 파일에 저장
+        
         with open("chat_log.json", "w", encoding='utf-8') as file:
             json.dump(chat_data, file, ensure_ascii=False, indent=4)
 
