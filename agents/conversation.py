@@ -55,18 +55,17 @@ class AgentConversation:
             # 턴별 로그 초기화
             turn_log = {
                 "turn": turn + 1,
-                "user_message": user_message if turn == 0 else None,  # 첫 턴에만 초기 사용자 메시지 포함
+                "user_reply": user_message if turn == 0 else None,  # 첫 턴에만 초기 사용자 메시지 포함
                 "agent_response": None,
                 "current_agent": "Router",  # 기본값, Orchestrator가 실제 에이전트 식별
                 "rag_performed": False,
-                "rag_sources": None,
-                "user_reply": None
+                "rag_sources": None
             }
 
             # 1. Orchestrator가 응답
             orchestrator_response = self.orchestrator.run_with_history(
                 self.chat_history,
-                self.chat_history+user_message
+                user_message
             )
             print(f"[Orchestrator]: {orchestrator_response}")
             
@@ -97,7 +96,8 @@ class AgentConversation:
             self.chat_history += f"{user_response}\nOrchestrator:"
             
             # 사용자 응답 로그 업데이트
-            turn_log["user_reply"] = user_response
+            if turn != 0:  # 첫 턴이 아닌 경우에만 업데이트 (첫 턴은 이미 설정됨)
+                turn_log["user_reply"] = user_response
             
             # 최종 턴 로그 저장
             self.enhanced_log.append(turn_log)
@@ -330,11 +330,11 @@ if __name__ == "__main__":
         user_name = user_info.user.name
         user_id = f"user_{i+1}"
         
-        # 향상된 로그 버전 저장 (enhanced만 저장)
-        enhanced_filename = f"{results_dir}/{timestamp}_{user_id}_{user_name}_enhanced.json"
-        with open(enhanced_filename, "w", encoding='utf-8') as file:
-            json.dump(enhanced_data, file, ensure_ascii=False, indent=4)
-            print(f"향상된 로그를 '{enhanced_filename}' 파일에 저장했습니다.")
+        # # 향상된 로그 버전 저장 (enhanced만 저장)
+        # enhanced_filename = f"{results_dir}/{timestamp}_{user_id}_{user_name}_enhanced.json"
+        # with open(enhanced_filename, "w", encoding='utf-8') as file:
+        #     json.dump(enhanced_data, file, ensure_ascii=False, indent=4)
+        #     print(f"향상된 로그를 '{enhanced_filename}' 파일에 저장했습니다.")
     
     # 결과 출력
     print(f"\n===== 시뮬레이션 결과 =====")
@@ -357,7 +357,7 @@ if __name__ == "__main__":
 
 
 
-    except Exception as e:
-        with open("chat_log.json", "w", encoding='utf-8') as file:
-            json.dump(total_chat_log, file, ensure_ascii=False, indent=4)
+    # except Exception as e:
+    #     with open("chat_log.json", "w", encoding='utf-8') as file:
+    #         json.dump(total_chat_log, file, ensure_ascii=False, indent=4)
         
