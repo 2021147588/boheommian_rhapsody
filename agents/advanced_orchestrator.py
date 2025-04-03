@@ -73,6 +73,16 @@ class AdvancedOrchestrator:
         """현재까지의 대화 기록을 반환합니다."""
         return self.conversation_history
 
+    def run_with_history(self, chat_history: str, user_message: str) -> str:
+        """
+        대화 이력을 기반으로 에이전트의 응답을 생성합니다.
+        """
+        # 수동 대화 로그 삽입
+        self.messages = []  # 새 세션처럼 처리
+        self.conversation_history = chat_history.split("\n") if chat_history else []
+
+        print(f"[System] 대화 기록과 함께 메시지 처리 시작")
+        return self.process_message(user_message)
 
 # 사용 예시
 if __name__ == "__main__":
