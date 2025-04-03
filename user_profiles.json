@@ -1,0 +1,71 @@
+[
+  {
+    "user": {
+      "name": "김철수",
+      "birth_date": "1985-05-15",
+      "gender": "남성",
+      "license_acquired": "2005-10-20",
+      "driving_experience_years": 18,
+      "accident_history": false,
+      "region": "서울시 강남구",
+      "job": "회사원"
+    },
+    "vehicle": {
+      "plate_number": "12가 3456",
+      "model": "현대 쏘나타",
+      "year": 2020,
+      "registered_date": "2020-03-15",
+      "ownership": "본인소유",
+      "usage": "출퇴근 및 일상용",
+      "accident_history": false,
+      "market_value": 22000000
+    },
+    "insurance_settings": {
+      "driver_scope": "가족한정",
+      "coverages": {
+        "대인배상": "2억원",
+        "대물배상": "1억원",
+        "자기신체사고": "5천만원",
+        "무보험차상해": "2억원"
+      },
+      "discounts": {
+        "무사고할인": "40%",
+        "안전운전할인": "10%"
+      }
+    }
+  },
+  {
+    "user": {
+      "name": "이영희",
+      "birth_date": "1990-08-22",
+      "gender": "여성",
+      "license_acquired": "2010-05-10",
+      "driving_experience_years": 13,
+      "accident_history": true,
+      "region": "부산시 해운대구",
+      "job": "자영업"
+    },
+    "vehicle": {
+      "plate_number": "34나 5678",
+      "model": "기아 K5",
+      "year": 2018,
+      "registered_date": "2018-07-20",
+      "ownership": "본인소유",
+      "usage": "업무용",
+      "accident_history": true,
+      "market_value": 18000000
+    },
+    "insurance_settings": {
+      "driver_scope": "본인한정",
+      "coverages": {
+        "대인배상": "무제한",
+        "대물배상": "5천만원",
+        "자기신체사고": "3천만원",
+        "무보험차상해": "1억원"
+      },
+      "discounts": {
+        "마일리지할인": "15%"
+      }
+    }
+  }
+]
