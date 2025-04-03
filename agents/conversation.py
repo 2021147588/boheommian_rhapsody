@@ -19,8 +19,15 @@ class AgentConversation:
             - 성별: {user_info.user.gender}
             - 운전 경력: {user_info.user.driving_experience_years}년
             - 사고 이력: {"있음" if user_info.user.accident_history else "없음"}
+            - 운전 스타일: {user_info.user.driving_style}
+            - 사고 이력 정보: {user_info.user.accident_history_info}
+            - 보험 성향: {user_info.user.insurance_tendency}
+            - 기본 옵션 기대: {user_info.user.basic_option_expectation}
+            - 예상 보험 등급: {user_info.user.expected_insurance_grade}
+            - 추가 참고사항: {user_info.user.additional_notes}
             - 차량 모델: {user_info.vehicle.model}
             - 사용 목적: {user_info.vehicle.usage}
+            - 차량 가치: {user_info.vehicle.market_value}원
         """
                     
     def simulate_conversation(self, initial_input: str = "운전자 보험 추천해주세요."):
@@ -38,7 +45,7 @@ class AgentConversation:
             # 1. Orchestrator가 응답
             orchestrator_response = self.orchestrator.run_with_history(
                 self.chat_history,
-                user_message
+                self.chat_history+user_message
             )
             print(f"[Orchestrator]: {orchestrator_response}")
             self.chat_history += f"{orchestrator_response}\nUser: "
@@ -53,21 +60,28 @@ class AgentConversation:
             user_message = user_response  # 다음 턴 입력
 
 if __name__ == "__main__":
+    
     user_info_json_path = "person.json"
     with open(user_info_json_path, "r", encoding="utf-8") as file:
         user_info_list = json.load(file)
     
-    for user_info_dict in user_info_list:
-        user_info = UserInfo(**user_info_dict)
-        conversation = AgentConversation(user_info)
-        conversation.simulate_conversation()
-        
-        # 대화 로그 저장
-        chat_data = {
-            "conversation": conversation.chat_log
-        }
+    total_chat_log = []
+    try: 
+        for user_info_dict in user_info_list:
+            user_info = UserInfo(**user_info_dict)
+            conversation = AgentConversation(user_info)
+            conversation.simulate_conversation()
+            
+            # 대화 로그 저장
+            chat_data = {
+                "conversation": conversation.chat_log
+            }
+            total_chat_log.append(chat_data)
         
         with open("chat_log.json", "w", encoding='utf-8') as file:
-            json.dump(chat_data, file, ensure_ascii=False, indent=4)
+            json.dump(total_chat_log, file, ensure_ascii=False, indent=4)
 
-    
+    except Exception as e:
+        with open("chat_log.json", "w", encoding='utf-8') as file:
+            json.dump(total_chat_log, file, ensure_ascii=False, indent=4)
+        
