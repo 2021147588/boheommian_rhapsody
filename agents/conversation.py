@@ -6,7 +6,7 @@ import os
 import datetime
 
 class AgentConversation:
-    def __init__(self, user_info: UserInfo, max_turns: int = 5):
+    def __init__(self, user_info: UserInfo, max_turns: int = 1):
         self.user_agent = UserAgent(user_info)
         self.orchestrator = AdvancedOrchestrator()
         self.chat_log = []
@@ -197,14 +197,9 @@ class AgentConversation:
     def get_conversation_dict(self):
         """대화 내용을 발화 순서대로 딕셔너리 형태로 반환"""
         conversation_dict = {
-            "user_info": {
-                "name": self.user_info.user.name,
-                "birth_date": self.user_info.user.birth_date,
-                "gender": self.user_info.user.gender,
-                "driving_experience": self.user_info.user.driving_experience_years,
-                "vehicle_model": self.user_info.vehicle.model,
-                "vehicle_usage": self.user_info.vehicle.usage
-            },
+                "user_info": {
+                        **self.user_info.model_dump()  # model_dump() 결과를 언팩하여 딕셔너리로 포함
+                    },
             "success": self.success,
             "exchanges": []
         }
@@ -270,15 +265,10 @@ class AgentConversation:
     
     def get_enhanced_log(self):
         """턴 단위로 저장된 상세 로그 반환"""
+        breakpoint()
         return {
-            "user_info": {
-                "name": self.user_info.user.name,
-                "birth_date": self.user_info.user.birth_date,
-                "gender": self.user_info.user.gender,
-                "driving_experience": self.user_info.user.driving_experience_years,
-                "vehicle_model": self.user_info.vehicle.model,
-                "vehicle_usage": self.user_info.vehicle.usage
-            },
+            "user_info": self.user_info.model_dump(),  # model_dump() 결과를 언팩하여 딕셔너리로 포함
+            
             "success": self.success,
             "turns": self.enhanced_log
         }
@@ -306,6 +296,7 @@ if __name__ == "__main__":
     
     for i, user_info_dict in enumerate(user_info_list[:total_samples]):
         print(f"\n===== 시뮬레이션 {i+1}/{total_samples} =====")
+        breakpoint()
         user_info = UserInfo(**user_info_dict)
         conversation = AgentConversation(user_info)
         conversation.simulate_conversation()
