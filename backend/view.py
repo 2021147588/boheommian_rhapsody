@@ -17,6 +17,10 @@ class User(BaseModel):
     basic_option_expectation: str
     expected_insurance_grade: str
     additional_notes: str
+    predicted_drive_habit: Optional[str] = None
+    predicted_financial_status: Optional[str] = None
+    predicted_risk_tolerance: Optional[str] = None
+
 
 class Vehicle(BaseModel):
     plate_number: str
