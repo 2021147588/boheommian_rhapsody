@@ -25,7 +25,7 @@ class AdvancedOrchestrator:
     
     def process_message(self, message: str) -> str:
         """
-        사용자 메시지를 처리하고 적절한 에이전트로 라우팅합니다.
+        사용자 메시지를 처리하고 적절한 에이전트로 라우팅합니다. (에이전트 객체 반환 방식 처리)
         
         Args:
             message (str): 사용자 메시지
@@ -39,60 +39,69 @@ class AdvancedOrchestrator:
         self.messages.append({"role": "user", "content": message})
         
         # 현재 활성 에이전트 확인
-        if self.active_agent_name is None:
+        if self.active_agent is None:
             # 첫 메시지는 라우터 에이전트로 전달
             self.active_agent = self.router_agent
             self.active_agent_name = "router"
             print(f"[AdvancedOrchestrator] Initial router agent setup")
         
         # 에이전트에 메시지 전달 - run_interaction 사용
-        response = self.active_agent.run_interaction(self.messages)
+        response_object = self.active_agent.run_interaction(self.messages)
         
-        # 에이전트 응답 추출
-        agent_response = ""
-        for msg in reversed(response.messages):
-            if msg.get("role") == "assistant" and msg.get("content"):
-                agent_response = msg.get("content")
-                break
-            
-        print(f"[AdvancedOrchestrator] Agent response: {agent_response}")
+        # 에이전트 응답 추출 (텍스트 메시지)
+        agent_text_response = ""
+        if hasattr(response_object, 'messages'):
+            for msg in reversed(response_object.messages):
+                if msg.get("role") == "assistant" and msg.get("content"):
+                    agent_text_response = msg.get("content")
+                    # 핸드오프 문자열이 포함된 경우 제거 (이전 방식과의 호환성 또는 중복 방지)
+                    agent_text_response = agent_text_response.replace("HANDOFF_TO_SALES_AGENT", "")
+                    agent_text_response = agent_text_response.replace("HANDOFF_TO_RAG_AGENT", "")
+                    agent_text_response = agent_text_response.replace("HANDOFF_TO_RECOMMENDATION_AGENT", "")
+                    break
+        elif isinstance(response_object, str):
+            agent_text_response = response_object
+            # 핸오프 문자열 제거
+            agent_text_response = agent_text_response.replace("HANDOFF_TO_SALES_AGENT", "")
+            agent_text_response = agent_text_response.replace("HANDOFF_TO_RAG_AGENT", "")
+            agent_text_response = agent_text_response.replace("HANDOFF_TO_RECOMMENDATION_AGENT", "")
         
-        # 핸드오프 신호 확인
-        handoff_signal = None
+        print(f"[AdvancedOrchestrator] Agent text response: {agent_text_response}")
         
-        # 핸드오프 확인 로직
-        if "HANDOFF_TO_SALES_AGENT" in agent_response:
-            handoff_signal = "sales"
-            agent_response = agent_response.replace("HANDOFF_TO_SALES_AGENT", "")
-        elif "HANDOFF_TO_RAG_AGENT" in agent_response:
-            handoff_signal = "rag"
-            agent_response = agent_response.replace("HANDOFF_TO_RAG_AGENT", "")
-        elif "HANDOFF_TO_RECOMMENDATION_AGENT" in agent_response:
-            handoff_signal = "recommendation"
-            agent_response = agent_response.replace("HANDOFF_TO_RECOMMENDATION_AGENT", "")
-        
-        # 핸드오프 처리
-        if handoff_signal:
+        # 핸드오프 처리 로직 수정
+        # response_object 또는 그 안의 특정 속성(예: tool_output)이 에이전트 객체인지 확인
+        next_agent_instance = None
+        # response_object 자체 또는 특정 속성(예: response_object.tool_output) 확인
+        # 이 부분은 run_interaction 의 실제 반환값 구조에 맞춰야 함
+        potential_handoff_target = response_object
+
+        if isinstance(potential_handoff_target, AdvancedSalesAgent):
+            next_agent_instance = self.sales_agent
+            target_agent_name = "sales"
+            print(f"[AdvancedOrchestrator] Handoff signal detected: Switching to Sales Agent")
+        elif isinstance(potential_handoff_target, AdvancedRAGAgent):
+            next_agent_instance = self.rag_agent
+            target_agent_name = "rag"
+            print(f"[AdvancedOrchestrator] Handoff signal detected: Switching to RAG Agent")
+        elif isinstance(potential_handoff_target, AdvancedRecommendationAgent):
+            next_agent_instance = self.recommendation_agent
+            target_agent_name = "recommendation"
+            print(f"[AdvancedOrchestrator] Handoff signal detected: Switching to Recommendation Agent")
+
+        # 핸드오프 수행
+        if next_agent_instance:
             source_agent = self.active_agent
-            source_agent_name = self.active_agent_name
-            
-            if handoff_signal == "sales":
-                self.active_agent = self.sales_agent
-                self.active_agent_name = "sales"
-                print(f"[AdvancedOrchestrator] Handoff from {source_agent_name} to sales agent")
-            elif handoff_signal == "rag":
-                self.active_agent = self.rag_agent
-                self.active_agent_name = "rag"
-                print(f"[AdvancedOrchestrator] Handoff from {source_agent_name} to RAG agent")
-            elif handoff_signal == "recommendation":
-                self.active_agent = self.recommendation_agent
-                self.active_agent_name = "recommendation"
-                print(f"[AdvancedOrchestrator] Handoff from {source_agent_name} to recommendation agent")
-            
-            # 프로필 정보 전달
+            # 핸드오프 시 새 에이전트 객체를 생성하는 대신, 오케스트레이터가 관리하는 인스턴스로 교체
+            self.active_agent = next_agent_instance
+            self.active_agent_name = target_agent_name
+            print(f"[AdvancedOrchestrator] Handoff from {source_agent.name} to {self.active_agent.name}")
+
+            # 프로필 및 대화 이력 전달 (필요시)
             self._transfer_profile_data(source_agent, self.active_agent)
-        
-        return agent_response
+            self._transfer_conversation_history(source_agent, self.active_agent)
+
+        # 최종 사용자에게 보여줄 응답 반환
+        return agent_text_response.strip()
     
     def _transfer_profile_data(self, source_agent, target_agent):
         """
@@ -140,14 +149,15 @@ class AdvancedOrchestrator:
             # 메시지 목록 복사
             if hasattr(source_agent, 'messages') and source_agent.messages:
                 if hasattr(target_agent, 'messages'):
-                    target_agent.messages = source_agent.messages.copy()
+                    target_agent.messages = self.messages.copy()
             
-            # 대화 이력 복사
-            if hasattr(source_agent, 'conversation_history') and source_agent.conversation_history:
-                if hasattr(target_agent, 'conversation_history'):
-                    target_agent.conversation_history = source_agent.conversation_history.copy()
-            
-            print(f"[ConversationHistoryTransfer] Conversation history transferred successfully")
+            # conversation_history 는 오케스트레이터에서 관리하므로 별도 전달 불필요할 수 있음
+            # 만약 각 에이전트가 독립적인 history 를 가진다면 아래 코드 유지
+            # if hasattr(source_agent, 'conversation_history') and source_agent.conversation_history:
+            #     if hasattr(target_agent, 'conversation_history'):
+            #         target_agent.conversation_history = source_agent.conversation_history.copy()
+
+            print(f"[ConversationHistoryTransfer] Conversation history transferred to {target_agent.name}")
         except Exception as e:
             print(f"[ConversationHistoryTransfer] Error transferring conversation history: {e}")
     

@@ -1,4 +1,7 @@
 from agents.planner_agent.advanced_base_agent import AdvancedBaseAgent
+from agents.advanced_agents.rag_agent import AdvancedRAGAgent
+from agents.advanced_agents.recommendation_agent import AdvancedRecommendationAgent
+from agents.advanced_agents.sales_agent import AdvancedSalesAgent
 
 class AdvancedRouterAgent(AdvancedBaseAgent):
     def __init__(self):
@@ -26,19 +29,16 @@ class AdvancedRouterAgent(AdvancedBaseAgent):
         """
         보험 상품 정보, 약관, 보장 내용 등에 대한 질문은 RAG 에이전트로 전환합니다.
         """
-        from agents.advanced_agents.rag_agent import AdvancedRAGAgent
         return AdvancedRAGAgent()
     
     def transfer_to_recommendation_agent(self):
         """
         상품 추천, 비교 분석 등의 질문은 추천 에이전트로 전환합니다.
         """
-        from agents.advanced_agents.recommendation_agent import AdvancedRecommendationAgent
         return AdvancedRecommendationAgent()
     
     def transfer_to_sales_agent(self):
         """
         상품 가입, 구매 절차, 상담 예약 등 영업 관련 질문은 영업 에이전트로 전환합니다.
         """
-        from agents.advanced_agents.sales_agent import AdvancedSalesAgent
         return AdvancedSalesAgent() 
