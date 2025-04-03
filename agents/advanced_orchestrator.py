@@ -14,6 +14,7 @@ class AdvancedOrchestrator:
         self.current_agent = self.router_agent
         self.messages = []
         self.conversation_history = []
+        print(f"[System] 오케스트레이터 초기화 - 시작 에이전트: {self.current_agent.name}")
     
     def process_message(self, user_message: str) -> str:
         """
@@ -28,17 +29,25 @@ class AdvancedOrchestrator:
         # 사용자 메시지 추가
         self.messages.append({"role": "user", "content": user_message})
         self.conversation_history.append(f"User: {user_message}")
+        print(f"[System] 현재 에이전트 ({self.current_agent.name})에게 사용자 메시지 전송 중...")
         
         # 에이전트와 상호작용
         response = self.current_agent.run_interaction(self.messages)
         
         # 핸드오프 처리
         if response.agent != self.current_agent:
-            print(f"[System] 에이전트 전환: {self.current_agent.name} -> {response.agent.name}")
+            print(f"[System] 핸드오프 발생: {self.current_agent.name} -> {response.agent.name}")
+            print(f"[System] 핸드오프 전 메시지 수: {len(self.messages)}, 새 메시지 수: {len(response.messages)}")
+            old_agent = self.current_agent
             self.current_agent = response.agent
+            print(f"[System] 에이전트 전환 완료: {old_agent.name} -> {self.current_agent.name}")
+        else:
+            print(f"[System] 동일 에이전트({self.current_agent.name}) 유지, 핸드오프 없음")
         
         # 새 메시지 추가
+        before_count = len(self.messages)
         self.messages.extend(response.messages)
+        print(f"[System] 메시지 {len(response.messages)}개 추가됨 (총 {len(self.messages)}개)")
         
         # 에이전트 응답 추출
         agent_response = ""
@@ -46,15 +55,18 @@ class AdvancedOrchestrator:
             if msg.get("role") == "assistant" and msg.get("content"):
                 agent_response = msg.get("content")
                 self.conversation_history.append(f"{self.current_agent.name}: {agent_response}")
+                print(f"[System] {self.current_agent.name}의 최종 응답 (길이: {len(agent_response)})")
                 break
         
         return agent_response
     
     def reset(self):
         """대화 상태를 초기화하고 라우터 에이전트로 돌아갑니다."""
+        old_agent = self.current_agent
         self.current_agent = self.router_agent
         self.messages = []
         self.conversation_history = []
+        print(f"[System] 대화 초기화 완료. 에이전트 재설정: {old_agent.name} -> {self.router_agent.name}")
         return "대화가 초기화되었습니다."
     
     def get_conversation_history(self) -> List[str]:
