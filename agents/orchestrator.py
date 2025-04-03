@@ -76,6 +76,147 @@ class Orchestrator:
         self.current_agent = self.router_agent.get_agent()
         self.messages = []
 
+    def process_message(self, message: str) -> str:
+        """
+        사용자 메시지를 처리하고 적절한 에이전트로 라우팅합니다.
+        
+        Args:
+            message (str): 사용자 메시지
+            
+        Returns:
+            str: 에이전트 응답
+        """
+        print(f"Processing message: {message}")
+        
+        # 현재 활성 에이전트 확인
+        if self.active_agent_name is None:
+            # 첫 메시지는 라우터 에이전트로 전달
+            self.active_agent = self.router_agent
+            self.active_agent_name = "router"
+            print(f"Initial router agent setup")
+        
+        # 에이전트에 메시지 전달
+        response = self.active_agent.run(message)
+        print(f"Agent response: {response}")
+        
+        # 핸드오프 신호 확인
+        handoff_signal = None
+        
+        # 라우터 -> 다른 에이전트 전환
+        if self.active_agent_name == "router":
+            if "HANDOFF_TO_SALES_AGENT" in response:
+                handoff_signal = "sales"
+                response = response.replace("HANDOFF_TO_SALES_AGENT", "")
+            elif "HANDOFF_TO_RAG_AGENT" in response:
+                handoff_signal = "rag"
+                response = response.replace("HANDOFF_TO_RAG_AGENT", "")
+            elif "HANDOFF_TO_RECOMMENDATION_AGENT" in response:
+                handoff_signal = "recommendation"
+                response = response.replace("HANDOFF_TO_RECOMMENDATION_AGENT", "")
+        
+        # 추천 에이전트 -> 영업 에이전트 전환
+        elif self.active_agent_name == "recommendation":
+            if "HANDOFF_TO_SALES_AGENT" in response:
+                handoff_signal = "sales"
+                response = response.replace("HANDOFF_TO_SALES_AGENT", "")
+            elif "HANDOFF_TO_RAG_AGENT" in response:
+                handoff_signal = "rag"
+                response = response.replace("HANDOFF_TO_RAG_AGENT", "")
+        
+        # 영업 에이전트 -> 추천/RAG 에이전트 전환
+        elif self.active_agent_name == "sales":
+            if "HANDOFF_TO_RECOMMENDATION_AGENT" in response:
+                handoff_signal = "recommendation"
+                response = response.replace("HANDOFF_TO_RECOMMENDATION_AGENT", "")
+            elif "HANDOFF_TO_RAG_AGENT" in response:
+                handoff_signal = "rag"
+                response = response.replace("HANDOFF_TO_RAG_AGENT", "")
+        
+        # RAG 에이전트 -> 다른 에이전트 전환
+        elif self.active_agent_name == "rag":
+            if "HANDOFF_TO_SALES_AGENT" in response:
+                handoff_signal = "sales"
+                response = response.replace("HANDOFF_TO_SALES_AGENT", "")
+            elif "HANDOFF_TO_RECOMMENDATION_AGENT" in response:
+                handoff_signal = "recommendation"
+                response = response.replace("HANDOFF_TO_RECOMMENDATION_AGENT", "")
+        
+        # 핸드오프 처리
+        if handoff_signal:
+            source_agent = self.active_agent
+            source_agent_name = self.active_agent_name
+            
+            if handoff_signal == "sales":
+                self.active_agent = self.sales_agent
+                self.active_agent_name = "sales"
+                print(f"Handoff from {source_agent_name} to sales agent")
+            elif handoff_signal == "rag":
+                self.active_agent = self.rag_agent
+                self.active_agent_name = "rag"
+                print(f"Handoff from {source_agent_name} to RAG agent")
+            elif handoff_signal == "recommendation":
+                self.active_agent = self.recommendation_agent
+                self.active_agent_name = "recommendation"
+                print(f"Handoff from {source_agent_name} to recommendation agent")
+                
+            # 대화 이력 및 컨텍스트 전달
+            self._transfer_conversation_history(source_agent, self.active_agent)
+        
+        return response
+
+    def _transfer_conversation_history(self, source_agent, target_agent):
+        """
+        소스 에이전트에서 타겟 에이전트로 대화 이력 및 컨텍스트를 전달합니다.
+        
+        Args:
+            source_agent: 소스 에이전트
+            target_agent: 타겟 에이전트
+        """
+        try:
+            # 대화 이력 복사
+            target_agent.conversation_history = source_agent.conversation_history.copy()
+            
+            # 컨텍스트 복사
+            target_agent.context = source_agent.context.copy()
+            
+            print(f"[ConversationHistoryTransfer] Conversation history transferred successfully")
+        except Exception as e:
+            print(f"[ConversationHistoryTransfer] Error transferring conversation history: {e}")
+
+    def _transfer_profile_data(self, source_agent, target_agent):
+        """
+        소스 에이전트에서 타겟 에이전트로 고객 프로필 정보를 전달합니다.
+        
+        Args:
+            source_agent: 소스 에이전트
+            target_agent: 타겟 에이전트
+        """
+        try:
+            # 고객 프로필이 있는 에이전트인지 확인
+            if hasattr(source_agent, 'customer_profile') and source_agent.customer_profile:
+                if hasattr(target_agent, 'customer_profile'):
+                    
+                    # 프로필 데이터 복사
+                    source_profile = source_agent.customer_profile
+                    
+                    # JSON으로 변환하여 전달
+                    if hasattr(source_profile, 'to_dict'):
+                        profile_data = source_profile.to_dict()
+                        
+                        # 타겟 에이전트 프로필 업데이트
+                        for category, fields in profile_data.items():
+                            for field, value in fields.items():
+                                if hasattr(target_agent.customer_profile, field):
+                                    setattr(target_agent.customer_profile, field, value)
+                        
+                        print(f"[ProfileTransfer] Profile data transferred successfully")
+                    else:
+                        print(f"[ProfileTransfer] Source profile doesn't have to_dict method")
+                else:
+                    print(f"[ProfileTransfer] Target agent doesn't have customer_profile")
+        except Exception as e:
+            print(f"[ProfileTransfer] Error transferring profile data: {e}")
+
 # 예제 사용법
 if __name__ == "__main__":
     orchestrator = Orchestrator()
