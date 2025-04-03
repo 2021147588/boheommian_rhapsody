@@ -1,0 +1,344 @@
+[
+    {
+        "user": {
+            "name": "홍길동",
+            "birth_date": "1990-05-15",
+            "gender": "남성",
+            "license_acquired": "2010-07-01",
+            "driving_experience_years": 14,
+            "accident_history": false,
+            "region": "서울특별시 강남구",
+            "job": "회사원"
+        },
+        "vehicle": {
+            "plate_number": "12가3456",
+            "model": "현대 소나타",
+            "year": 2020,
+            "registered_date": "2020-06-10",
+            "ownership": "자가",
+            "usage": "출퇴근용",
+            "accident_history": false,
+            "market_value": 18000000
+        },
+        "insurance_settings": {
+            "driver_scope": "본인 + 배우자",
+            "coverages": {
+                "대인배상": "무한",
+                "대물배상": "2억원",
+                "자손": "1억원",
+                "자차": "가입",
+                "무보험차상해": "1억원"
+            },
+            "discounts": {
+                "블랙박스": true,
+                "무사고할인": true,
+                "마일리지": "5000km 이하",
+                "자녀할인": false
+            }
+        }
+    },
+    {
+        "user": {
+            "name": "김철수",
+            "birth_date": "1985-08-20",
+            "gender": "남성",
+            "license_acquired": "2007-05-05",
+            "driving_experience_years": 18,
+            "accident_history": true,
+            "region": "부산광역시 해운대구",
+            "job": "디자이너"
+        },
+        "vehicle": {
+            "plate_number": "34바5678",
+            "model": "기아 K5",
+            "year": 2018,
+            "registered_date": "2018-06-12",
+            "ownership": "자가",
+            "usage": "업무용",
+            "accident_history": true,
+            "market_value": 22000000
+        },
+        "insurance_settings": {
+            "driver_scope": "본인",
+            "coverages": {
+                "대인배상": "무한",
+                "대물배상": "1억원",
+                "자손": "5000만원",
+                "자차": "가입",
+                "무보험차상해": "5000만원"
+            },
+            "discounts": {
+                "블랙박스": true,
+                "무사고할인": false,
+                "마일리지": "10000km 이하",
+                "자녀할인": true
+            }
+        }
+    },
+    {
+        "user": {
+            "name": "박지민",
+            "birth_date": "1992-12-01",
+            "gender": "여성",
+            "license_acquired": "2015-03-15",
+            "driving_experience_years": 10,
+            "accident_history": false,
+            "region": "서울특별시 종로구",
+            "job": "변호사"
+        },
+        "vehicle": {
+            "plate_number": "56라1234",
+            "model": "BMW 320i",
+            "year": 2021,
+            "registered_date": "2021-07-25",
+            "ownership": "자가",
+            "usage": "여가용",
+            "accident_history": false,
+            "market_value": 45000000
+        },
+        "insurance_settings": {
+            "driver_scope": "본인 + 가족",
+            "coverages": {
+                "대인배상": "무한",
+                "대물배상": "3억원",
+                "자손": "1억원",
+                "자차": "가입",
+                "무보험차상해": "1억원"
+            },
+            "discounts": {
+                "블랙박스": true,
+                "무사고할인": true,
+                "마일리지": "8000km 이하",
+                "자녀할인": false
+            }
+        }
+    },
+    {
+        "user": {
+            "name": "이영호",
+            "birth_date": "1980-01-30",
+            "gender": "남성",
+            "license_acquired": "2003-11-10",
+            "driving_experience_years": 22,
+            "accident_history": false,
+            "region": "경기도 수원시",
+            "job": "대학생"
+        },
+        "vehicle": {
+            "plate_number": "78사9101",
+            "model": "쉐보레 말리부",
+            "year": 2019,
+            "registered_date": "2019-04-10",
+            "ownership": "자가",
+            "usage": "출퇴근용",
+            "accident_history": false,
+            "market_value": 21000000
+        },
+        "insurance_settings": {
+            "driver_scope": "본인",
+            "coverages": {
+                "대인배상": "무한",
+                "대물배상": "1억원",
+                "자손": "5000만원",
+                "자차": "가입",
+                "무보험차상해": "1억원"
+            },
+            "discounts": {
+                "블랙박스": true,
+                "무사고할인": true,
+                "마일리지": "7000km 이하",
+                "자녀할인": true
+            }
+        }
+    },
+    {
+        "user": {
+            "name": "정혜진",
+            "birth_date": "1995-02-10",
+            "gender": "여성",
+            "license_acquired": "2017-10-15",
+            "driving_experience_years": 8,
+            "accident_history": true,
+            "region": "대전광역시 서구",
+            "job": "교사"
+        },
+        "vehicle": {
+            "plate_number": "11아2345",
+            "model": "현대 아반떼",
+            "year": 2016,
+            "registered_date": "2016-11-10",
+            "ownership": "자가",
+            "usage": "여가용",
+            "accident_history": true,
+            "market_value": 15000000
+        },
+        "insurance_settings": {
+            "driver_scope": "본인",
+            "coverages": {
+                "대인배상": "무한",
+                "대물배상": "1억원",
+                "자손": "5000만원",
+                "자차": "가입",
+                "무보험차상해": "5000만원"
+            },
+            "discounts": {
+                "블랙박스": false,
+                "무사고할인": false,
+                "마일리지": "3000km 이하",
+                "자녀할인": false
+            }
+        }
+    },
+    {
+        "user": {
+            "name": "김수진",
+            "birth_date": "1988-11-25",
+            "gender": "여성",
+            "license_acquired": "2010-06-22",
+            "driving_experience_years": 15,
+            "accident_history": false,
+            "region": "서울특별시 마포구",
+            "job": "디자이너"
+        },
+        "vehicle": {
+            "plate_number": "15나5678",
+            "model": "테슬라 모델3",
+            "year": 2020,
+            "registered_date": "2020-05-18",
+            "ownership": "자가",
+            "usage": "여가용",
+            "accident_history": false,
+            "market_value": 55000000
+        },
+        "insurance_settings": {
+            "driver_scope": "본인 + 배우자",
+            "coverages": {
+                "대인배상": "무한",
+                "대물배상": "2억원",
+                "자손": "1억원",
+                "자차": "가입",
+                "무보험차상해": "1억원"
+            },
+            "discounts": {
+                "블랙박스": true,
+                "무사고할인": true,
+                "마일리지": "5000km 이하",
+                "자녀할인": true
+            }
+        }
+    },
+    {
+        "user": {
+            "name": "조민호",
+            "birth_date": "1990-03-13",
+            "gender": "남성",
+            "license_acquired": "2012-12-01",
+            "driving_experience_years": 13,
+            "accident_history": true,
+            "region": "인천광역시 연수구",
+            "job": "프로그램 개발자"
+        },
+        "vehicle": {
+            "plate_number": "36다7890",
+            "model": "BMW X5",
+            "year": 2021,
+            "registered_date": "2021-02-19",
+            "ownership": "자가",
+            "usage": "업무용",
+            "accident_history": true,
+            "market_value": 80000000
+        },
+        "insurance_settings": {
+            "driver_scope": "본인 + 배우자",
+            "coverages": {
+                "대인배상": "무한",
+                "대물배상": "3억원",
+                "자손": "1억원",
+                "자차": "가입",
+                "무보험차상해": "2억원"
+            },
+            "discounts": {
+                "블랙박스": true,
+                "무사고할인": false,
+                "마일리지": "15000km 이하",
+                "자녀할인": false
+            }
+        }
+    },
+    {
+        "user": {
+            "name": "한예슬",
+            "birth_date": "1993-09-17",
+            "gender": "여성",
+            "license_acquired": "2016-04-22",
+            "driving_experience_years": 9,
+            "accident_history": false,
+            "region": "경기도 고양시",
+            "job": "홍보 담당"
+        },
+        "vehicle": {
+            "plate_number": "19바2345",
+            "model": "쏘렌토",
+            "year": 2019,
+            "registered_date": "2019-07-15",
+            "ownership": "자가",
+            "usage": "여가용",
+            "accident_history": false,
+            "market_value": 38000000
+        },
+        "insurance_settings": {
+            "driver_scope": "본인",
+            "coverages": {
+                "대인배상": "무한",
+                "대물배상": "2억원",
+                "자손": "1억원",
+                "자차": "가입",
+                "무보험차상해": "1억원"
+            },
+            "discounts": {
+                "블랙박스": true,
+                "무사고할인": true,
+                "마일리지": "10000km 이하",
+                "자녀할인": false
+            }
+        }
+    },
+    {
+        "user": {
+            "name": "박민수",
+            "birth_date": "1987-06-12",
+            "gender": "남성",
+            "license_acquired": "2011-02-05",
+            "driving_experience_years": 14,
+            "accident_history": false,
+            "region": "서울특별시 송파구",
+            "job": "사업가"
+        },
+        "vehicle": {
+            "plate_number": "25다4567",
+            "model": "렉서스 RX",
+            "year": 2020,
+            "registered_date": "2020-01-05",
+            "ownership": "자가",
+            "usage": "업무용",
+            "accident_history": false,
+            "market_value": 70000000
+        },
+        "insurance_settings": {
+            "driver_scope": "본인 + 배우자",
+            "coverages": {
+                "대인배상": "무한",
+                "대물배상": "2억원",
+                "자손": "1억원",
+                "자차": "가입",
+                "무보험차상해": "2억원"
+            },
+            "discounts": {
+                "블랙박스": true,
+                "무사고할인": true,
+                "마일리지": "5000km 이하",
+                "자녀할인": false
+            }
+        }
+    }
+]
