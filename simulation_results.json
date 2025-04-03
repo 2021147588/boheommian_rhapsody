@@ -1,0 +1,18 @@
+{
+    "total_simulations": 2,
+    "successful_simulations": 0,
+    "success_rate": 0.0,
+    "average_turns": 1.0,
+    "results": [
+        {
+            "user_name": "김철수",
+            "success": false,
+            "turns": 1
+        },
+        {
+            "user_name": "이영희",
+            "success": false,
+            "turns": 1
+        }
+    ]
+}
