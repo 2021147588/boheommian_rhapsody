@@ -4,9 +4,12 @@ from app.view import *
 import json
 import os
 import datetime
+from openai import OpenAI
+
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 class AgentConversation:
-    def __init__(self, user_info: UserInfo, max_turns: int = 1):
+    def __init__(self, user_info: UserInfo, max_turns: int = 10):
         self.user_agent = UserAgent(user_info)
         self.orchestrator = AdvancedOrchestrator()
         self.chat_log = []
@@ -93,7 +96,8 @@ class AgentConversation:
             user_response = self.user_agent.run(self.chat_history, orchestrator_response)
             print(f"[User] {user_response}")
             self.chat_log.append({"role": "user", "content": user_response})
-            self.chat_history += f"{user_response}\nOrchestrator:"
+
+            self.chat_history = self._truncate_chat_history()
             
             # 사용자 응답 로그 업데이트
             if turn != 0:  # 첫 턴이 아닌 경우에만 업데이트 (첫 턴은 이미 설정됨)
@@ -103,7 +107,7 @@ class AgentConversation:
             self.enhanced_log.append(turn_log)
 
             # 3. 성공 여부 확인 - 가입 의사 확인 (단, 추천이 이루어진 이후에만)
-            if recommendation_made and self._check_success(user_response):
+            if self._check_success(user_response):
                 self.success = True
                 print("✅ 성공: 고객이 보험 가입에 동의했습니다!")
                 break
@@ -152,6 +156,20 @@ class AgentConversation:
         # 기본값
         return "Router"
     
+    # AgentConversation 내부에 추가
+    def _truncate_chat_history(self, n: int = 4) -> str:
+        """최근 n개의 턴만 포함하여 chat_history를 구성"""
+        history = ""
+        # 최근 n*2개 메시지를 가져옴 (user + orchestrator 각각)
+        relevant_log = self.chat_log[-n*2:]
+        for message in relevant_log:
+            role = message["role"]
+            content = message["content"]
+            prefix = "User" if role == "user" else "Orchestrator"
+            history += f"{prefix}: {content}\n"
+        return history
+
+    
     def _extract_rag_info(self, response):
         """응답에서 RAG 사용 여부와 소스 정보 추출"""
         rag_indicators = ["검색 결과:", "약관에 따르면", "찾아본 결과", "관련 정보:", "문서에 따르면"]
@@ -184,16 +202,50 @@ class AgentConversation:
         
         return False, None
     
-    def _check_success(self, user_message):
-        """사용자 메시지에서 가입 의사가 있는지 확인"""
-        positive_indicators = [
-            "가입하겠습니다", "가입할게요", "신청합니다", "동의합니다", "좋아요, 가입할게요",
-            "계약하겠습니다", "결정했어요", "진행해주세요", "신청서 작성할게요",
-            "구매하겠습니다", "알겠습니다, 가입할게요", "신청해 볼게요"
-        ]
-        
-        return any(indicator in user_message for indicator in positive_indicators)
+    def _check_success(self, user_message: str) -> bool:
+        """
+        ChatGPT를 사용하여 사용자의 메시지에서 가입 의사를 확인.
+        응답은 true 또는 false로 제한됨.
+        """
 
+        # ChatGPT 프롬프트
+        prompt = f"""
+        당신은 사용자의 메시지를 분석하여 보험 가입 의사가 있는지 판단하는 시스템입니다.
+        사용자의 메시지를 읽고, 보험 가입 의사가 있는 경우 `true`, 그렇지 않은 경우 `false`만 응답하세요.
+        추가적인 설명이나 다른 텍스트는 절대 포함하지 마세요.
+
+        다음은 가입 의사를 나타내는 예시 메시지입니다:
+        - "가입하겠습니다"
+        - "가입할게요"
+        - "신청합니다"
+        - "동의합니다"
+        - "좋아요, 가입할게요"
+        - "계약하겠습니다"
+        - "결정했어요"
+        - "진행해주세요"
+        - "신청서 작성할게요"
+        - "구매하겠습니다"
+        - "알겠습니다, 가입할게요"
+        - "신청해 볼게요"
+
+        사용자의 메시지가 위와 유사한 의도를 포함하면 `true`를 반환하고, 그렇지 않으면 `false`를 반환하세요.
+
+        사용자 메시지: "{user_message}"
+        """
+
+        # OpenAI API 호출
+        try:
+            response = client.chat.completions.create(
+                model="gpt-4",
+                messages=[{"role": "user", "content": prompt}],
+                temperature=0.0  # 사실 기반 응답을 위해 온도를 낮게 설정
+            )
+            result = response.choices[0].message.content.strip().lower()
+            return result == "true"
+        except Exception as e:
+            print(f"Error during OpenAI API call: {e}")
+            return False
+        
     def get_conversation_dict(self):
         """대화 내용을 발화 순서대로 딕셔너리 형태로 반환"""
         conversation_dict = {
@@ -284,7 +336,7 @@ if __name__ == "__main__":
     total_samples = min(len(user_info_list), 1)  # 처음 1개 샘플만 테스트
     
     # results 디렉토리 생성
-    results_dir = "agents/results"
+    results_dir = "./results"
     if not os.path.exists(results_dir):
         os.makedirs(results_dir)
         print(f"'{results_dir}' 디렉토리를 생성했습니다.")
