@@ -53,9 +53,9 @@ Upstage X YBIGTA Hackathon Project
 
 
 
+---
 
-
--> about the "lightrag" folder
+## about the "lightrag" folder
 how to access to the lightrag api server
 - http://165.132.46.89:32133/webui/
 - (require yonsei vpn/wifi or grok if you want to view)
