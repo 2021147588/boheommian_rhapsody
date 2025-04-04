@@ -80,6 +80,9 @@ This guide explains how to set up and use LightRAG with Upstage API for PDF docu
 ###  Prerequisites
 
 - Python environment (e.g., conda, venv)
+```bash
+cd lightrag
+```
 - Install dependencies:
 
 ```bash
@@ -162,7 +165,7 @@ lightrag-server --input-dir ./processed --working-dir ./my_server_data --auto-sc
 
 ---
 
-### 🌐 Access Points
+### 🌐 Access Points(default port is 9621 / our custom local port number is 8000)
 
 - Web UI: [http://localhost:9621/webui](http://localhost:9621/webui)
 - API (Swagger): [http://localhost:9621/docs](http://localhost:9621/docs)
