@@ -2,6 +2,7 @@ from agents.planner_agent.advanced_base_agent import AdvancedBaseAgent
 from agents.advanced_agents.rag_agent import AdvancedRAGAgent
 from agents.advanced_agents.recommendation_agent import AdvancedRecommendationAgent
 from agents.advanced_agents.sales_agent import AdvancedSalesAgent
+from agents.advanced_agents.graph_rag_agent import GraphRAGAgent
 
 class AdvancedRouterAgent(AdvancedBaseAgent):
     def __init__(self):
@@ -29,7 +30,7 @@ class AdvancedRouterAgent(AdvancedBaseAgent):
         """
         보험 상품 정보, 약관, 보장 내용 등에 대한 질문은 RAG 에이전트로 전환합니다.
         """
-        return AdvancedRAGAgent()
+        return GraphRAGAgent()
     
     def transfer_to_recommendation_agent(self):
         """
