@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>보험 고객 상담 시뮬레이션 대시보드</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <h2>보험 시뮬레이터</h2>
+            </div>
+            <div class="menu">
+                <div class="menu-item active" data-target="dashboard-section">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>대시보드</span>
+                </div>
+                <div class="menu-item" data-target="simulation-section">
+                    <i class="fas fa-play-circle"></i>
+                    <span>시뮬레이션 실행</span>
+                </div>
+                <div class="menu-item" data-target="conversation-section">
+                    <i class="fas fa-comments"></i>
+                    <span>대화 내역</span>
+                </div>
+                <div class="menu-item" data-target="analytics-section">
+                    <i class="fas fa-chart-line"></i>
+                    <span>분석</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <header>
+                <div class="header-title">
+                    <h1>보험 고객 상담 시뮬레이션 대시보드</h1>
+                </div>
+                <div class="user-actions">
+                    <div class="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Section -->
+            <section id="dashboard-section" class="content-section active">
+                <div class="section-header">
+                    <h2>대시보드</h2>
+                    <p>가장 최근 시뮬레이션 결과 요약</p>
+                </div>
+
+                <div class="metrics-container">
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="metric-content">
+                            <h3>총 고객 수</h3>
+                            <p id="total-customers">0</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon success">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="metric-content">
+                            <h3>가입 성공</h3>
+                            <p id="success-count">0</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fas fa-percentage"></i>
+                        </div>
+                        <div class="metric-content">
+                            <h3>성공률</h3>
+                            <p id="success-rate">0%</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="metric-content">
+                            <h3>최근 실행</h3>
+                            <p id="last-run">없음</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="charts-container">
+                    <div class="chart-card">
+                        <h3>에이전트 활동 비율</h3>
+                        <div class="chart-container">
+                            <canvas id="agent-activity-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <h3>대화 턴별 성공률</h3>
+                        <div class="chart-container">
+                            <canvas id="success-by-turn-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recent-simulations">
+                    <h3>최근 고객 시뮬레이션</h3>
+                    <div class="table-container">
+                        <table id="recent-simulations-table">
+                            <thead>
+                                <tr>
+                                    <th>이름</th>
+                                    <th>연령</th>
+                                    <th>차량</th>
+                                    <th>추천된 플랜</th>
+                                    <th>결과</th>
+                                    <th>대화 턴</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Simulation results will be added here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Simulation Section -->
+            <section id="simulation-section" class="content-section">
+                <div class="section-header">
+                    <h2>시뮬레이션 실행</h2>
+                    <p>person.json 파일을 업로드하고 시뮬레이션을 실행하세요.</p>
+                </div>
+
+                <div class="simulation-container">
+                    <div class="file-upload-container">
+                        <div class="file-upload-area" id="drop-area">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <h3>person.json 파일을 드래그하거나 클릭하여 업로드</h3>
+                            <p>또는</p>
+                            <label for="file-input" class="upload-btn">파일 선택</label>
+                            <input type="file" id="file-input" accept=".json" hidden>
+                            <p id="file-name"></p>
+                        </div>
+                    </div>
+
+                    <div class="simulation-options">
+                        <h3>시뮬레이션 옵션</h3>
+                        <div class="option-group">
+                            <label for="max-turns">최대 대화 턴:</label>
+                            <input type="number" id="max-turns" min="1" max="10" value="5">
+                        </div>
+                        <div class="option-group">
+                            <label for="sample-count">샘플 수 제한 (0 = 전체):</label>
+                            <input type="number" id="sample-count" min="0" value="0">
+                        </div>
+                        <button id="run-simulation-btn" class="primary-btn" disabled>
+                            <i class="fas fa-play"></i> 시뮬레이션 실행
+                        </button>
+                    </div>
+                </div>
+
+                <div class="simulation-progress" style="display: none;">
+                    <h3>시뮬레이션 진행 중...</h3>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="simulation-progress-bar"></div>
+                    </div>
+                    <p id="progress-status">0% 완료</p>
+                </div>
+
+                <div class="simulation-results" style="display: none;">
+                    <h3>시뮬레이션 결과</h3>
+                    <div class="result-summary">
+                        <div class="summary-item">
+                            <span class="label">총 고객:</span>
+                            <span id="result-total" class="value">0</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">성공:</span>
+                            <span id="result-success" class="value">0</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">성공률:</span>
+                            <span id="result-rate" class="value">0%</span>
+                        </div>
+                    </div>
+                    <button id="view-details-btn" class="secondary-btn">
+                        <i class="fas fa-eye"></i> 상세 결과 보기
+                    </button>
+                </div>
+            </section>
+
+            <!-- Conversation Section -->
+            <section id="conversation-section" class="content-section">
+                <div class="section-header">
+                    <h2>대화 내역</h2>
+                    <p>시뮬레이션에서 생성된 대화 내역을 확인하세요.</p>
+                </div>
+
+                <div class="conversation-filter">
+                    <div class="filter-group">
+                        <label for="customer-select">고객 선택:</label>
+                        <select id="customer-select">
+                            <option value="">고객을 선택하세요</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="conversation-container">
+                    <div class="customer-info-panel">
+                        <h3>고객 정보</h3>
+                        <div id="customer-info">
+                            <p>고객을 선택하면 정보가 표시됩니다.</p>
+                        </div>
+                    </div>
+                    <div class="chat-panel">
+                        <div class="chat-header">
+                            <h3>대화 내역</h3>
+                            <div class="chat-controls">
+                                <span id="conversation-status" class="status-badge">대기 중</span>
+                            </div>
+                        </div>
+                        <div class="chat-messages" id="chat-messages">
+                            <p class="empty-message">고객을 선택하면 대화 내역이 표시됩니다.</p>
+                        </div>
+                    </div>
+                    <div class="agent-info-panel">
+                        <h3>에이전트 활동</h3>
+                        <div id="agent-activity">
+                            <p>고객을 선택하면 에이전트 활동이 표시됩니다.</p>
+                        </div>
+                        <div class="agent-stats">
+                            <div class="stat-item">
+                                <span class="label">에이전트 전환 수:</span>
+                                <span id="agent-switches" class="value">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">RAG 사용 횟수:</span>
+                                <span id="rag-count" class="value">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Analytics Section -->
+            <section id="analytics-section" class="content-section">
+                <div class="section-header">
+                    <h2>시뮬레이션 분석</h2>
+                    <p>시뮬레이션 결과에 대한 심층 분석을 확인하세요.</p>
+                </div>
+
+                <div class="analytics-container">
+                    <div class="analytics-card">
+                        <h3>추천 플랜 분포</h3>
+                        <div class="chart-container">
+                            <canvas id="plan-distribution-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="analytics-card">
+                        <h3>에이전트 전환 빈도</h3>
+                        <div class="chart-container">
+                            <canvas id="agent-transitions-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="analytics-card full-width">
+                        <h3>고객 특성별 성공률</h3>
+                        <div class="chart-container">
+                            <canvas id="success-by-characteristics-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div class="modal" id="detail-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>시뮬레이션 상세 결과</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="detail-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html> 

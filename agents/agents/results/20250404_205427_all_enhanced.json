@@ -1,0 +1,70 @@
+{
+    "summary": {
+        "total_samples": 1,
+        "success_count": 0,
+        "success_rate": 0.0
+    },
+    "conversations": [
+        {
+            "user_info": {
+                "user": {
+                    "name": "홍길동",
+                    "birth_date": "1990-05-15",
+                    "gender": "남성",
+                    "license_acquired": "2010-07-01",
+                    "driving_experience_years": 14,
+                    "accident_history": false,
+                    "region": "서울특별시 강남구",
+                    "job": "회사원",
+                    "hobby": "등산, 영화 감상",
+                    "driving_style": "대체로 안전 운전을 하며 교통 흐름에 맞춰 주행",
+                    "accident_history_info": "최근 5년간 무사고 기록",
+                    "insurance_tendency": "보장 범위를 넓게 설정하고 할인 혜택을 적극적으로 활용",
+                    "basic_option_expectation": "중간 이상 (필수 담보 외 주요 옵션도 함께 선택 예상)",
+                    "expected_insurance_grade": "표준형 이상",
+                    "additional_notes": "장기간 무사고로 보험료 할인 혜택이 큼",
+                    "predicted_drive_habit": "홍길동은 14년의 운전 경력과 최근 5년간의 무사고 기록으로 인해 안전한 운전 습관을 가진 것으로 예측됩니다. 대체로 안전 운전 스타일을 유지하며 교통 흐름에 맞춰 주행하는 점도 신중한 운전 습관을 나타냅니다.",
+                    "predicted_financial_status": "서울 강남구에 거주하는 회사원으로서 고가의 차량(18000000원)을 소유하고 있으며, 중간 이상의 기본 옵션을 기대하는 것으로 보아 재정 상태가 양호할 것으로 판단됩니다. 보험 성향에서 보장 범위를 넓게 설정하고 할인 혜택을 중시하는 점도 재정 여유를 나타냅니다.",
+                    "predicted_risk_tolerance": "사고 이력이 없는 홍길동은 위험 수용 능력이 낮을 가능성이 높습니다. 그러나 보장 범위를 넓게 설정하고 있으며, 보험료 할인 혜택을 고려하는 것으로 보아 일정 수준의 위험 수용 능력이 있다고 할 수 있습니다."
+                },
+                "vehicle": {
+                    "plate_number": "12가3456",
+                    "model": "현대 소나타",
+                    "year": 2020,
+                    "registered_date": "2020-06-10",
+                    "ownership": "자가",
+                    "usage": "출퇴근용",
+                    "accident_history": false,
+                    "market_value": 18000000
+                },
+                "insurance_settings": {
+                    "driver_scope": "본인 + 배우자",
+                    "coverages": {
+                        "대인배상": "무한",
+                        "대물배상": "2억원",
+                        "자손": "1억원",
+                        "자차": "가입",
+                        "무보험차상해": "1억원"
+                    },
+                    "discounts": {
+                        "블랙박스": true,
+                        "무사고할인": true,
+                        "마일리지": "5000km 이하",
+                        "자녀할인": false
+                    }
+                }
+            },
+            "success": false,
+            "turns": [
+                {
+                    "turn": 1,
+                    "user_reply": "운전자 보험 추천해주세요.",
+                    "agent_response": "운전자 보험을 추천하기 위해 고객님의 프로필 정보를 수집하고, 가장 적합한 플랜 유형을 제안하겠습니다. 고객님에 대한 몇 가지 정보를 말씀해 주시겠어요?\n\n1. 현재 운전 경력은 얼마인가요?\n2. 주로 어떤 유형의 차량을 운전하나요? (예: 경차, SUV, 고급차 등)\n3. 자동차 보험은 가입되어 있으신가요?\n4. 사고 이력이 있는 경우, 사고 횟수와 종류를 말씀해 주세요.\n\n이 정보가 있으면 더욱 정확한 추천이 가능합니다!",
+                    "current_agent": "Sales",
+                    "rag_performed": false,
+                    "rag_sources": null
+                }
+            ]
+        }
+    ]
+}

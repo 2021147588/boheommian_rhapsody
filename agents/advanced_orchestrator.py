@@ -2,11 +2,11 @@ import os
 import json
 from typing import List, Dict, Any
 from dotenv import load_dotenv
-from agents.advanced_agents.router_agent import AdvancedRouterAgent
-from agents.advanced_agents.sales_agent import AdvancedSalesAgent
-from agents.advanced_agents.rag_agent import AdvancedRAGAgent
-from agents.advanced_agents.recommendation_agent import AdvancedRecommendationAgent
-
+from agents.advanced_planner_agents.router_agent import AdvancedRouterAgent
+from agents.advanced_planner_agents.sales_agent import AdvancedSalesAgent
+from agents.advanced_planner_agents.rag_agent import AdvancedRAGAgent
+from agents.advanced_planner_agents.recommendation_agent import AdvancedRecommendationAgent
+from agents.advanced_planner_agents.graph_rag_agent import GraphRAGAgent
 load_dotenv()
 
 class AdvancedOrchestrator:
@@ -14,7 +14,7 @@ class AdvancedOrchestrator:
         """에이전트 시스템 초기화"""
         self.router_agent = AdvancedRouterAgent()
         self.sales_agent = AdvancedSalesAgent()
-        self.rag_agent = AdvancedRAGAgent()
+        self.rag_agent = GraphRAGAgent()
         self.recommendation_agent = AdvancedRecommendationAgent()
         self.current_agent = self.router_agent
         self.messages = []
@@ -49,7 +49,7 @@ class AdvancedOrchestrator:
         response = self.active_agent.run_interaction(self.messages)
         
         # 에이전트 객체가 직접 반환된 경우 처리 (추천 에이전트에서 영업 에이전트로 전환)
-        if isinstance(response, AdvancedSalesAgent) or isinstance(response, AdvancedRAGAgent):
+        if isinstance(response, AdvancedSalesAgent) or isinstance(response, GraphRAGAgent):
             print(f"[AdvancedOrchestrator] Agent object returned directly: {response.__class__.__name__}")
             source_agent = self.active_agent
             source_agent_name = self.active_agent_name
@@ -68,7 +68,7 @@ class AdvancedOrchestrator:
                 else:
                     return "안녕하세요! 운전자보험 상품 가입에 관심이 있으신가요? 도움이 필요하시면 말씀해주세요."
             
-            elif isinstance(response, AdvancedRAGAgent):
+            elif isinstance(response, GraphRAGAgent):
                 self.active_agent_name = "rag"
                 self.rag_agent = response  # 기존 인스턴스 업데이트
                 print(f"[AdvancedOrchestrator] Direct handoff from {source_agent_name} to RAG agent")

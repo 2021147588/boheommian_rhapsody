@@ -1,6 +1,6 @@
 from agents.advanced_orchestrator import AdvancedOrchestrator
 from agents.user_agent.user_agent import UserAgent
-from backend.view import *
+from app.view import *
 import json
 import os
 import datetime
@@ -265,7 +265,6 @@ class AgentConversation:
     
     def get_enhanced_log(self):
         """턴 단위로 저장된 상세 로그 반환"""
-        breakpoint()
         return {
             "user_info": self.user_info.model_dump(),  # model_dump() 결과를 언팩하여 딕셔너리로 포함
             
@@ -296,7 +295,6 @@ if __name__ == "__main__":
     
     for i, user_info_dict in enumerate(user_info_list[:total_samples]):
         print(f"\n===== 시뮬레이션 {i+1}/{total_samples} =====")
-        breakpoint()
         user_info = UserInfo(**user_info_dict)
         conversation = AgentConversation(user_info)
         conversation.simulate_conversation()
