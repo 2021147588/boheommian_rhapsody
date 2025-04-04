@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, Dict
 
 class User(BaseModel):
     name: str
@@ -10,6 +10,17 @@ class User(BaseModel):
     accident_history: bool
     region: str
     job: str
+    hobby: str
+    driving_style: str
+    accident_history_info: str
+    insurance_tendency: str
+    basic_option_expectation: str
+    expected_insurance_grade: str
+    additional_notes: str
+    predicted_drive_habit: Optional[str] = None
+    predicted_financial_status: Optional[str] = None
+    predicted_risk_tolerance: Optional[str] = None
+
 
 class Vehicle(BaseModel):
     plate_number: str
@@ -23,8 +34,8 @@ class Vehicle(BaseModel):
 
 class InsuranceSettings(BaseModel):
     driver_scope: str
-    coverages: dict
-    discounts: dict
+    coverages: Dict[str, str]
+    discounts: Dict[str, bool | str]
 
 class UserInfo(BaseModel):
     user: User
