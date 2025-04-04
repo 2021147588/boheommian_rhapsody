@@ -48,7 +48,7 @@ class GraphRAGAgent(AdvancedBaseAgent):
            
             payload = {
             "query": f"{query}",
-            "mode": mode,
+            "mode": "hybrid",
         }
             
             response = requests.post(self.url, json=payload)
