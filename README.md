@@ -70,35 +70,76 @@ follow the instruction in the lightrag github readme
 
 For more information about LightRAG Server, please refer to LightRAG Server.(https://github.com/HKUDS/LightRAG/blob/main/lightrag/api/README.md)
 
+✅ Prerequisites
+Python environment is set up (e.g., conda, venv, etc.)
 
-Prerequisites:
-Python environment is set up, and required libraries are installed (pip install -r requirements.txt).
-A correct .env file exists in the project root directory with necessary API keys and configurations (API keys, LLM_..., EMBEDDING_..., PORT, EMBEDDING_DIM, etc.).
-For the initial run: PDF files to be processed are present in the docs directory (or another specified input directory).
-Step 1: Process PDF Documents and Extract Text (Run initially or when adding new PDFs)
-Purpose: Reads PDF files from the docs folder, processes them using the Upstage API (as defined in the script), and saves the extracted and cleaned text as .txt files in the processed folder.
-Terminal Command (in the project root directory):
-Apply to lightrag.log
-Run
-(Wait for this command to complete successfully. It creates the .txt input files for the next step.)
-Step 2: Start LightRAG Server & Initial Indexing (Run for the very first time or after clearing data)
-Purpose: Starts the LightRAG server, reads the .txt files from the processed folder (created in Step 1), builds the vector database and knowledge graph, and saves all data into the my_server_data directory. After indexing, the server becomes ready to accept API queries.
-Terminal Command (in the project root directory, after Step 1 is complete):
-Apply to lightrag.log
-Run
---input-dir ./processed: Specifies the directory containing the text files from Step 1.
---working-dir ./my_server_data: Specifies the directory where LightRAG will store all its data (vector DB, graph, cache, etc.). It will be created if it doesn't exist.
---auto-scan-at-startup: Tells the server to automatically scan the input directory and index any new files found when it starts. Essential for the first run.
-Result: The server starts, indexes the data (logs will appear in the terminal), and then stays running, listening for API requests on the configured port (e.g., 9621). Keep this terminal window open to keep the server running.
-Step 3: Restarting the LightRAG Server (Use this if indexing is already complete)
-Purpose: If you have previously completed Step 1 and Step 2, and the vector database/knowledge graph already exists in my_server_data, you can restart the server without re-processing the PDFs or re-indexing everything. The server will load the existing data.
-Terminal Command (in the project root directory):
-Apply to lightrag.log
-Run
-Note: We only specify the --working-dir. The server will automatically load the data found there. We typically don't need --input-dir or --auto-scan-at-startup unless we specifically want to index new files added to processed after the last run.
-Result: The server starts much faster as it loads the existing data from my_server_data and becomes ready to accept API queries on the configured port. Keep the terminal open.
-In Summary:
-First time: Run python process_document.py, then lightrag-server --input-dir ./processed --working-dir ./my_server_data --auto-scan-at-startup.
-Restarting later: Just run lightrag-server --working-dir ./my_server_data.
-Adding new PDFs later: Run python process_document.py (it should only process the new PDFs if the .txt files for old ones already exist in processed), then restart the server using Step 2's command (lightrag-server --input-dir ./processed --working-dir ./my_server_data --auto-scan-at-startup) so it picks up the new .txt files.
+Required libraries are installed:
 
+bash
+Copy
+Edit
+pip install -r requirements.txt
+A valid .env file is present in the project root directory with the following keys:
+
+LLM_BINDING, LLM_MODEL, LLM_BINDING_API_KEY
+
+EMBEDDING_BINDING, EMBEDDING_MODEL, EMBEDDING_DIM
+
+PORT, TOKEN_SECRET, etc.
+
+PDF files to process are located in the ./docs directory.
+
+📄 Step 1: Process PDF Documents
+Purpose: Extract text from PDF files in the ./docs directory and save them as .txt files in the ./processed folder.
+
+bash
+Copy
+Edit
+python process_document.py
+ Note: This uses the Upstage OCR and extraction APIs. Only run this again if you’ve added new PDF files.
+
+ Step 2: Start LightRAG Server & Index
+Purpose: Start the LightRAG server and index the processed .txt files into a vector store and knowledge graph.
+
+bash
+Copy
+Edit
+lightrag-server --input-dir ./processed --working-dir ./my_server_data --auto-scan-at-startup
+--input-dir: Folder containing .txt files to index.
+
+--working-dir: Folder where all LightRAG data (vector DB, graph DB, metadata) will be stored.
+
+--auto-scan-at-startup: Automatically scans and indexes new documents on server start.
+
+ After this step, the server runs on your configured port (default: http://localhost:9621) and is ready to serve API or Web UI queries.
+
+ Step 3: Restarting the Server (Skip Re-indexing)
+If the documents are already indexed, restart the server without scanning new files:
+
+bash
+Copy
+Edit
+lightrag-server --working-dir ./my_server_data
+ Use this command for faster startup when no new documents have been added.
+
+ Adding New PDFs Later
+Add new files to the ./docs directory.
+
+Re-run document processing:
+
+bash
+Copy
+Edit
+python process_document.py
+Restart the server with auto-scan to re-index new .txt files:
+
+bash
+Copy
+Edit
+lightrag-server --input-dir ./processed --working-dir ./my_server_data --auto-scan-at-startup
+🌐 Access the LightRAG Server
+Web UI: http://localhost:9621/webui
+
+API Docs (Swagger): http://localhost:9621/docs
+
+API Docs (ReDoc): http://localhost:9621/redoc
