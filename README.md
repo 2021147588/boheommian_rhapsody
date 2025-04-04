@@ -195,7 +195,7 @@ EMBEDDING_DIM=1024
 python process_document.py
 ```
 
-3. Launch server:
+3. Launch server(document indexing/ create GraphDB/vectorDB):
 ```bash
 lightrag-server --input-dir ./processed --working-dir ./my_server_data --auto-scan-at-startup
 ```
