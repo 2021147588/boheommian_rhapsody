@@ -47,7 +47,16 @@ Upstage X YBIGTA Hackathon Project
 
 
 
-- access to the lightrag api server
+
+
+
+
+
+
+
+
++
+access to the lightrag api server
 - http://165.132.46.89:32133/webui/
 - (require yonsei vpn/wifi or grok if you want to view)
 - ![image](https://github.com/user-attachments/assets/18ff85c1-387e-4f8b-af8e-ca850c107d38)
