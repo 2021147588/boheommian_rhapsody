@@ -45,3 +45,30 @@ Upstage X YBIGTA Hackathon Project
     python generate_analysis.py
     ```
 
+
+
+- access to the lightrag api server
+- http://165.132.46.89:32133/webui/
+- (require yonsei vpn/wifi or grok if you want to view)
+- ![image](https://github.com/user-attachments/assets/18ff85c1-387e-4f8b-af8e-ca850c107d38)
+- ![Uploading image.png…]()
+- if you want to run lightrag in your computer follow the below slide or lightrag github instruction 
+-lightrag github : https://github.com/HKUDS/LightRAG
+- Install LightRAG Core
+Install from source (Recommend)
+cd LightRAG
+pip install -e .
+Install from PyPI
+pip install lightrag-hku
+Install LightRAG Server
+The LightRAG Server is designed to provide Web UI and API support. The Web UI facilitates document indexing, knowledge graph exploration, and a simple RAG query interface. LightRAG Server also provide an Ollama compatible interfaces, aiming to emulate LightRAG as an Ollama chat model. This allows AI chat bot, such as Open WebUI, to access LightRAG easily.
+
+Install from PyPI
+pip install "lightrag-hku[api]"
+Installation from Source
+# create a Python virtual enviroment if neccesary
+# Install in editable mode with API support
+pip install -e ".[api]"
+For more information about LightRAG Server, please refer to LightRAG Server.(https://github.com/HKUDS/LightRAG/blob/main/lightrag/api/README.md)
+
+
