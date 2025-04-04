@@ -96,6 +96,10 @@ def process_conversation_logs(json_files_list):
                     "conversation_log": conversation_log  # Include full conversation log for reference
                 }
                 log_data['final_report'] = final_report
+                if final_report["대화가 실패한 이유"] is None or final_report["대화가 실패한 이유"] == "N/A":   
+                    log_data['success'] = True
+                else:
+                    log_data['success'] = False
                 with open(filepath, "w", encoding="utf-8") as updated_file:
                     json.dump(log_data, updated_file, ensure_ascii=False, indent=4)
                     

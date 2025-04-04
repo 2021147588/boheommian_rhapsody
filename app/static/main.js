@@ -660,7 +660,7 @@ function updateCustomerDropdown(data) {
         
         const option = document.createElement('option');
         option.value = index;
-        option.textContent = `${conv.user_info.name || `고객 ${index + 1}`} (${conv.success ? '성공' : '실패'})`;
+        option.textContent = `${conv.user_info.name || `고객 ${index + 1}`} (${conv.success === true ? '성공' : '실패'})`;
         select.appendChild(option);
     });
 }
