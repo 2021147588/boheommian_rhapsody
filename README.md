@@ -1,137 +1,178 @@
-# boheommian_rhapsody
+# 🛠️ Boheommian Rhapsody
 
-Upstage X YBIGTA Hackathon Project
+### 📌 Overview
+Boheommian Rhapsody is an AI-driven insurance agent simulator built for the **Upstage X YBIGTA Hackathon**.  
+This project aims to simulate personalized insurance recommendation conversations using multiple agents and analyze their performance based on the customer profile.
 
-## How to Run
+### 🚀 Key Features
+- ✅ **Multi-Agent Dialogue Simulation**: Simulates conversations between a system and a customer using planner-based agents.
+- ✅ **Dashboard Interface**: Visualizes success rate, agent activity, dialogue history, and plan distribution.
+- ✅ **Graph + Vector Hybrid RAG**: Integrates LightRAG with Upstage Embedding API and GraphDB for insurance document retrieval.
 
-- > **Python version**: 3.10 
+### 🖼️ Demo / Screenshots
+![screenshot](./assets/screenshot.png)
 
-
-- Clone the repository
-    ```bash
-    git clone https://github.com/2021147588/boheommian_rhapsody.git
-    ```
-    
-- Switch to dev and run:
-    ```bash
-    git switch dev
-    pip install -r requirements.txt
-    ```
-
-
-- Create a .env file in the root directory and add your API keys:
-
-    ```bash
-    OPENAI_API_KEY=your_openai_api_key_here
-    UPSTAGE_API_KEY=your_upstage_api_key_here
-    ```
-
-- To run the code:
-    ```bash
-    export PYTHONPATH= **/your/local/path/to/boheommian_rhapsody**
-    # example: /Users/happy/Desktop/boheommian_rhapsody/ 
-    cd backend
-    python main.py
-    ```
-
-- ✅ The app will be available at:  
-  [http://127.0.0.1:8001/static/index.html](http://127.0.0.1:8001/static/index.html)
-
-
-
-## App Description
-
-### How to Run the Simulation
-
-1. Click on the **"Run Simulation"** menu.
-2. Upload the `person.json` file.  
-   - You can drag and drop the file or click the **"Choose File"** button to select it.
-   - 🧪 We provide a test sample file, `person.json`, located in the `sample_data` directory.  
-
-3. Configure the desired simulation options:
-   - **Max Dialogue Turns**: Maximum number of dialogue turns during the simulation  
-   - **Sample Limit**: Number of customer data entries to process (`0 = All`)
-4. Click the **"Run Simulation"** button.
-5. ✅ Once the simulation is complete, check the results.
+> Optional: [Demo Video](https://youtu.be/example)
 
 ---
 
-### 📊 How to Use the Dashboard
-
-#### 🧾 Dashboard Section
-
-Displays summary information of the **most recent simulation**:
-- 🧍 **Total number of customers**
-- ✅ **Number of successful sign-ups**
-- 📈 **Success rate**
-- 🤖 **Agent activity ratio**
-- 🔁 **Success rate by dialogue turn**
-- 🕵️‍♀️ **List of recently simulated customers**
+### 🧩 Tech Stack
+- **Frontend**: HTML/CSS, JS (served from FastAPI static files)
+- **Backend**: Python (FastAPI)
+- **Database**: MongoDB (cloud), ChromaDB (local vector DB)
+- **Others**:
+  - OpenAI API (Chat-based simulation)
+  - Upstage API (Document embedding & parsing)
+  - LangChain (Agent orchestration)
+  - LightRAG (Hybrid RAG engine)
 
 ---
 
-#### 💬 Conversation History Section
+### 🏗️ Project Structure
+```bash
+BOHEOMMIAN_RHAPSODY
+│  .env
+│  .env.template
+│  .gitignore
+│  README.md
+│  requirements.txt
+│
+├─agents
+│  │  advanced_orchestrator.py
+│  │  conversation.py
+│  │  generate_analysis.py
+│  │  orchestrator.py
+│  │
+│  ├─advanced_planner_agents
+│  │  advanced_base_agent.py
+│  │  graph_rag_agent.py
+│  │  rag_agent.py
+│  │  recommendation_agent.py
+│  │  router_agent.py
+│  │  sales_agent.py
+│  │
+│  └─user_agent
+│        user_agent.py
+├─app
+│  │  main.py
+│  │  view.py
+│  │
+│  └─static/
+|
+├─database
+│  │  insurance_docs_database.py
+│  │
+│  ├─insurance_docs/
+│  │
+│  ├─simulation_result/
+│  │
+│  └─vector_db/
+|
+├─lightrag
+│  │  lightrag.log
+│  │  process_document.py
+│  │  query_rag.py
+│  │  rag.py
+│  │  requirements.txt
+│  │
+│  ├─docs
+│  │      LA02762001.pdf
+│  │
+│  ├─else
+│  │      query.py
+│  │      query_param
+│  │
+│  └─processed
+│         LA02762001.txt
+│
+├─sample_data
+│      conversation_analysis_report.json
+│      person.json
+│
+└─utils
+        logger.py
 
-Allows you to view the **conversation history of a specific customer**:
+```
 
-1. Select a customer from the dropdown menu.  
-2. View that customer’s:
-   - Profile  
-   - Conversation history  
-   - Agent activities  
+---
+### 🔧 Setup & Installation
+
+> **Python version**: 3.10
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/2021147588/boheommian_rhapsody.git
+cd boheommian_rhapsody
+
+# 2. Switch to dev branch and install dependencies
+git switch dev
+pip install -r requirements.txt
+
+# 3. Create .env file (see .env.template for guidance)
+cp .env.template .env
+
+# 4. Set project path and run backend server
+export PYTHONPATH=/your/local/path/to/boheommian_rhapsody
+cd app
+python main.py
+```
+✅ App will be available at: http://127.0.0.1:8001/static/index.html
 
 ---
 
-#### 📊 Analysis Section
+### 🧠 App Description
 
-Provides **in-depth analysis** of simulation results:
-- 📦 **Distribution of recommended plans**
-- 🔄 **Frequency of agent transitions**
-- 🎯 **Success rate by customer characteristics**
-=======
-- 🧪 We provide a test sample file, `person.json`, located in the root directory.  
-  You can use this file to simulate user inputs and test the application. The results will be stored in **agents/results** 
+#### ▶️ How to Run the Simulation
 
-- To analyze the simulation results, run 
-    ```bash
-    python generate_analysis.py
-    ```
-
-## about the "lightrag" folder
-how to access to the lightrag api server
-- http://165.132.46.89:32133/webui/
-- (require yonsei vpn/wifi or grok if you want to view)
-- ![image](https://github.com/user-attachments/assets/18ff85c1-387e-4f8b-af8e-ca850c107d38)
-- ![image](https://github.com/user-attachments/assets/418f23b0-4be1-4d4d-9d79-51a2708eb131)
-
-if you want to run lightrag in local  follow the below slide or lightrag github instruction 
-    cd lightrag -> git clone https://github.com/HKUDS/LightRAG.git
-    
-lightrag github : https://github.com/HKUDS/LightRAG
-follow the instruction in the lightrag github readme
-
-For more information about LightRAG Server, please refer to LightRAG Server.(https://github.com/HKUDS/LightRAG/blob/main/lightrag/api/README.md)
+1. Click **"Run Simulation"**
+2. Upload \`person.json\` (drag & drop or choose file)
+   - 🧪 Sample \`person.json\` is in \`sample_data/\`
+3. Set simulation options:
+   - **Max Dialogue Turns**
+   - **Sample Limit**
+4. Click **"Run Simulation"**
+5. ✅ View simulation results in the dashboard
 
 
-##  Getting Started with Upstage Document parsing + LightRAG + Upstage Embedding
+#### 📊 How to Use the Dashboard
 
-This guide explains how to set up and use LightRAG with Upstage API for PDF document indexing, vector & graph embedding, and RAG querying.
+##### 🧾 Dashboard Section
+- 🧍 Total customers
+- ✅ Sign-up success count
+- 📈 Success rate
+- 🤖 Agent activity ratio
+- 🔁 Turn-based success rate
+- 🕵️‍♀️ Recent simulations
 
+##### 💬 Conversation History Section
+- Select customer
+- View:
+  - Profile
+  - Dialogue log
+  - Agent flow
+
+##### 📈 Analysis Section
+- 📦 Recommended plan distribution
+- 🔄 Agent transition frequency
+- 🎯 Success by customer traits
 ---
 
-###  Prerequisites
+## 🔗 About LightRAG Integration
 
-- Python environment (e.g., conda, venv)
+### 🌐 Access LightRAG Server
+- Web UI: http://165.132.46.89:32133/webui/
+- 🔐 Requires Yonsei VPN/WiFi or \`ngrok\`
+
+
+### 📦 Setting Up LightRAG (Local)
+
 ```bash
 cd lightrag
-```
-- Install dependencies:
-
-```bash
+git clone https://github.com/HKUDS/LightRAG.git
 pip install -r requirements.txt
 ```
 
-- `.env` file must exist in the **project root** directory and include:
+Create a `.env` file in the root with the following:
 
 ```env
 LLM_BINDING=openai
@@ -146,71 +187,78 @@ EMBEDDING_BINDING_API_KEY=your-upstage-api-key
 EMBEDDING_DIM=1024
 ```
 
-- Place your PDF documents in the `./docs/` folder.
 
----
+### 📝 Step-by-Step Usage
 
-### 📄 Step 1: Parse and Preprocess PDF Files
-
-This script reads all PDF files from `./docs/`, extracts text via Upstage API, and saves them as `.txt` in `./processed/`.
-
+1. Put PDFs in \`./docs/\`
+2. Run:
 ```bash
 python process_document.py
 ```
 
-> ✅ Only needed once, or when adding new PDFs.
-
----
-
-### 🔧 Step 2: Start LightRAG Server (With Initial Indexing)
-
-Starts the server and **automatically indexes** all text files into the vector DB and graph DB.
-
+3. Launch server:
 ```bash
 lightrag-server --input-dir ./processed --working-dir ./my_server_data --auto-scan-at-startup
 ```
 
-- `--input-dir`: where processed `.txt` files are located
-- `--working-dir`: where vector DB, graph DB, and metadata will be stored
-- `--auto-scan-at-startup`: triggers indexing on server launch
-
-Once indexing is done, LightRAG will stay running and listen for API and Web UI queries.
-
----
-
-###  Step 3: Restart Server (Without Re-indexing)
-
-If documents are already indexed, you can restart without rescanning files:
-
+4. Restart without re-indexing:
 ```bash
 lightrag-server --working-dir ./my_server_data
 ```
 
->  This is faster and loads previously indexed data.
+---
+
+### 🌐 LightRAG Access Points
+
+| URL Type | Address |
+|----------|---------|
+| Web UI   | http://localhost:9621/webui |
+| Swagger  | http://localhost:9621/docs |
+| ReDoc    | http://localhost:9621/redoc |
+
+More info: https://github.com/HKUDS/LightRAG
+
+
+### 📁 Dataset & References
+
+- **Dataset**: Sample customer profiles (\`person.json\`)
+
+- **References**:  
+  - [LightRAG](https://github.com/HKUDS/LightRAG)  
+  - [Upstage API](https://docs.upstage.ai/)  
+  - [LangChain](https://www.langchain.com/)
 
 ---
 
-###  Add New PDFs Later
+### 🙌 Team Members
 
-1. Put new PDF files into `./docs/`
-2. Run:
-
-```bash
-python process_document.py
-```
-
-3. Restart the server with auto-scan enabled:
-
-```bash
-lightrag-server --input-dir ./processed --working-dir ./my_server_data --auto-scan-at-startup
-```
+| Name     | Role                    | GitHub                                |
+|----------|-------------------------|---------------------------------------|
+| 문찬우   | Team Lead & GraphDB     | [@urbanking](https://github.com/urbanking) |
+| 정다연   | App & LLM Workflow & User Agent Modeling    | [@dayeon86](https://github.com/2021147588) |
+| 고정훈   | LLM Workflow & Planner Agent Modeling  | [@hoonestly](https://github.com/hoonestly)       |
+| 김성환   | Planner Agent Modeling & Conversation Analysis | [@seongmin-k](https://github.com/happysnail06) |
+| 강정묵   | User Agent Modeling | [@Mookjsi](https://github.com/Mookjsi)|
 
 ---
 
-### 🌐 Access Points(default port is 9621 / our custom local port number is 8000)
+### ⏰ Development Period
 
-- Web UI: [http://localhost:9621/webui](http://localhost:9621/webui)
-- API (Swagger): [http://localhost:9621/docs](http://localhost:9621/docs)
-- API (ReDoc): [http://localhost:9621/redoc](http://localhost:9621/redoc)
+- 2025-03-29 ~ 2025-04-05  
+  (Upstage × YBIGTA Hackathon)
 
+---
+
+### 📄 License
+
+This project is licensed under the [MIT license](https://opensource.org/licenses/MIT).  
+See the `LICENSE` file for more details.
+
+---
+
+### 💬 Additional Notes
+
+- 📂 All local databases (Chroma, LightRAG vector store) are stored in the `./database/` folder  
+- ⚙️ Make sure `.env` is configured properly for all modules  
+- 🐛 If you encounter errors, refer to the logs printed in the backend console  
 
