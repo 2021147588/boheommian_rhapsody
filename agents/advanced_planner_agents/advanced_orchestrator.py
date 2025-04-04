@@ -4,9 +4,9 @@ from typing import List, Dict, Any
 from dotenv import load_dotenv
 from agents.advanced_planner_agents.router_agent import AdvancedRouterAgent
 from agents.advanced_planner_agents.sales_agent import AdvancedSalesAgent
-from agents.advanced_planner_agents.rag_agent import AdvancedRAGAgent
 from agents.advanced_planner_agents.recommendation_agent import AdvancedRecommendationAgent
 from agents.advanced_planner_agents.graph_rag_agent import GraphRAGAgent
+from agents.advanced_planner_agents.advanced_base_agent import AdvancedBaseAgent
 load_dotenv()
 
 class AdvancedOrchestrator:
@@ -29,10 +29,10 @@ class AdvancedOrchestrator:
         
         Args:
             message (str): 사용자 메시지
-            
+         
         Returns:
             str: 에이전트 응답
-        """
+       """
         print(f"[AdvancedOrchestrator] Processing message: {message}")
         
         # 메시지 목록에 사용자 메시지 추가
@@ -46,10 +46,11 @@ class AdvancedOrchestrator:
             print(f"[AdvancedOrchestrator] Initial router agent setup")
         
         # 에이전트에 메시지 전달 - run_interaction 사용
+        print(f"[AdvancedOrchestrator] Sending message to agent: {self.active_agent.name}")
         response = self.active_agent.run_interaction(self.messages)
         
-        # 에이전트 객체가 직접 반환된 경우 처리 (추천 에이전트에서 영업 에이전트로 전환)
-        if isinstance(response, AdvancedSalesAgent) or isinstance(response, GraphRAGAgent):
+        # 에이전트 객체가 직접 반환된 경우 처리
+        if isinstance(response, AdvancedBaseAgent):
             print(f"[AdvancedOrchestrator] Agent object returned directly: {response.__class__.__name__}")
             source_agent = self.active_agent
             source_agent_name = self.active_agent_name
@@ -73,7 +74,18 @@ class AdvancedOrchestrator:
                 self.rag_agent = response  # 기존 인스턴스 업데이트
                 print(f"[AdvancedOrchestrator] Direct handoff from {source_agent_name} to RAG agent")
                 return "안녕하세요! 운전자보험에 대한 구체적인 정보를 알려드리겠습니다. 어떤 정보가 궁금하신가요?"
-        
+            
+            elif isinstance(response, AdvancedRecommendationAgent):
+                self.active_agent_name = "recommendation"
+                self.recommendation_agent = response  # 기존 인스턴스 업데이트
+                print(f"[AdvancedOrchestrator] Direct handoff from {source_agent_name} to recommendation agent")
+                return "안녕하세요! 고객님께 맞는 운전자보험 상품을 추천해 드리겠습니다. 어떤 보장이 중요하신가요?"
+            
+            # 프로필 정보 전달
+            self._transfer_profile_data(source_agent, self.active_agent)
+            
+            return f"에이전트가 전환되었습니다. 이제 {self.active_agent.name}가 도와드리겠습니다."
+            
         # 일반적인 문자열 응답 처리
         agent_response = ""
         for msg in reversed(response.messages):
@@ -82,42 +94,6 @@ class AdvancedOrchestrator:
                 break
             
         print(f"[AdvancedOrchestrator] Agent response: {agent_response}")
-        
-        # 핸드오프 신호 확인
-        handoff_signal = None
-        
-        # 핸드오프 확인 로직
-        if "HANDOFF_TO_SALES_AGENT" in agent_response:
-            handoff_signal = "sales"
-            agent_response = agent_response.replace("HANDOFF_TO_SALES_AGENT", "")
-        elif "HANDOFF_TO_RAG_AGENT" in agent_response:
-            handoff_signal = "rag"
-            agent_response = agent_response.replace("HANDOFF_TO_RAG_AGENT", "")
-        elif "HANDOFF_TO_RECOMMENDATION_AGENT" in agent_response:
-            handoff_signal = "recommendation"
-            agent_response = agent_response.replace("HANDOFF_TO_RECOMMENDATION_AGENT", "")
-        
-        # 핸드오프 처리
-        if handoff_signal:
-            source_agent = self.active_agent
-            source_agent_name = self.active_agent_name
-            
-            if handoff_signal == "sales":
-                self.active_agent = self.sales_agent
-                self.active_agent_name = "sales"
-                print(f"[AdvancedOrchestrator] Handoff from {source_agent_name} to sales agent")
-            elif handoff_signal == "rag":
-                self.active_agent = self.rag_agent
-                self.active_agent_name = "rag"
-                print(f"[AdvancedOrchestrator] Handoff from {source_agent_name} to RAG agent")
-            elif handoff_signal == "recommendation":
-                self.active_agent = self.recommendation_agent
-                self.active_agent_name = "recommendation"
-                print(f"[AdvancedOrchestrator] Handoff from {source_agent_name} to recommendation agent")
-            
-            # 프로필 정보 전달
-            self._transfer_profile_data(source_agent, self.active_agent)
-        
         return agent_response
     
     def _transfer_profile_data(self, source_agent, target_agent):

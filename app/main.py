@@ -24,7 +24,7 @@ app.add_middleware(
 )
 
 # Mount static files directory
-static_directory = "./static"
+static_directory = "app/static"
 app.mount("/static", StaticFiles(directory=static_directory, html=True), name="static")
 
 # Serve the main HTML file
