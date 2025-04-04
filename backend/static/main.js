@@ -267,8 +267,15 @@ function toggleTheme() {
 function handleFileSelect(e) {
     const file = e.target.files[0];
     if (file) {
-        document.getElementById('file-name').textContent = file.name;
-        document.getElementById('run-simulation-btn').disabled = false;
+        if (file.name.endsWith('.json')) {
+            document.getElementById('file-name').textContent = file.name;
+            document.getElementById('run-simulation-btn').disabled = false;
+        } else {
+            alert('Please upload a .json file');
+            document.getElementById('file-input').value = '';
+            document.getElementById('file-name').textContent = '';
+            document.getElementById('run-simulation-btn').disabled = true;
+        }
     }
 }
 
@@ -301,33 +308,23 @@ async function runSimulation() {
         document.querySelector('.simulation-progress').style.display = 'block';
         document.querySelector('.simulation-results').style.display = 'none';
         
-        // Read file
-        const fileContent = await readFile(file);
-        const userData = JSON.parse(fileContent);
-        
-        // Limit sample count if needed
-        const sampleCount = parseInt(document.getElementById('sample-count').value);
-        const limitedData = sampleCount > 0 ? userData.slice(0, sampleCount) : userData;
-        
-        // Get max turns
+        // Get max turns and sample count
         const maxTurns = parseInt(document.getElementById('max-turns').value);
+        const maxSamples = parseInt(document.getElementById('sample-count').value) || 10; // 값이 0이면 기본값 10 사용
         
-        // Prepare request data
-        const requestData = {
-            profiles: limitedData,
-            max_turns: maxTurns
-        };
+        // Create FormData object
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('max_turns', maxTurns);
+        formData.append('max_samples', maxSamples);
         
-        // Send to server
+        // Update progress
         updateProgressBar(10, '파일 분석 완료, 서버로 전송 중...');
         
-        // Simulate API call
-        const response = await fetch('/api/simulate', {
+        // Send to server using the /submit API
+        const response = await fetch('/submit', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(requestData)
+            body: formData
         });
         
         if (!response.ok) {
@@ -377,31 +374,34 @@ function updateProgressBar(percent, message) {
 
 // Process simulation results
 function processResults(data) {
+    console.log('Received data:', data);
+    
     // Store results globally
-    simulationResults = data;
+    simulationResults = data.data;
+    console.log('Stored simulation results:', simulationResults);
     
     // Update summary
-    document.getElementById('result-total').textContent = data.summary.total_samples;
-    document.getElementById('result-success').textContent = data.summary.success_count;
-    document.getElementById('result-rate').textContent = `${data.summary.success_rate.toFixed(1)}%`;
+    document.getElementById('result-total').textContent = data.data.summary.total_samples;
+    document.getElementById('result-success').textContent = data.data.summary.success_count;
+    document.getElementById('result-rate').textContent = `${data.data.summary.success_rate.toFixed(1)}%`;
     
     // Update dashboard metrics
-    document.getElementById('total-customers').textContent = data.summary.total_samples;
-    document.getElementById('success-count').textContent = data.summary.success_count;
-    document.getElementById('success-rate').textContent = `${data.summary.success_rate.toFixed(1)}%`;
-    document.getElementById('last-run').textContent = data.summary.timestamp;
+    document.getElementById('total-customers').textContent = data.data.summary.total_samples;
+    document.getElementById('success-count').textContent = data.data.summary.success_count;
+    document.getElementById('success-rate').textContent = `${data.data.summary.success_rate.toFixed(1)}%`;
+    document.getElementById('last-run').textContent = data.data.summary.timestamp;
     
     // Update charts
-    updateChartsWithData(data);
+    updateChartsWithData(data.data);
     
     // Update recent simulations table
-    updateSimulationsTable(data);
+    updateSimulationsTable(data.data);
     
     // Update customer dropdown
-    updateCustomerDropdown(data);
+    updateCustomerDropdown(data.data);
     
     // Prepare detail modal content
-    prepareDetailModalContent(data);
+    prepareDetailModalContent(data.data);
 }
 
 // Update charts with actual data
@@ -681,7 +681,11 @@ function handleCustomerSelect(e) {
         return;
     }
     
+    console.log('Selected index:', selectedIndex);
+    console.log('Simulation results:', simulationResults);
+    
     const conversation = simulationResults.conversations[selectedIndex];
+    console.log('Selected conversation:', conversation);
     
     // Update customer info panel
     updateCustomerInfoPanel(conversation);
@@ -700,12 +704,14 @@ function handleCustomerSelect(e) {
 // Update customer info panel
 function updateCustomerInfoPanel(conversation) {
     if (!conversation || !conversation.user_info) {
+        console.log('No conversation or user_info found:', conversation);
         return;
     }
     
-    const info = conversation.user_info;
+    const info = conversation.user_info.user;
+    const vehicle = conversation.user_info.vehicle;
     const customerInfo = document.getElementById('customer-info');
-    
+    console.log(conversation.user_info)
     let html = `
         <div class="info-item">
             <strong>이름:</strong> ${info.name || '-'}
@@ -717,13 +723,13 @@ function updateCustomerInfoPanel(conversation) {
             <strong>성별:</strong> ${info.gender || '-'}
         </div>
         <div class="info-item">
-            <strong>운전 경력:</strong> ${info.driving_experience || '-'}년
+            <strong>운전 경력:</strong> ${info.driving_experience_years || '-'}년
         </div>
         <div class="info-item">
-            <strong>차량:</strong> ${info.vehicle_model || '-'}
+            <strong>차량:</strong> ${vehicle?.model || '-'}
         </div>
         <div class="info-item">
-            <strong>사용 목적:</strong> ${info.vehicle_usage || '-'}
+            <strong>사용 목적:</strong> ${vehicle?.usage || '-'}
         </div>
     `;
     
