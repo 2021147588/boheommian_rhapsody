@@ -70,76 +70,104 @@ follow the instruction in the lightrag github readme
 
 For more information about LightRAG Server, please refer to LightRAG Server.(https://github.com/HKUDS/LightRAG/blob/main/lightrag/api/README.md)
 
-✅ Prerequisites
-Python environment is set up (e.g., conda, venv, etc.)
 
-Required libraries are installed:
+##  Getting Started with LightRAG + Upstage Embedding
 
-bash
-Copy
-Edit
+This guide explains how to set up and use LightRAG with Upstage API for PDF document indexing, vector & graph embedding, and RAG querying.
+
+---
+
+###  Prerequisites
+
+- Python environment (e.g., conda, venv)
+- Install dependencies:
+
+```bash
 pip install -r requirements.txt
-A valid .env file is present in the project root directory with the following keys:
+```
 
-LLM_BINDING, LLM_MODEL, LLM_BINDING_API_KEY
+- `.env` file must exist in the **project root** directory and include:
 
-EMBEDDING_BINDING, EMBEDDING_MODEL, EMBEDDING_DIM
+```env
+LLM_BINDING=openai
+LLM_MODEL=solar-pro
+LLM_BINDING_HOST=https://api.upstage.ai/v1
+LLM_BINDING_API_KEY=your-upstage-api-key
 
-PORT, TOKEN_SECRET, etc.
+EMBEDDING_BINDING=openai
+EMBEDDING_MODEL=embedding-query
+EMBEDDING_BINDING_HOST=https://api.upstage.ai/v1
+EMBEDDING_BINDING_API_KEY=your-upstage-api-key
+EMBEDDING_DIM=1024
+```
 
-PDF files to process are located in the ./docs directory.
+- Place your PDF documents in the `./docs/` folder.
 
-📄 Step 1: Process PDF Documents
-Purpose: Extract text from PDF files in the ./docs directory and save them as .txt files in the ./processed folder.
+---
 
-bash
-Copy
-Edit
+### 📄 Step 1: Parse and Preprocess PDF Files
+
+This script reads all PDF files from `./docs/`, extracts text via Upstage API, and saves them as `.txt` in `./processed/`.
+
+```bash
 python process_document.py
- Note: This uses the Upstage OCR and extraction APIs. Only run this again if you’ve added new PDF files.
+```
 
- Step 2: Start LightRAG Server & Index
-Purpose: Start the LightRAG server and index the processed .txt files into a vector store and knowledge graph.
+> ✅ Only needed once, or when adding new PDFs.
 
-bash
-Copy
-Edit
+---
+
+### 🔧 Step 2: Start LightRAG Server (With Initial Indexing)
+
+Starts the server and **automatically indexes** all text files into the vector DB and graph DB.
+
+```bash
 lightrag-server --input-dir ./processed --working-dir ./my_server_data --auto-scan-at-startup
---input-dir: Folder containing .txt files to index.
+```
 
---working-dir: Folder where all LightRAG data (vector DB, graph DB, metadata) will be stored.
+- `--input-dir`: where processed `.txt` files are located
+- `--working-dir`: where vector DB, graph DB, and metadata will be stored
+- `--auto-scan-at-startup`: triggers indexing on server launch
 
---auto-scan-at-startup: Automatically scans and indexes new documents on server start.
+Once indexing is done, LightRAG will stay running and listen for API and Web UI queries.
 
- After this step, the server runs on your configured port (default: http://localhost:9621) and is ready to serve API or Web UI queries.
+---
 
- Step 3: Restarting the Server (Skip Re-indexing)
-If the documents are already indexed, restart the server without scanning new files:
+###  Step 3: Restart Server (Without Re-indexing)
 
-bash
-Copy
-Edit
+If documents are already indexed, you can restart without rescanning files:
+
+```bash
 lightrag-server --working-dir ./my_server_data
- Use this command for faster startup when no new documents have been added.
+```
 
- Adding New PDFs Later
-Add new files to the ./docs directory.
+>  This is faster and loads previously indexed data.
 
-Re-run document processing:
+---
 
-bash
-Copy
-Edit
+###  Add New PDFs Later
+
+1. Put new PDF files into `./docs/`
+2. Run:
+
+```bash
 python process_document.py
-Restart the server with auto-scan to re-index new .txt files:
+```
 
-bash
-Copy
-Edit
+3. Restart the server with auto-scan enabled:
+
+```bash
 lightrag-server --input-dir ./processed --working-dir ./my_server_data --auto-scan-at-startup
-🌐 Access the LightRAG Server
-Web UI: http://localhost:9621/webui
+```
 
-API Docs (Swagger): http://localhost:9621/docs
+---
 
-API Docs (ReDoc): http://localhost:9621/redoc
+### 🌐 Access Points
+
+- Web UI: [http://localhost:9621/webui](http://localhost:9621/webui)
+- API (Swagger): [http://localhost:9621/docs](http://localhost:9621/docs)
+- API (ReDoc): [http://localhost:9621/redoc](http://localhost:9621/redoc)
+
+---
+
+Let me know if you'd like a diagram, architecture overview, or usage examples added!
