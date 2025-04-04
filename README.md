@@ -4,8 +4,6 @@ Upstage X YBIGTA Hackathon Project
 
 ## How to Run
 
-### Set Up Environment
-
 - > **Python version**: 3.10 
 
 
@@ -40,4 +38,9 @@ Upstage X YBIGTA Hackathon Project
 
 - 🧪 We provide a test sample file, `person.json`, located in the root directory.  
   You can use this file to simulate user inputs and test the application. The results will be stored in **agents/results** 
+
+- To analyze the simulation results, run 
+    ```bash
+    python generate_analysis.py
+    ```
 
