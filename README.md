@@ -71,7 +71,7 @@ follow the instruction in the lightrag github readme
 For more information about LightRAG Server, please refer to LightRAG Server.(https://github.com/HKUDS/LightRAG/blob/main/lightrag/api/README.md)
 
 
-##  Getting Started with LightRAG + Upstage Embedding
+##  Getting Started with Upstage Document parsing + LightRAG + Upstage Embedding
 
 This guide explains how to set up and use LightRAG with Upstage API for PDF document indexing, vector & graph embedding, and RAG querying.
 
