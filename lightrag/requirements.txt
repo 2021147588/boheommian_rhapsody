@@ -1,0 +1,6 @@
+lightrag-hku[api]
+openai>=1.52.2
+requests>=2.31.0
+python-dotenv>=0.19.0
+PyPDF2>=3.0.0
+tiktoken>=0.7.0 

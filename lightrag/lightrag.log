@@ -1,0 +1,1414 @@
+2025-04-03 22:46:11,676 - lightrag - INFO - Created new empty graph
+2025-04-03 22:46:11,944 - uvicorn.error - INFO - Started server process [22612]
+2025-04-03 22:46:11,944 - uvicorn.error - INFO - Waiting for application startup.
+2025-04-03 22:46:11,960 - lightrag - INFO - Process 22612 KV load full_docs with 0 records
+2025-04-03 22:46:11,966 - lightrag - INFO - Process 22612 KV load text_chunks with 0 records
+2025-04-03 22:46:11,971 - lightrag - INFO - Process 22612 KV load llm_response_cache with 0 records
+2025-04-03 22:46:11,973 - lightrag - INFO - Process 22612 doc status load doc_status with 0 records
+2025-04-03 22:46:11,976 - lightrag - INFO - Process 22612 auto scan task started at startup.
+2025-04-03 22:46:12,008 - lightrag - INFO - Found 1 new files to index.
+2025-04-03 22:46:12,017 - lightrag - INFO - Processing batch 1/1 with 1 files
+2025-04-03 22:46:12,021 - uvicorn.error - INFO - Application startup complete.
+2025-04-03 22:46:12,024 - uvicorn.error - ERROR - [Errno 10048] error while attempting to bind on address ('0.0.0.0', 9621): 각 소켓 주소(프로토콜/네트워크 주소/포트)는 하나만 사용할 수 있습니다
+2025-04-03 22:46:12,024 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-04-03 22:46:12,029 - uvicorn.error - INFO - Application shutdown complete.
+2025-04-03 22:54:10,646 - lightrag - INFO - Created new empty graph
+2025-04-03 22:54:10,914 - uvicorn.error - INFO - Started server process [18884]
+2025-04-03 22:54:10,914 - uvicorn.error - INFO - Waiting for application startup.
+2025-04-03 22:54:10,914 - lightrag - INFO - Process 18884 KV load full_docs with 0 records
+2025-04-03 22:54:10,925 - lightrag - INFO - Process 18884 KV load text_chunks with 0 records
+2025-04-03 22:54:10,930 - lightrag - INFO - Process 18884 KV load llm_response_cache with 0 records
+2025-04-03 22:54:10,933 - lightrag - INFO - Process 18884 doc status load doc_status with 0 records
+2025-04-03 22:54:10,935 - lightrag - INFO - Process 18884 auto scan task started at startup.
+2025-04-03 22:54:10,964 - lightrag - INFO - Found 1 new files to index.
+2025-04-03 22:54:10,965 - lightrag - INFO - Processing batch 1/1 with 1 files
+2025-04-03 22:54:10,966 - uvicorn.error - INFO - Application startup complete.
+2025-04-03 22:54:10,966 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:9621 (Press CTRL+C to quit)
+2025-04-03 22:54:10,977 - lightrag - INFO - Inserting 1 records to doc_status
+2025-04-03 22:54:10,978 - lightrag - INFO - Process 18884 doc status writting 1 records to doc_status
+2025-04-03 22:54:10,978 - lightrag - INFO - Stored 1 new unique documents
+2025-04-03 22:54:10,978 - lightrag - INFO - Successfully fetched and enqueued file: 첨부 1. H-모빌리티 클래스 사전학습 콘텐츠 수강 안내.txt
+2025-04-03 22:54:10,987 - lightrag - INFO - Processing 1 document(s) in 1 batches
+2025-04-03 22:54:10,988 - lightrag - INFO - Start processing batch 1 of 1.
+2025-04-03 22:54:17,298 - lightrag - INFO - Inserting 1 records to doc_status
+2025-04-03 22:54:17,299 - lightrag - INFO - Process 18884 doc status writting 1 records to doc_status
+2025-04-03 22:54:17,300 - lightrag - INFO - Inserting 1 to chunks
+2025-04-03 22:54:17,304 - lightrag - INFO - Inserting 1 records to full_docs
+2025-04-03 22:54:17,306 - lightrag - INFO - Inserting 1 records to text_chunks
+2025-04-03 22:54:20,765 - lightrag - ERROR - Failed to process document doc-7159df4ae43ec0200711155f36ff9df2: model "bge-m3:latest" not found, try pulling it first (status code: 404)
+2025-04-03 22:54:20,766 - lightrag - INFO - Inserting 1 records to doc_status
+2025-04-03 22:54:20,767 - lightrag - INFO - Process 18884 doc status writting 1 records to doc_status
+2025-04-03 22:54:20,774 - lightrag - INFO - Process 18884 KV writting 1 records to full_docs
+2025-04-03 22:54:20,777 - lightrag - INFO - Process 18884 KV writting 1 records to text_chunks
+2025-04-03 22:54:20,786 - lightrag - INFO - Writing graph with 0 nodes, 0 edges
+2025-04-03 22:54:20,865 - lightrag - INFO - In memory DB persist to disk
+2025-04-03 22:54:20,866 - lightrag - INFO - Completed batch 1 of 1.
+2025-04-03 22:54:20,867 - lightrag - INFO - Document processing pipeline completed
+2025-04-03 22:54:20,868 - lightrag - INFO - Processed 1/1 files (100.0%)
+2025-04-03 23:11:30,732 - uvicorn.access - INFO - 127.0.0.1:54765 - "POST /query HTTP/1.1" 422
+2025-04-03 23:11:31,052 - uvicorn.access - INFO - 127.0.0.1:54767 - "POST /query HTTP/1.1" 422
+2025-04-03 23:11:31,381 - uvicorn.access - INFO - 127.0.0.1:54769 - "POST /query HTTP/1.1" 422
+2025-04-03 23:11:38,231 - uvicorn.access - INFO - 127.0.0.1:54771 - "POST /query HTTP/1.1" 422
+2025-04-03 23:11:38,543 - uvicorn.access - INFO - 127.0.0.1:54773 - "POST /query HTTP/1.1" 422
+2025-04-03 23:11:38,843 - uvicorn.access - INFO - 127.0.0.1:54775 - "POST /query HTTP/1.1" 422
+2025-04-03 23:13:50,022 - uvicorn.access - INFO - 127.0.0.1:54816 - "POST /query HTTP/1.1" 422
+2025-04-03 23:13:57,566 - uvicorn.access - INFO - 127.0.0.1:54819 - "POST /query HTTP/1.1" 422
+2025-04-03 23:14:17,675 - uvicorn.access - INFO - 127.0.0.1:54830 - "POST /query HTTP/1.1" 500
+2025-04-03 23:25:10,380 - uvicorn.access - INFO - 127.0.0.1:54985 - "POST /query HTTP/1.1" 422
+2025-04-03 23:26:54,460 - lightrag - ERROR - Error in get_kg_context: model "mistral-nemo:latest" not found, try pulling it first (status code: 404)
+2025-04-03 23:26:54,463 - uvicorn.access - INFO - 127.0.0.1:55028 - "POST /query HTTP/1.1" 200
+2025-04-03 23:27:49,996 - lightrag - ERROR - Error in get_kg_context: model "mistral-nemo:latest" not found, try pulling it first (status code: 404)
+2025-04-03 23:27:49,996 - uvicorn.access - INFO - 127.0.0.1:55064 - "POST /query HTTP/1.1" 200
+2025-04-03 23:30:51,024 - lightrag - INFO - Created new empty graph
+2025-04-03 23:30:51,452 - uvicorn.error - INFO - Started server process [23428]
+2025-04-03 23:30:51,461 - uvicorn.error - INFO - Waiting for application startup.
+2025-04-03 23:30:51,465 - lightrag - INFO - Process 23428 KV load full_docs with 0 records
+2025-04-03 23:30:51,467 - lightrag - INFO - Process 23428 KV load text_chunks with 0 records
+2025-04-03 23:30:51,475 - lightrag - INFO - Process 23428 KV load llm_response_cache with 0 records
+2025-04-03 23:30:51,477 - lightrag - INFO - Process 23428 doc status load doc_status with 0 records
+2025-04-03 23:30:51,480 - lightrag - INFO - Process 23428 auto scan task started at startup.
+2025-04-03 23:30:51,518 - lightrag - INFO - Found 1 new files to index.
+2025-04-03 23:30:51,530 - lightrag - INFO - Processing batch 1/1 with 1 files
+2025-04-03 23:30:51,532 - uvicorn.error - INFO - Application startup complete.
+2025-04-03 23:30:51,539 - uvicorn.error - ERROR - [Errno 10048] error while attempting to bind on address ('0.0.0.0', 9621): 각 소켓 주소(프로토콜/네트워크 주소/포트)는 하나만 사용할 수 있습니다
+2025-04-03 23:30:51,541 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-04-03 23:30:51,543 - uvicorn.error - INFO - Application shutdown complete.
+2025-04-03 23:32:01,575 - lightrag - INFO - Created new empty graph
+2025-04-03 23:32:01,910 - uvicorn.error - INFO - Started server process [19440]
+2025-04-03 23:32:01,915 - uvicorn.error - INFO - Waiting for application startup.
+2025-04-03 23:32:01,930 - lightrag - INFO - Process 19440 KV load full_docs with 0 records
+2025-04-03 23:32:01,934 - lightrag - INFO - Process 19440 KV load text_chunks with 0 records
+2025-04-03 23:32:01,941 - lightrag - INFO - Process 19440 KV load llm_response_cache with 0 records
+2025-04-03 23:32:01,947 - lightrag - INFO - Process 19440 doc status load doc_status with 0 records
+2025-04-03 23:32:01,949 - lightrag - INFO - Process 19440 auto scan task started at startup.
+2025-04-03 23:32:02,008 - lightrag - INFO - Found 1 new files to index.
+2025-04-03 23:32:02,013 - lightrag - INFO - Processing batch 1/1 with 1 files
+2025-04-03 23:32:02,019 - uvicorn.error - INFO - Application startup complete.
+2025-04-03 23:32:02,022 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:9621 (Press CTRL+C to quit)
+2025-04-03 23:32:02,024 - lightrag - INFO - Inserting 1 records to doc_status
+2025-04-03 23:32:02,026 - lightrag - INFO - Process 19440 doc status writting 1 records to doc_status
+2025-04-03 23:32:02,030 - lightrag - INFO - Stored 1 new unique documents
+2025-04-03 23:32:02,032 - lightrag - INFO - Successfully fetched and enqueued file: 첨부 1. H-모빌리티 클래스 사전학습 콘텐츠 수강 안내.txt
+2025-04-03 23:32:02,032 - lightrag - INFO - Processing 1 document(s) in 1 batches
+2025-04-03 23:32:02,034 - lightrag - INFO - Start processing batch 1 of 1.
+2025-04-03 23:32:03,551 - lightrag - INFO - Inserting 1 records to doc_status
+2025-04-03 23:32:03,551 - lightrag - INFO - Process 19440 doc status writting 1 records to doc_status
+2025-04-03 23:32:03,576 - lightrag - INFO - Inserting 1 to chunks
+2025-04-03 23:32:03,607 - lightrag - INFO - Inserting 1 records to full_docs
+2025-04-03 23:32:03,614 - lightrag - INFO - Inserting 1 records to text_chunks
+2025-04-03 23:32:16,055 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 23:32:43,394 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 23:32:43,399 - lightrag - INFO -   Chk 1/1: extracted 13 Ent + 11 Rel (deduplicated)
+2025-04-03 23:32:43,405 - lightrag - INFO - Extracted 13 entities + 11 relationships (deduplicated)
+2025-04-03 23:32:43,410 - lightrag - INFO - Inserting 13 to entities
+2025-04-03 23:32:49,863 - lightrag - INFO - Inserting 11 to relationships
+2025-04-03 23:32:56,540 - lightrag - INFO - Inserting 1 records to doc_status
+2025-04-03 23:32:56,540 - lightrag - INFO - Process 19440 doc status writting 1 records to doc_status
+2025-04-03 23:32:56,540 - lightrag - INFO - Process 19440 KV writting 1 records to full_docs
+2025-04-03 23:32:56,548 - lightrag - INFO - Process 19440 KV writting 1 records to text_chunks
+2025-04-03 23:32:56,548 - lightrag - INFO - Process 19440 KV writting 2 records to llm_response_cache
+2025-04-03 23:32:56,556 - lightrag - INFO - Writing graph with 13 nodes, 11 edges
+2025-04-03 23:32:56,608 - lightrag - INFO - In memory DB persist to disk
+2025-04-03 23:32:56,608 - lightrag - INFO - Completed batch 1 of 1.
+2025-04-03 23:32:56,619 - lightrag - INFO - Document processing pipeline completed
+2025-04-03 23:32:56,619 - lightrag - INFO - Processed 1/1 files (100.0%)
+2025-04-03 23:36:58,381 - uvicorn.error - INFO - Shutting down
+2025-04-03 23:36:58,508 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-04-03 23:36:58,512 - uvicorn.error - INFO - Application shutdown complete.
+2025-04-03 23:36:58,515 - uvicorn.error - INFO - Finished server process [19440]
+2025-04-04 00:25:33,611 - lightrag - INFO - Created new empty graph
+2025-04-04 00:25:34,042 - uvicorn.error - INFO - Started server process [19340]
+2025-04-04 00:25:34,042 - uvicorn.error - INFO - Waiting for application startup.
+2025-04-04 00:25:34,058 - lightrag - INFO - Process 19340 KV load full_docs with 0 records
+2025-04-04 00:25:34,058 - lightrag - INFO - Process 19340 KV load text_chunks with 0 records
+2025-04-04 00:25:34,058 - lightrag - INFO - Process 19340 KV load llm_response_cache with 0 records
+2025-04-04 00:25:34,080 - lightrag - INFO - Process 19340 doc status load doc_status with 0 records
+2025-04-04 00:25:34,082 - lightrag - INFO - Process 19340 auto scan task started at startup.
+2025-04-04 00:25:34,137 - lightrag - INFO - Found 1 new files to index.
+2025-04-04 00:25:34,137 - lightrag - INFO - Processing batch 1/1 with 1 files
+2025-04-04 00:25:34,146 - uvicorn.error - INFO - Application startup complete.
+2025-04-04 00:25:34,155 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:9621 (Press CTRL+C to quit)
+2025-04-04 00:25:34,177 - lightrag - INFO - Inserting 1 records to doc_status
+2025-04-04 00:25:34,179 - lightrag - INFO - Process 19340 doc status writting 1 records to doc_status
+2025-04-04 00:25:34,199 - lightrag - INFO - Stored 1 new unique documents
+2025-04-04 00:25:34,201 - lightrag - INFO - Successfully fetched and enqueued file: LA02762001.txt
+2025-04-04 00:25:34,205 - lightrag - INFO - Processing 1 document(s) in 1 batches
+2025-04-04 00:25:34,207 - lightrag - INFO - Start processing batch 1 of 1.
+2025-04-04 00:25:36,582 - lightrag - INFO - Inserting 1 records to doc_status
+2025-04-04 00:25:36,586 - lightrag - INFO - Process 19340 doc status writting 1 records to doc_status
+2025-04-04 00:25:36,603 - lightrag - INFO - Inserting 161 to chunks
+2025-04-04 00:25:36,608 - lightrag - INFO - Inserting 1 records to full_docs
+2025-04-04 00:25:36,610 - lightrag - INFO - Inserting 161 records to text_chunks
+2025-04-04 00:46:24,674 - lightrag - INFO - Created new empty graph
+2025-04-04 00:46:24,992 - uvicorn.error - INFO - Started server process [17860]
+2025-04-04 00:46:24,992 - uvicorn.error - INFO - Waiting for application startup.
+2025-04-04 00:46:25,008 - lightrag - INFO - Process 17860 KV load full_docs with 0 records
+2025-04-04 00:46:25,016 - lightrag - INFO - Process 17860 KV load text_chunks with 0 records
+2025-04-04 00:46:25,052 - lightrag - INFO - Process 17860 KV load llm_response_cache with 0 records
+2025-04-04 00:46:25,059 - lightrag - INFO - Process 17860 doc status load doc_status with 0 records
+2025-04-04 00:46:25,061 - lightrag - INFO - Process 17860 auto scan task started at startup.
+2025-04-04 00:46:25,130 - lightrag - INFO - Found 1 new files to index.
+2025-04-04 00:46:25,132 - lightrag - INFO - Processing batch 1/1 with 1 files
+2025-04-04 00:46:25,132 - uvicorn.error - INFO - Application startup complete.
+2025-04-04 00:46:25,140 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:9621 (Press CTRL+C to quit)
+2025-04-04 00:46:25,148 - lightrag - INFO - Inserting 1 records to doc_status
+2025-04-04 00:46:25,154 - lightrag - INFO - Process 17860 doc status writting 1 records to doc_status
+2025-04-04 00:46:25,173 - lightrag - INFO - Stored 1 new unique documents
+2025-04-04 00:46:25,173 - lightrag - INFO - Successfully fetched and enqueued file: LA02762001.txt
+2025-04-04 00:46:25,177 - lightrag - INFO - Processing 1 document(s) in 1 batches
+2025-04-04 00:46:25,179 - lightrag - INFO - Start processing batch 1 of 1.
+2025-04-04 00:46:27,318 - lightrag - INFO - Inserting 1 records to doc_status
+2025-04-04 00:46:27,318 - lightrag - INFO - Process 17860 doc status writting 1 records to doc_status
+2025-04-04 00:46:27,340 - lightrag - INFO - Inserting 161 to chunks
+2025-04-04 00:46:27,342 - lightrag - INFO - Inserting 1 records to full_docs
+2025-04-04 00:46:27,349 - lightrag - INFO - Inserting 161 records to text_chunks
+2025-04-04 00:47:40,839 - lightrag - INFO - Created new empty graph
+2025-04-04 00:47:41,236 - uvicorn.error - INFO - Started server process [14320]
+2025-04-04 00:47:41,239 - uvicorn.error - INFO - Waiting for application startup.
+2025-04-04 00:47:41,240 - lightrag - INFO - Process 14320 KV load full_docs with 0 records
+2025-04-04 00:47:41,246 - lightrag - INFO - Process 14320 KV load text_chunks with 0 records
+2025-04-04 00:47:41,252 - lightrag - INFO - Process 14320 KV load llm_response_cache with 0 records
+2025-04-04 00:47:41,256 - lightrag - INFO - Process 14320 doc status load doc_status with 0 records
+2025-04-04 00:47:41,258 - uvicorn.error - INFO - Application startup complete.
+2025-04-04 00:47:41,262 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:9621 (Press CTRL+C to quit)
+2025-04-04 00:48:26,261 - uvicorn.access - INFO - 127.0.0.1:57313 - "GET /documents HTTP/1.1" 401
+2025-04-04 00:48:26,410 - uvicorn.access - INFO - 127.0.0.1:57313 - "GET /auth-status HTTP/1.1" 200
+2025-04-04 00:48:27,005 - uvicorn.access - INFO - 127.0.0.1:57313 - "GET /docs HTTP/1.1" 200
+2025-04-04 00:48:27,624 - uvicorn.access - INFO - 127.0.0.1:57313 - "GET /openapi.json HTTP/1.1" 200
+2025-04-04 00:51:01,328 - uvicorn.error - INFO - Shutting down
+2025-04-04 00:51:01,436 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-04-04 00:51:01,439 - uvicorn.error - INFO - Application shutdown complete.
+2025-04-04 00:51:01,439 - uvicorn.error - INFO - Finished server process [14320]
+2025-04-04 00:51:50,848 - lightrag - INFO - Created new empty graph
+2025-04-04 00:51:51,204 - uvicorn.error - INFO - Started server process [7104]
+2025-04-04 00:51:51,204 - uvicorn.error - INFO - Waiting for application startup.
+2025-04-04 00:51:51,204 - lightrag - INFO - Process 7104 KV load full_docs with 0 records
+2025-04-04 00:51:51,213 - lightrag - INFO - Process 7104 KV load text_chunks with 0 records
+2025-04-04 00:51:51,219 - lightrag - INFO - Process 7104 KV load llm_response_cache with 0 records
+2025-04-04 00:51:51,219 - lightrag - INFO - Process 7104 doc status load doc_status with 0 records
+2025-04-04 00:51:51,225 - lightrag - INFO - Process 7104 auto scan task started at startup.
+2025-04-04 00:51:51,283 - lightrag - INFO - Found 1 new files to index.
+2025-04-04 00:51:51,283 - lightrag - INFO - Processing batch 1/1 with 1 files
+2025-04-04 00:51:51,287 - uvicorn.error - INFO - Application startup complete.
+2025-04-04 00:51:51,293 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:9621 (Press CTRL+C to quit)
+2025-04-04 00:51:51,308 - lightrag - INFO - Inserting 1 records to doc_status
+2025-04-04 00:51:51,311 - lightrag - INFO - Process 7104 doc status writting 1 records to doc_status
+2025-04-04 00:51:51,333 - lightrag - INFO - Stored 1 new unique documents
+2025-04-04 00:51:51,336 - lightrag - INFO - Successfully fetched and enqueued file: LA02762001.txt
+2025-04-04 00:51:51,340 - lightrag - INFO - Processing 1 document(s) in 1 batches
+2025-04-04 00:51:51,340 - lightrag - INFO - Start processing batch 1 of 1.
+2025-04-04 00:51:53,465 - lightrag - INFO - Inserting 1 records to doc_status
+2025-04-04 00:51:53,465 - lightrag - INFO - Process 7104 doc status writting 1 records to doc_status
+2025-04-04 00:51:53,476 - lightrag - INFO - Inserting 161 to chunks
+2025-04-04 00:51:53,493 - lightrag - INFO - Inserting 1 records to full_docs
+2025-04-04 00:51:53,495 - lightrag - INFO - Inserting 161 records to text_chunks
+2025-04-04 00:52:19,136 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:52:19,141 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:52:23,172 - lightrag - ERROR - Failed to process document doc-d01d96561bec6c70c6783315686639b8: all the input array dimensions except for the concatenation axis must match exactly, but along dimension 1, the array at index 0 has size 1024 and the array at index 1 has size 4096
+2025-04-04 00:52:23,173 - lightrag - INFO - Inserting 1 records to doc_status
+2025-04-04 00:52:23,173 - lightrag - INFO - Process 7104 doc status writting 1 records to doc_status
+2025-04-04 00:52:23,196 - lightrag - INFO - Process 7104 KV writting 1 records to full_docs
+2025-04-04 00:52:23,215 - lightrag - INFO - Process 7104 KV writting 161 records to text_chunks
+2025-04-04 00:52:23,248 - lightrag - INFO - Process 7104 KV writting 2 records to llm_response_cache
+2025-04-04 00:52:23,294 - lightrag - INFO - Writing graph with 0 nodes, 0 edges
+2025-04-04 00:52:23,386 - lightrag - INFO - In memory DB persist to disk
+2025-04-04 00:52:23,388 - lightrag - INFO - Completed batch 1 of 1.
+2025-04-04 00:52:23,388 - lightrag - INFO - Document processing pipeline completed
+2025-04-04 00:52:23,392 - lightrag - INFO - Processed 1/1 files (100.0%)
+2025-04-04 00:54:45,916 - uvicorn.error - INFO - Shutting down
+2025-04-04 00:54:46,029 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-04-04 00:54:46,037 - uvicorn.error - INFO - Application shutdown complete.
+2025-04-04 00:54:46,046 - uvicorn.error - INFO - Finished server process [7104]
+2025-04-04 00:55:38,911 - lightrag - INFO - Created new empty graph
+2025-04-04 00:55:39,237 - uvicorn.error - INFO - Started server process [15592]
+2025-04-04 00:55:39,245 - uvicorn.error - INFO - Waiting for application startup.
+2025-04-04 00:55:39,245 - lightrag - INFO - Process 15592 KV load full_docs with 0 records
+2025-04-04 00:55:39,249 - lightrag - INFO - Process 15592 KV load text_chunks with 0 records
+2025-04-04 00:55:39,254 - lightrag - INFO - Process 15592 KV load llm_response_cache with 0 records
+2025-04-04 00:55:39,258 - lightrag - INFO - Process 15592 doc status load doc_status with 0 records
+2025-04-04 00:55:39,260 - lightrag - INFO - Process 15592 auto scan task started at startup.
+2025-04-04 00:55:39,299 - lightrag - INFO - Found 1 new files to index.
+2025-04-04 00:55:39,299 - lightrag - INFO - Processing batch 1/1 with 1 files
+2025-04-04 00:55:39,303 - uvicorn.error - INFO - Application startup complete.
+2025-04-04 00:55:39,307 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:9621 (Press CTRL+C to quit)
+2025-04-04 00:55:39,319 - lightrag - INFO - Inserting 1 records to doc_status
+2025-04-04 00:55:39,321 - lightrag - INFO - Process 15592 doc status writting 1 records to doc_status
+2025-04-04 00:55:39,341 - lightrag - INFO - Stored 1 new unique documents
+2025-04-04 00:55:39,345 - lightrag - INFO - Successfully fetched and enqueued file: LA02762001.txt
+2025-04-04 00:55:39,348 - lightrag - INFO - Processing 1 document(s) in 1 batches
+2025-04-04 00:55:39,348 - lightrag - INFO - Start processing batch 1 of 1.
+2025-04-04 00:55:41,226 - lightrag - INFO - Inserting 1 records to doc_status
+2025-04-04 00:55:41,226 - lightrag - INFO - Process 15592 doc status writting 1 records to doc_status
+2025-04-04 00:55:41,245 - lightrag - INFO - Inserting 161 to chunks
+2025-04-04 00:55:41,251 - lightrag - INFO - Inserting 1 records to full_docs
+2025-04-04 00:55:41,255 - lightrag - INFO - Inserting 161 records to text_chunks
+2025-04-04 00:56:06,245 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:56:09,458 - lightrag - ERROR - Failed to process document doc-d01d96561bec6c70c6783315686639b8: all the input array dimensions except for the concatenation axis must match exactly, but along dimension 1, the array at index 0 has size 1024 and the array at index 1 has size 4096
+2025-04-04 00:56:09,467 - lightrag - INFO - Inserting 1 records to doc_status
+2025-04-04 00:56:09,467 - lightrag - INFO - Process 15592 doc status writting 1 records to doc_status
+2025-04-04 00:56:09,486 - lightrag - INFO - Process 15592 KV writting 1 records to full_docs
+2025-04-04 00:56:09,510 - lightrag - INFO - Process 15592 KV writting 161 records to text_chunks
+2025-04-04 00:56:09,540 - lightrag - INFO - Process 15592 KV writting 1 records to llm_response_cache
+2025-04-04 00:56:09,582 - lightrag - INFO - Writing graph with 0 nodes, 0 edges
+2025-04-04 00:56:09,633 - lightrag - INFO - In memory DB persist to disk
+2025-04-04 00:56:09,633 - lightrag - INFO - Completed batch 1 of 1.
+2025-04-04 00:56:09,633 - lightrag - INFO - Document processing pipeline completed
+2025-04-04 00:56:09,644 - lightrag - INFO - Processed 1/1 files (100.0%)
+2025-04-03 17:12:19,130 - lightrag - INFO - Loaded graph from /root/lightrag/my_server_data/graph_chunk_entity_relation.graphml with 0 nodes, 0 edges
+2025-04-03 17:12:59,687 - lightrag - INFO - Created new empty graph
+2025-04-03 17:12:59,759 - uvicorn.error - INFO - Started server process [3851]
+2025-04-03 17:12:59,759 - uvicorn.error - INFO - Waiting for application startup.
+2025-04-03 17:12:59,759 - lightrag - INFO - Process 3851 KV load full_docs with 0 records
+2025-04-03 17:12:59,759 - lightrag - INFO - Process 3851 KV load text_chunks with 0 records
+2025-04-03 17:12:59,759 - lightrag - INFO - Process 3851 KV load llm_response_cache with 0 records
+2025-04-03 17:12:59,760 - lightrag - INFO - Process 3851 doc status load doc_status with 0 records
+2025-04-03 17:12:59,760 - lightrag - INFO - Process 3851 auto scan task started at startup.
+2025-04-03 17:12:59,763 - lightrag - INFO - Found 1 new files to index.
+2025-04-03 17:12:59,763 - lightrag - INFO - Processing batch 1/1 with 1 files
+2025-04-03 17:12:59,764 - uvicorn.error - INFO - Application startup complete.
+2025-04-03 17:12:59,765 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:9621 (Press CTRL+C to quit)
+2025-04-03 17:12:59,770 - lightrag - INFO - Inserting 1 records to doc_status
+2025-04-03 17:12:59,770 - lightrag - INFO - Process 3851 doc status writting 1 records to doc_status
+2025-04-03 17:12:59,774 - lightrag - INFO - Stored 1 new unique documents
+2025-04-03 17:12:59,774 - lightrag - INFO - Successfully fetched and enqueued file: LA02762001.txt
+2025-04-03 17:12:59,774 - lightrag - INFO - Processing 1 document(s) in 1 batches
+2025-04-03 17:12:59,774 - lightrag - INFO - Start processing batch 1 of 1.
+2025-04-03 17:13:02,266 - lightrag - INFO - Inserting 1 records to doc_status
+2025-04-03 17:13:02,266 - lightrag - INFO - Process 3851 doc status writting 1 records to doc_status
+2025-04-03 17:13:02,271 - lightrag - INFO - Inserting 177 to chunks
+2025-04-03 17:13:02,272 - lightrag - INFO - Inserting 1 records to full_docs
+2025-04-03 17:13:02,272 - lightrag - INFO - Inserting 177 records to text_chunks
+2025-04-03 17:13:12,265 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:13:19,160 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:13:20,106 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:13:20,541 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:13:22,958 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:13:27,399 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:13:29,298 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:13:33,014 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:13:43,129 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:13:48,082 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:13:50,789 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:13:55,629 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:13:56,979 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:13:59,446 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:14:00,906 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:14:06,223 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:14:06,958 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:14:07,828 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:14:13,637 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:14:15,060 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:14:15,707 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:14:24,545 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:14:25,938 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:14:31,751 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:14:34,477 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:14:35,487 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:14:38,930 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:14:44,124 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:14:48,532 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:14:52,051 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:14:53,719 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:14:54,163 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:14:59,291 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:15:00,291 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:15:03,578 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:15:06,504 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:15:10,744 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:15:12,058 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:15:19,829 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:15:22,459 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:15:22,580 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:15:25,861 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:15:30,815 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:15:31,393 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:15:35,857 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:15:38,475 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:15:38,724 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:15:46,655 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:15:48,199 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:15:49,325 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:15:52,337 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:15:52,820 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:15:58,644 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:16:00,580 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:16:02,992 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:16:03,609 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:16:10,721 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:16:14,892 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:16:15,152 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:16:18,148 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:16:21,008 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:16:23,730 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:16:26,280 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:16:27,806 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:16:31,632 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:16:34,224 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:16:41,888 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:16:43,315 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:16:44,082 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:16:44,245 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:16:54,670 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:16:54,781 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:16:56,682 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:17:05,215 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:17:09,515 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:17:15,193 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:17:29,926 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:17:38,789 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:17:40,807 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:17:50,211 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:17:53,785 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:17:54,465 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:18:03,468 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:18:08,079 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:18:10,484 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:18:12,173 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:18:18,819 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:18:25,500 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:18:30,667 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:18:34,578 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:18:39,714 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:18:45,063 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:18:48,531 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:18:51,403 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:18:57,798 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:19:03,768 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:19:09,985 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:19:14,688 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:19:21,561 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:19:27,635 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:19:38,703 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:19:44,446 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:19:54,993 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:20:10,273 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:20:11,584 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:20:23,522 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:20:26,554 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:20:33,281 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:20:38,610 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:20:42,831 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:20:55,766 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:21:01,800 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:21:06,740 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:21:21,067 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:21:30,177 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:21:45,162 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:21:45,251 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:22:04,153 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:22:10,895 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:22:11,304 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:22:25,518 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:22:41,851 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:22:53,332 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:22:56,744 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:23:05,768 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:23:11,420 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:23:14,686 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:23:26,310 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:23:42,540 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:23:54,668 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:24:00,835 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:24:05,903 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:24:07,604 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:24:25,313 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:24:27,351 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:24:47,872 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:24:54,637 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:25:13,991 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:26:15,800 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:26:43,948 - uvicorn.access - INFO - 127.0.0.1:38188 - "GET /webui HTTP/1.1" 307
+2025-04-03 17:26:43,980 - uvicorn.access - INFO - 127.0.0.1:38198 - "GET / HTTP/1.1" 200
+2025-04-03 17:26:44,053 - uvicorn.access - INFO - 127.0.0.1:38200 - "GET /assets/index-CD5HxTy1.css HTTP/1.1" 200
+2025-04-03 17:26:54,424 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:27:14,923 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:27:21,272 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:28:01,705 - uvicorn.access - INFO - 127.0.0.1:57880 - "GET /assets/index-raheqJeu.js HTTP/1.1" 200
+2025-04-03 17:28:03,323 - uvicorn.access - INFO - 127.0.0.1:57880 - "GET /docs HTTP/1.1" 200
+2025-04-03 17:28:03,382 - uvicorn.access - INFO - 127.0.0.1:57880 - "GET /auth-status HTTP/1.1" 200
+2025-04-03 17:28:03,675 - uvicorn.access - INFO - 127.0.0.1:57880 - "GET /logo.png HTTP/1.1" 200
+2025-04-03 17:28:04,149 - uvicorn.access - INFO - 127.0.0.1:57880 - "GET /openapi.json HTTP/1.1" 200
+2025-04-03 17:28:32,766 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:28:32,849 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:28:37,890 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:28:44,026 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:28:58,897 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:29:14,239 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:29:18,891 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:29:25,984 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:29:29,972 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:29:31,952 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:29:40,622 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:29:57,854 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:30:08,847 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:30:17,674 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:30:29,848 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:30:44,488 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:30:58,884 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:31:04,739 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:31:12,770 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:31:20,782 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:31:22,705 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:31:28,574 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:31:31,384 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:31:36,086 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:31:37,819 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:31:40,411 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:31:42,856 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:31:51,755 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:32:04,750 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:32:13,116 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:32:14,853 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:32:34,419 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:32:49,298 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:32:51,007 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:32:51,708 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:32:51,709 - lightrag - INFO -   Chk 1/177: extracted 8 Ent + 7 Rel (deduplicated)
+2025-04-03 17:33:14,288 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:33:14,289 - lightrag - INFO -   Chk 2/177: extracted 14 Ent + 8 Rel (deduplicated)
+2025-04-03 17:33:23,596 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:33:23,597 - lightrag - INFO -   Chk 3/177: extracted 15 Ent + 14 Rel (deduplicated)
+2025-04-03 17:33:29,681 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:33:29,681 - lightrag - INFO -   Chk 4/177: extracted 2 Ent + 1 Rel (deduplicated)
+2025-04-03 17:33:35,415 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:33:35,416 - lightrag - INFO -   Chk 5/177: extracted 19 Ent + 16 Rel (deduplicated)
+2025-04-03 17:33:45,845 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:33:45,847 - lightrag - INFO -   Chk 6/177: extracted 19 Ent + 13 Rel (deduplicated)
+2025-04-03 17:34:06,453 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:34:06,454 - lightrag - INFO -   Chk 7/177: extracted 12 Ent + 10 Rel (deduplicated)
+2025-04-03 17:34:12,601 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:34:12,602 - lightrag - INFO -   Chk 8/177: extracted 21 Ent + 15 Rel (deduplicated)
+2025-04-03 17:34:18,106 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:34:18,107 - lightrag - INFO -   Chk 9/177: extracted 14 Ent + 12 Rel (deduplicated)
+2025-04-03 17:34:38,396 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:34:38,397 - lightrag - INFO -   Chk 10/177: extracted 10 Ent + 7 Rel (deduplicated)
+2025-04-03 17:34:49,654 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:34:49,655 - lightrag - INFO -   Chk 11/177: extracted 13 Ent + 2 Rel (deduplicated)
+2025-04-03 17:34:56,059 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:34:56,060 - lightrag - INFO -   Chk 12/177: extracted 14 Ent + 13 Rel (deduplicated)
+2025-04-03 17:35:13,288 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:35:13,289 - lightrag - INFO -   Chk 13/177: extracted 6 Ent + 4 Rel (deduplicated)
+2025-04-03 17:35:18,203 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:35:18,204 - lightrag - INFO -   Chk 14/177: extracted 13 Ent + 0 Rel (deduplicated)
+2025-04-03 17:35:18,446 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:35:18,447 - lightrag - INFO -   Chk 15/177: extracted 12 Ent + 0 Rel (deduplicated)
+2025-04-03 17:35:27,637 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:35:27,638 - lightrag - INFO -   Chk 16/177: extracted 7 Ent + 0 Rel (deduplicated)
+2025-04-03 17:35:32,879 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:35:32,880 - lightrag - INFO -   Chk 17/177: extracted 6 Ent + 4 Rel (deduplicated)
+2025-04-03 17:35:37,315 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:35:37,316 - lightrag - INFO -   Chk 18/177: extracted 6 Ent + 5 Rel (deduplicated)
+2025-04-03 17:35:53,372 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:35:53,372 - lightrag - INFO -   Chk 19/177: extracted 6 Ent + 0 Rel (deduplicated)
+2025-04-03 17:35:54,882 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:35:54,882 - lightrag - INFO -   Chk 20/177: extracted 5 Ent + 3 Rel (deduplicated)
+2025-04-03 17:35:54,979 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:35:54,979 - lightrag - INFO -   Chk 21/177: extracted 8 Ent + 7 Rel (deduplicated)
+2025-04-03 17:36:19,270 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:36:19,271 - lightrag - INFO -   Chk 22/177: extracted 11 Ent + 8 Rel (deduplicated)
+2025-04-03 17:36:22,771 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:36:22,772 - lightrag - INFO -   Chk 23/177: extracted 9 Ent + 0 Rel (deduplicated)
+2025-04-03 17:36:38,901 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:36:38,901 - lightrag - INFO -   Chk 24/177: extracted 5 Ent + 3 Rel (deduplicated)
+2025-04-03 17:37:06,097 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:37:06,099 - lightrag - INFO -   Chk 25/177: extracted 19 Ent + 17 Rel (deduplicated)
+2025-04-03 17:37:23,288 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:37:23,289 - lightrag - INFO -   Chk 26/177: extracted 11 Ent + 0 Rel (deduplicated)
+2025-04-03 17:37:32,288 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:37:32,289 - lightrag - INFO -   Chk 27/177: extracted 21 Ent + 15 Rel (deduplicated)
+2025-04-03 17:37:40,305 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:37:40,306 - lightrag - INFO -   Chk 28/177: extracted 17 Ent + 12 Rel (deduplicated)
+2025-04-03 17:37:47,200 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:37:47,201 - lightrag - INFO -   Chk 29/177: extracted 8 Ent + 0 Rel (deduplicated)
+2025-04-03 17:38:06,436 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:38:06,437 - lightrag - INFO -   Chk 30/177: extracted 10 Ent + 8 Rel (deduplicated)
+2025-04-03 17:38:16,822 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:38:16,823 - lightrag - INFO -   Chk 31/177: extracted 13 Ent + 0 Rel (deduplicated)
+2025-04-03 17:38:36,902 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:38:37,260 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:38:37,261 - lightrag - INFO -   Chk 32/177: extracted 10 Ent + 6 Rel (deduplicated)
+2025-04-03 17:39:05,413 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:39:05,414 - lightrag - INFO -   Chk 33/177: extracted 15 Ent + 13 Rel (deduplicated)
+2025-04-03 17:39:37,780 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:39:37,781 - lightrag - INFO -   Chk 34/177: extracted 16 Ent + 10 Rel (deduplicated)
+2025-04-03 17:39:38,976 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:39:38,979 - lightrag - INFO -   Chk 35/177: extracted 51 Ent + 4 Rel (deduplicated)
+2025-04-03 17:39:56,123 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:39:56,124 - lightrag - INFO -   Chk 36/177: extracted 9 Ent + 7 Rel (deduplicated)
+2025-04-03 17:40:10,905 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:40:10,907 - lightrag - INFO -   Chk 37/177: extracted 21 Ent + 17 Rel (deduplicated)
+2025-04-03 17:40:23,418 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:40:23,420 - lightrag - INFO -   Chk 38/177: extracted 26 Ent + 19 Rel (deduplicated)
+2025-04-03 17:40:30,611 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:40:30,612 - lightrag - INFO -   Chk 39/177: extracted 5 Ent + 8 Rel (deduplicated)
+2025-04-03 17:41:05,914 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:41:05,914 - lightrag - INFO -   Chk 40/177: extracted 14 Ent + 0 Rel (deduplicated)
+2025-04-03 17:41:23,506 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:41:23,507 - lightrag - INFO -   Chk 41/177: extracted 9 Ent + 6 Rel (deduplicated)
+2025-04-03 17:41:47,919 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:41:47,920 - lightrag - INFO -   Chk 42/177: extracted 14 Ent + 0 Rel (deduplicated)
+2025-04-03 17:41:59,419 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:41:59,420 - lightrag - INFO -   Chk 43/177: extracted 6 Ent + 5 Rel (deduplicated)
+2025-04-03 17:42:13,120 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:42:13,121 - lightrag - INFO -   Chk 44/177: extracted 7 Ent + 5 Rel (deduplicated)
+2025-04-03 17:42:37,602 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:42:37,603 - lightrag - INFO -   Chk 45/177: extracted 13 Ent + 11 Rel (deduplicated)
+2025-04-03 17:42:59,038 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:42:59,040 - lightrag - INFO -   Chk 46/177: extracted 12 Ent + 10 Rel (deduplicated)
+2025-04-03 17:43:17,982 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:43:17,983 - lightrag - INFO -   Chk 47/177: extracted 8 Ent + 13 Rel (deduplicated)
+2025-04-03 17:43:28,897 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:43:28,898 - lightrag - INFO -   Chk 48/177: extracted 13 Ent + 9 Rel (deduplicated)
+2025-04-03 17:47:50,100 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:47:50,101 - lightrag - INFO -   Chk 49/177: extracted 15 Ent + 11 Rel (deduplicated)
+2025-04-03 17:48:13,580 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:48:13,581 - lightrag - INFO -   Chk 50/177: extracted 16 Ent + 14 Rel (deduplicated)
+2025-04-03 17:48:23,447 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:48:23,447 - lightrag - INFO -   Chk 51/177: extracted 9 Ent + 0 Rel (deduplicated)
+2025-04-03 17:48:30,356 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:48:30,357 - lightrag - INFO -   Chk 52/177: extracted 8 Ent + 6 Rel (deduplicated)
+2025-04-03 17:48:42,103 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:48:42,104 - lightrag - INFO -   Chk 53/177: extracted 2 Ent + 1 Rel (deduplicated)
+2025-04-03 17:48:51,878 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:48:51,878 - lightrag - INFO -   Chk 54/177: extracted 9 Ent + 8 Rel (deduplicated)
+2025-04-03 17:48:59,945 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:48:59,946 - lightrag - INFO -   Chk 55/177: extracted 9 Ent + 7 Rel (deduplicated)
+2025-04-03 17:49:12,500 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:49:12,501 - lightrag - INFO -   Chk 56/177: extracted 9 Ent + 6 Rel (deduplicated)
+2025-04-03 17:49:30,110 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:49:30,111 - lightrag - INFO -   Chk 57/177: extracted 8 Ent + 7 Rel (deduplicated)
+2025-04-03 17:49:33,405 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:49:33,405 - lightrag - INFO -   Chk 58/177: extracted 0 Ent + 0 Rel (deduplicated)
+2025-04-03 17:49:41,733 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:49:41,734 - lightrag - INFO -   Chk 59/177: extracted 12 Ent + 9 Rel (deduplicated)
+2025-04-03 17:50:04,094 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:50:04,095 - lightrag - INFO -   Chk 60/177: extracted 15 Ent + 12 Rel (deduplicated)
+2025-04-03 17:50:14,425 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:50:14,425 - lightrag - INFO -   Chk 61/177: extracted 9 Ent + 5 Rel (deduplicated)
+2025-04-03 17:50:21,277 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:50:21,278 - lightrag - INFO -   Chk 62/177: extracted 16 Ent + 14 Rel (deduplicated)
+2025-04-03 17:50:29,572 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:50:29,573 - lightrag - INFO -   Chk 63/177: extracted 3 Ent + 2 Rel (deduplicated)
+2025-04-03 17:50:32,913 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:50:32,914 - lightrag - INFO -   Chk 64/177: extracted 15 Ent + 10 Rel (deduplicated)
+2025-04-03 17:50:34,402 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:50:34,403 - lightrag - INFO -   Chk 65/177: extracted 1 Ent + 0 Rel (deduplicated)
+2025-04-03 17:50:36,830 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:50:36,831 - lightrag - INFO -   Chk 66/177: extracted 5 Ent + 5 Rel (deduplicated)
+2025-04-03 17:50:47,185 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:50:47,186 - lightrag - INFO -   Chk 67/177: extracted 15 Ent + 11 Rel (deduplicated)
+2025-04-03 17:50:48,120 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:50:48,121 - lightrag - INFO -   Chk 68/177: extracted 8 Ent + 5 Rel (deduplicated)
+2025-04-03 17:50:49,001 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:50:49,001 - lightrag - INFO -   Chk 69/177: extracted 8 Ent + 5 Rel (deduplicated)
+2025-04-03 17:50:51,285 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:50:51,286 - lightrag - INFO -   Chk 70/177: extracted 17 Ent + 0 Rel (deduplicated)
+2025-04-03 17:50:59,352 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:50:59,353 - lightrag - INFO -   Chk 71/177: extracted 15 Ent + 7 Rel (deduplicated)
+2025-04-03 17:50:59,944 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:50:59,944 - lightrag - INFO -   Chk 72/177: extracted 8 Ent + 5 Rel (deduplicated)
+2025-04-03 17:51:01,290 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:51:01,291 - lightrag - INFO -   Chk 73/177: extracted 1 Ent + 1 Rel (deduplicated)
+2025-04-03 17:51:07,702 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:51:07,703 - lightrag - INFO -   Chk 74/177: extracted 11 Ent + 8 Rel (deduplicated)
+2025-04-03 17:51:12,482 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:51:12,483 - lightrag - INFO -   Chk 75/177: extracted 17 Ent + 10 Rel (deduplicated)
+2025-04-03 17:51:13,016 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:51:13,017 - lightrag - INFO -   Chk 76/177: extracted 9 Ent + 6 Rel (deduplicated)
+2025-04-03 17:51:27,315 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:51:27,316 - lightrag - INFO -   Chk 77/177: extracted 7 Ent + 0 Rel (deduplicated)
+2025-04-03 17:51:42,438 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:51:42,439 - lightrag - INFO -   Chk 78/177: extracted 12 Ent + 10 Rel (deduplicated)
+2025-04-03 17:51:52,471 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:51:52,472 - lightrag - INFO -   Chk 79/177: extracted 26 Ent + 0 Rel (deduplicated)
+2025-04-03 17:52:08,580 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:52:08,581 - lightrag - INFO -   Chk 80/177: extracted 13 Ent + 10 Rel (deduplicated)
+2025-04-03 17:52:16,570 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:52:16,571 - lightrag - INFO -   Chk 81/177: extracted 4 Ent + 0 Rel (deduplicated)
+2025-04-03 17:52:20,590 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:52:20,590 - lightrag - INFO -   Chk 82/177: extracted 8 Ent + 5 Rel (deduplicated)
+2025-04-03 17:52:25,533 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:52:25,534 - lightrag - INFO -   Chk 83/177: extracted 2 Ent + 3 Rel (deduplicated)
+2025-04-03 17:52:39,474 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:52:39,475 - lightrag - INFO -   Chk 84/177: extracted 8 Ent + 7 Rel (deduplicated)
+2025-04-03 17:52:40,243 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:52:40,244 - lightrag - INFO -   Chk 85/177: extracted 12 Ent + 8 Rel (deduplicated)
+2025-04-03 17:52:45,015 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:52:45,016 - lightrag - INFO -   Chk 86/177: extracted 14 Ent + 5 Rel (deduplicated)
+2025-04-03 17:52:58,496 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:52:58,497 - lightrag - INFO -   Chk 87/177: extracted 16 Ent + 14 Rel (deduplicated)
+2025-04-03 17:53:01,840 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:53:01,841 - lightrag - INFO -   Chk 88/177: extracted 5 Ent + 0 Rel (deduplicated)
+2025-04-03 17:53:02,356 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:53:02,357 - lightrag - INFO -   Chk 89/177: extracted 6 Ent + 9 Rel (deduplicated)
+2025-04-03 17:53:13,277 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:53:13,277 - lightrag - INFO -   Chk 90/177: extracted 6 Ent + 4 Rel (deduplicated)
+2025-04-03 17:53:18,225 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:53:18,226 - lightrag - INFO -   Chk 91/177: extracted 8 Ent + 0 Rel (deduplicated)
+2025-04-03 17:53:19,819 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:53:19,819 - lightrag - INFO -   Chk 92/177: extracted 11 Ent + 0 Rel (deduplicated)
+2025-04-03 17:53:23,589 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:53:23,590 - lightrag - INFO -   Chk 93/177: extracted 4 Ent + 3 Rel (deduplicated)
+2025-04-03 17:53:35,156 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:53:35,157 - lightrag - INFO -   Chk 94/177: extracted 8 Ent + 6 Rel (deduplicated)
+2025-04-03 17:53:38,317 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:53:38,318 - lightrag - INFO -   Chk 95/177: extracted 9 Ent + 7 Rel (deduplicated)
+2025-04-03 17:53:43,040 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:53:43,041 - lightrag - INFO -   Chk 96/177: extracted 10 Ent + 8 Rel (deduplicated)
+2025-04-03 17:53:50,962 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:53:50,963 - lightrag - INFO -   Chk 97/177: extracted 10 Ent + 5 Rel (deduplicated)
+2025-04-03 17:53:51,656 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:53:51,656 - lightrag - INFO -   Chk 98/177: extracted 4 Ent + 0 Rel (deduplicated)
+2025-04-03 17:53:58,431 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:53:58,432 - lightrag - INFO -   Chk 99/177: extracted 9 Ent + 4 Rel (deduplicated)
+2025-04-03 17:54:09,680 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:54:09,681 - lightrag - INFO -   Chk 100/177: extracted 11 Ent + 8 Rel (deduplicated)
+2025-04-03 17:54:18,166 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:54:18,167 - lightrag - INFO -   Chk 101/177: extracted 10 Ent + 8 Rel (deduplicated)
+2025-04-03 17:54:22,689 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:54:22,690 - lightrag - INFO -   Chk 102/177: extracted 16 Ent + 15 Rel (deduplicated)
+2025-04-03 17:54:23,247 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:54:23,248 - lightrag - INFO -   Chk 103/177: extracted 8 Ent + 4 Rel (deduplicated)
+2025-04-03 17:54:38,867 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:54:38,868 - lightrag - INFO -   Chk 104/177: extracted 11 Ent + 9 Rel (deduplicated)
+2025-04-03 17:54:39,503 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:54:39,503 - lightrag - INFO -   Chk 105/177: extracted 6 Ent + 3 Rel (deduplicated)
+2025-04-03 17:54:59,390 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:54:59,391 - lightrag - INFO -   Chk 106/177: extracted 8 Ent + 7 Rel (deduplicated)
+2025-04-03 17:55:06,754 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:55:06,755 - lightrag - INFO -   Chk 107/177: extracted 18 Ent + 0 Rel (deduplicated)
+2025-04-03 17:55:21,179 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:55:21,180 - lightrag - INFO -   Chk 108/177: extracted 12 Ent + 10 Rel (deduplicated)
+2025-04-03 17:55:28,149 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:55:28,150 - lightrag - INFO -   Chk 109/177: extracted 9 Ent + 0 Rel (deduplicated)
+2025-04-03 17:55:49,548 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:55:49,548 - lightrag - INFO -   Chk 110/177: extracted 12 Ent + 5 Rel (deduplicated)
+2025-04-03 17:56:17,168 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:56:17,170 - lightrag - INFO -   Chk 111/177: extracted 20 Ent + 14 Rel (deduplicated)
+2025-04-03 17:56:26,918 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:56:26,919 - lightrag - INFO -   Chk 112/177: extracted 17 Ent + 0 Rel (deduplicated)
+2025-04-03 17:56:35,455 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:56:35,457 - lightrag - INFO -   Chk 113/177: extracted 40 Ent + 38 Rel (deduplicated)
+2025-04-03 17:56:45,371 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:56:45,372 - lightrag - INFO -   Chk 114/177: extracted 8 Ent + 0 Rel (deduplicated)
+2025-04-03 17:56:52,111 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:56:52,112 - lightrag - INFO -   Chk 115/177: extracted 12 Ent + 9 Rel (deduplicated)
+2025-04-03 17:56:53,518 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:56:53,519 - lightrag - INFO -   Chk 116/177: extracted 5 Ent + 4 Rel (deduplicated)
+2025-04-03 17:57:14,374 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:57:14,375 - lightrag - INFO -   Chk 117/177: extracted 6 Ent + 5 Rel (deduplicated)
+2025-04-03 17:57:15,679 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:57:15,680 - lightrag - INFO -   Chk 118/177: extracted 7 Ent + 6 Rel (deduplicated)
+2025-04-03 17:57:27,325 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:57:27,326 - lightrag - INFO -   Chk 119/177: extracted 6 Ent + 0 Rel (deduplicated)
+2025-04-03 17:57:33,186 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:57:33,187 - lightrag - INFO -   Chk 120/177: extracted 5 Ent + 6 Rel (deduplicated)
+2025-04-03 17:57:55,893 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:57:55,894 - lightrag - INFO -   Chk 121/177: extracted 9 Ent + 0 Rel (deduplicated)
+2025-04-03 17:58:06,803 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:58:06,805 - lightrag - INFO -   Chk 122/177: extracted 82 Ent + 7 Rel (deduplicated)
+2025-04-03 17:58:16,947 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:58:16,948 - lightrag - INFO -   Chk 123/177: extracted 11 Ent + 7 Rel (deduplicated)
+2025-04-03 17:58:23,535 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:58:23,536 - lightrag - INFO -   Chk 124/177: extracted 8 Ent + 6 Rel (deduplicated)
+2025-04-03 17:58:38,161 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:58:38,163 - lightrag - INFO -   Chk 125/177: extracted 23 Ent + 21 Rel (deduplicated)
+2025-04-03 17:58:55,419 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:58:55,419 - lightrag - INFO -   Chk 126/177: extracted 10 Ent + 12 Rel (deduplicated)
+2025-04-03 17:59:26,092 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:59:26,092 - lightrag - INFO -   Chk 127/177: extracted 15 Ent + 8 Rel (deduplicated)
+2025-04-03 17:59:30,523 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:59:30,524 - lightrag - INFO -   Chk 128/177: extracted 14 Ent + 7 Rel (deduplicated)
+2025-04-03 17:59:43,077 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:59:43,077 - lightrag - INFO -   Chk 129/177: extracted 11 Ent + 10 Rel (deduplicated)
+2025-04-03 17:59:57,754 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 17:59:57,755 - lightrag - INFO -   Chk 130/177: extracted 8 Ent + 0 Rel (deduplicated)
+2025-04-03 18:00:03,403 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:00:03,404 - lightrag - INFO -   Chk 131/177: extracted 41 Ent + 24 Rel (deduplicated)
+2025-04-03 18:00:31,628 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:00:31,630 - lightrag - INFO -   Chk 132/177: extracted 40 Ent + 31 Rel (deduplicated)
+2025-04-03 18:00:56,417 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:00:56,417 - lightrag - INFO -   Chk 133/177: extracted 1 Ent + 0 Rel (deduplicated)
+2025-04-03 18:00:57,444 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:00:57,445 - lightrag - INFO -   Chk 134/177: extracted 8 Ent + 0 Rel (deduplicated)
+2025-04-03 18:01:19,007 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:01:19,009 - lightrag - INFO -   Chk 135/177: extracted 23 Ent + 0 Rel (deduplicated)
+2025-04-03 18:01:55,936 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:01:55,938 - lightrag - INFO -   Chk 136/177: extracted 10 Ent + 6 Rel (deduplicated)
+2025-04-03 18:02:04,369 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:02:04,371 - lightrag - INFO -   Chk 137/177: extracted 39 Ent + 35 Rel (deduplicated)
+2025-04-03 18:02:18,764 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:02:18,772 - lightrag - INFO -   Chk 138/177: extracted 41 Ent + 14 Rel (deduplicated)
+2025-04-03 18:02:44,571 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:02:44,572 - lightrag - INFO -   Chk 139/177: extracted 13 Ent + 0 Rel (deduplicated)
+2025-04-03 18:02:49,948 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:02:49,949 - lightrag - INFO -   Chk 140/177: extracted 28 Ent + 16 Rel (deduplicated)
+2025-04-03 18:03:50,687 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:03:50,689 - lightrag - INFO -   Chk 141/177: extracted 48 Ent + 24 Rel (deduplicated)
+2025-04-03 18:04:45,826 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:04:45,827 - lightrag - INFO -   Chk 142/177: extracted 25 Ent + 3 Rel (deduplicated)
+2025-04-03 18:05:03,711 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:05:03,712 - lightrag - INFO -   Chk 143/177: extracted 6 Ent + 4 Rel (deduplicated)
+2025-04-03 18:05:12,620 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:05:12,623 - lightrag - INFO -   Chk 144/177: extracted 108 Ent + 0 Rel (deduplicated)
+2025-04-03 18:05:27,538 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:05:27,539 - lightrag - INFO -   Chk 145/177: extracted 0 Ent + 0 Rel (deduplicated)
+2025-04-03 18:05:48,463 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:05:48,464 - lightrag - INFO -   Chk 146/177: extracted 18 Ent + 18 Rel (deduplicated)
+2025-04-03 18:05:54,434 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:05:54,435 - lightrag - INFO -   Chk 147/177: extracted 20 Ent + 17 Rel (deduplicated)
+2025-04-03 18:05:55,993 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:05:55,994 - lightrag - INFO -   Chk 148/177: extracted 25 Ent + 22 Rel (deduplicated)
+2025-04-03 18:06:10,320 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:06:10,321 - lightrag - INFO -   Chk 149/177: extracted 6 Ent + 3 Rel (deduplicated)
+2025-04-03 18:06:11,873 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:06:11,874 - lightrag - INFO -   Chk 150/177: extracted 0 Ent + 0 Rel (deduplicated)
+2025-04-03 18:06:13,555 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:06:13,556 - lightrag - INFO -   Chk 151/177: extracted 6 Ent + 4 Rel (deduplicated)
+2025-04-03 18:06:17,842 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:06:17,843 - lightrag - INFO -   Chk 152/177: extracted 13 Ent + 7 Rel (deduplicated)
+2025-04-03 18:06:38,598 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:06:38,598 - lightrag - INFO -   Chk 153/177: extracted 10 Ent + 0 Rel (deduplicated)
+2025-04-03 18:07:04,440 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:07:04,441 - lightrag - INFO -   Chk 154/177: extracted 13 Ent + 7 Rel (deduplicated)
+2025-04-03 18:07:11,362 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:07:11,362 - lightrag - INFO -   Chk 155/177: extracted 13 Ent + 4 Rel (deduplicated)
+2025-04-03 18:07:21,765 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:07:21,766 - lightrag - INFO -   Chk 156/177: extracted 19 Ent + 0 Rel (deduplicated)
+2025-04-03 18:07:24,524 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:07:24,525 - lightrag - INFO -   Chk 157/177: extracted 18 Ent + 14 Rel (deduplicated)
+2025-04-03 18:07:28,130 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:07:28,131 - lightrag - INFO -   Chk 158/177: extracted 19 Ent + 7 Rel (deduplicated)
+2025-04-03 18:07:46,716 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:07:46,717 - lightrag - INFO -   Chk 159/177: extracted 28 Ent + 9 Rel (deduplicated)
+2025-04-03 18:07:49,388 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:07:49,389 - lightrag - INFO -   Chk 160/177: extracted 17 Ent + 0 Rel (deduplicated)
+2025-04-03 18:08:02,374 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:08:02,375 - lightrag - INFO -   Chk 161/177: extracted 6 Ent + 4 Rel (deduplicated)
+2025-04-03 18:08:11,772 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:08:11,773 - lightrag - INFO -   Chk 162/177: extracted 21 Ent + 11 Rel (deduplicated)
+2025-04-03 18:08:12,900 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:08:12,900 - lightrag - INFO -   Chk 163/177: extracted 14 Ent + 0 Rel (deduplicated)
+2025-04-03 18:08:14,608 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:08:14,608 - lightrag - INFO -   Chk 164/177: extracted 0 Ent + 0 Rel (deduplicated)
+2025-04-03 18:08:16,606 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:08:16,607 - lightrag - INFO -   Chk 165/177: extracted 17 Ent + 0 Rel (deduplicated)
+2025-04-03 18:08:20,194 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:08:20,195 - lightrag - INFO -   Chk 166/177: extracted 28 Ent + 15 Rel (deduplicated)
+2025-04-03 18:08:30,214 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:08:30,214 - lightrag - INFO -   Chk 167/177: extracted 15 Ent + 12 Rel (deduplicated)
+2025-04-03 18:08:39,575 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:08:39,575 - lightrag - INFO -   Chk 168/177: extracted 11 Ent + 4 Rel (deduplicated)
+2025-04-03 18:08:41,226 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:08:41,227 - lightrag - INFO -   Chk 169/177: extracted 14 Ent + 11 Rel (deduplicated)
+2025-04-03 18:08:49,821 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:08:49,822 - lightrag - INFO -   Chk 170/177: extracted 13 Ent + 12 Rel (deduplicated)
+2025-04-03 18:09:11,668 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:09:11,669 - lightrag - INFO -   Chk 171/177: extracted 11 Ent + 10 Rel (deduplicated)
+2025-04-03 18:09:18,848 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:09:18,849 - lightrag - INFO -   Chk 172/177: extracted 14 Ent + 20 Rel (deduplicated)
+2025-04-03 18:09:19,212 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:09:19,213 - lightrag - INFO -   Chk 173/177: extracted 20 Ent + 15 Rel (deduplicated)
+2025-04-03 18:09:22,605 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:09:22,605 - lightrag - INFO -   Chk 174/177: extracted 0 Ent + 0 Rel (deduplicated)
+2025-04-03 18:09:58,443 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:09:58,444 - lightrag - INFO -   Chk 175/177: extracted 11 Ent + 10 Rel (deduplicated)
+2025-04-03 18:09:59,175 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:09:59,177 - lightrag - INFO -   Chk 176/177: extracted 30 Ent + 18 Rel (deduplicated)
+2025-04-03 18:10:06,612 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:10:06,613 - lightrag - INFO -   Chk 177/177: extracted 16 Ent + 15 Rel (deduplicated)
+2025-04-03 18:10:33,698 - lightrag - INFO - Extracted 1547 entities + 1154 relationships (deduplicated)
+2025-04-03 18:10:33,710 - lightrag - INFO - Inserting 1547 to entities
+2025-04-03 18:11:14,367 - lightrag - INFO - Inserting 1154 to relationships
+2025-04-03 18:11:45,954 - lightrag - INFO - Inserting 1 records to doc_status
+2025-04-03 18:11:45,955 - lightrag - INFO - Process 3851 doc status writting 1 records to doc_status
+2025-04-03 18:11:45,959 - lightrag - INFO - Process 3851 KV writting 1 records to full_docs
+2025-04-03 18:11:45,963 - lightrag - INFO - Process 3851 KV writting 177 records to text_chunks
+2025-04-03 18:11:45,969 - lightrag - INFO - Process 3851 KV writting 354 records to llm_response_cache
+2025-04-03 18:11:46,863 - lightrag - INFO - Writing graph with 1588 nodes, 1154 edges
+2025-04-03 18:11:46,951 - lightrag - INFO - In memory DB persist to disk
+2025-04-03 18:11:46,951 - lightrag - INFO - Completed batch 1 of 1.
+2025-04-03 18:11:46,951 - lightrag - INFO - Document processing pipeline completed
+2025-04-03 18:11:46,952 - lightrag - INFO - Processed 1/1 files (100.0%)
+2025-04-03 18:20:23,382 - uvicorn.access - INFO - 127.0.0.1:41644 - "GET /documents/pipeline_status HTTP/1.1" 401
+2025-04-03 18:20:23,399 - uvicorn.access - INFO - 127.0.0.1:41644 - "GET /documents HTTP/1.1" 401
+2025-04-03 18:20:23,445 - uvicorn.access - INFO - 127.0.0.1:41644 - "GET /documents HTTP/1.1" 401
+2025-04-03 18:20:23,515 - uvicorn.access - INFO - 127.0.0.1:41644 - "GET /auth-status HTTP/1.1" 200
+2025-04-03 18:20:23,559 - uvicorn.access - INFO - 127.0.0.1:41644 - "GET /auth-status HTTP/1.1" 200
+2025-04-03 18:20:24,074 - uvicorn.access - INFO - 127.0.0.1:41644 - "GET /docs HTTP/1.1" 200
+2025-04-03 18:20:24,129 - uvicorn.access - INFO - 127.0.0.1:41644 - "GET /docs HTTP/1.1" 200
+2025-04-03 18:20:24,550 - uvicorn.access - INFO - 127.0.0.1:49804 - "GET /openapi.json HTTP/1.1" 200
+2025-04-03 18:20:24,741 - uvicorn.access - INFO - 127.0.0.1:49804 - "GET /openapi.json HTTP/1.1" 200
+2025-04-03 18:23:48,705 - uvicorn.access - INFO - 127.0.0.1:41510 - "GET /graph/label/list HTTP/1.1" 200
+2025-04-03 18:23:48,770 - lightrag - INFO - Reduced graph from 1588 nodes to 1000 nodes (depth=3)
+2025-04-03 18:23:48,785 - lightrag - INFO - Subgraph query successful | Node count: 1000 | Edge count: 1136
+2025-04-03 18:23:48,852 - uvicorn.access - INFO - 127.0.0.1:41510 - "GET /graphs?label=*&max_depth=3&min_degree=0 HTTP/1.1" 200
+2025-04-03 18:31:20,606 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:31:20,606 - lightrag - INFO - Process 3851 buidling query context...
+2025-04-03 18:31:20,606 - lightrag - INFO - Query edges: Global presence, Hanwha Group, top_k: 10, cosine: 0.2
+2025-04-03 18:31:21,695 - lightrag - INFO - Global query uses 10 entites, 10 relations, 3 chunks
+2025-04-03 18:31:23,040 - lightrag - INFO - Process 3851 KV writting 355 records to llm_response_cache
+2025-04-03 18:31:23,104 - uvicorn.access - INFO - 127.0.0.1:40498 - "POST /query/stream HTTP/1.1" 200
+2025-04-03 18:37:13,077 - uvicorn.access - INFO - 127.0.0.1:58322 - "POST /documents/text HTTP/1.1" 200
+2025-04-03 18:37:13,078 - lightrag - INFO - Inserting 1 records to doc_status
+2025-04-03 18:37:13,078 - lightrag - INFO - Process 3851 doc status writting 2 records to doc_status
+2025-04-03 18:37:13,086 - lightrag - INFO - Stored 1 new unique documents
+2025-04-03 18:37:13,086 - lightrag - INFO - Processing 1 document(s) in 1 batches
+2025-04-03 18:37:13,086 - lightrag - INFO - Start processing batch 1 of 1.
+2025-04-03 18:37:13,087 - lightrag - INFO - Inserting 1 records to doc_status
+2025-04-03 18:37:13,087 - lightrag - INFO - Process 3851 doc status writting 2 records to doc_status
+2025-04-03 18:37:13,091 - lightrag - INFO - Inserting 1 to chunks
+2025-04-03 18:37:13,091 - lightrag - INFO - Inserting 1 records to full_docs
+2025-04-03 18:37:13,091 - lightrag - INFO - Inserting 1 records to text_chunks
+2025-04-03 18:37:17,688 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:37:23,287 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:37:23,287 - lightrag - INFO -   Chk 1/1: extracted 2 Ent + 1 Rel (deduplicated)
+2025-04-03 18:37:23,288 - lightrag - INFO - Extracted 2 entities + 1 relationships (deduplicated)
+2025-04-03 18:37:23,289 - lightrag - INFO - Inserting 2 to entities
+2025-04-03 18:37:24,522 - lightrag - INFO - Inserting 1 to relationships
+2025-04-03 18:37:25,566 - lightrag - INFO - Inserting 1 records to doc_status
+2025-04-03 18:37:25,567 - lightrag - INFO - Process 3851 doc status writting 2 records to doc_status
+2025-04-03 18:37:25,574 - lightrag - INFO - Process 3851 KV writting 2 records to full_docs
+2025-04-03 18:37:25,578 - lightrag - INFO - Process 3851 KV writting 178 records to text_chunks
+2025-04-03 18:37:25,584 - lightrag - INFO - Process 3851 KV writting 357 records to llm_response_cache
+2025-04-03 18:37:26,520 - lightrag - INFO - Writing graph with 1590 nodes, 1155 edges
+2025-04-03 18:37:26,628 - lightrag - INFO - In memory DB persist to disk
+2025-04-03 18:37:26,629 - lightrag - INFO - Completed batch 1 of 1.
+2025-04-03 18:37:26,629 - lightrag - INFO - Document processing pipeline completed
+2025-04-03 18:38:48,156 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 18:38:48,156 - lightrag - INFO - Process 3851 buidling query context...
+2025-04-03 18:38:48,156 - lightrag - INFO - Query nodes: Coverage, Premiums, Deductibles, Liability, Accidents, Legal fees, top_k: 60, cosine: 0.2
+2025-04-03 18:38:48,224 - lightrag - INFO - Query edges: Insurance comparison, Driver insurance, Car insurance, top_k: 60, cosine: 0.2
+2025-04-03 18:38:48,918 - lightrag - INFO - Global query uses 46 entites, 60 relations, 3 chunks
+2025-04-03 18:38:49,298 - lightrag - INFO - Local query uses 60 entites, 66 relations, 3 chunks
+2025-04-03 18:38:52,884 - uvicorn.access - INFO - 127.0.0.1:34122 - "GET / HTTP/1.1" 307
+2025-04-03 18:38:52,897 - uvicorn.access - INFO - 127.0.0.1:34122 - "GET /webui HTTP/1.1" 307
+2025-04-03 18:38:52,911 - uvicorn.access - INFO - 127.0.0.1:34122 - "GET / HTTP/1.1" 304
+2025-04-03 18:38:52,949 - uvicorn.access - INFO - 127.0.0.1:34122 - "GET /assets/index-raheqJeu.js HTTP/1.1" 200
+2025-04-03 18:38:53,198 - uvicorn.access - INFO - 127.0.0.1:34122 - "GET /assets/index-CD5HxTy1.css HTTP/1.1" 304
+2025-04-03 18:38:53,888 - lightrag - INFO - Process 3851 KV writting 358 records to llm_response_cache
+2025-04-03 18:38:53,958 - uvicorn.access - INFO - 127.0.0.1:43976 - "POST /query/stream HTTP/1.1" 200
+2025-04-03 18:38:54,411 - uvicorn.access - INFO - 127.0.0.1:34122 - "GET /docs HTTP/1.1" 200
+2025-04-03 18:38:54,473 - uvicorn.access - INFO - 127.0.0.1:34132 - "GET /graph/label/list HTTP/1.1" 200
+2025-04-03 18:38:54,473 - uvicorn.access - INFO - 127.0.0.1:34122 - "GET /auth-status HTTP/1.1" 200
+2025-04-03 18:38:54,624 - lightrag - INFO - Reduced graph from 1590 nodes to 1000 nodes (depth=3)
+2025-04-03 18:38:54,640 - lightrag - INFO - Subgraph query successful | Node count: 1000 | Edge count: 1136
+2025-04-03 18:38:54,708 - uvicorn.access - INFO - 127.0.0.1:34132 - "GET /graphs?label=*&max_depth=3&min_degree=0 HTTP/1.1" 200
+2025-04-03 18:38:54,804 - uvicorn.access - INFO - 127.0.0.1:34132 - "GET /openapi.json HTTP/1.1" 200
+2025-04-03 18:40:03,641 - lightrag - INFO - Process 3851 buidling query context...
+2025-04-03 18:40:03,642 - lightrag - INFO - Query nodes: Coverage, Premiums, Deductibles, Liability, Accidents, Legal fees, top_k: 60, cosine: 0.2
+2025-04-03 18:40:03,705 - lightrag - INFO - Query edges: Insurance comparison, Driver insurance, Car insurance, top_k: 60, cosine: 0.2
+2025-04-03 18:40:04,385 - lightrag - INFO - Local query uses 60 entites, 66 relations, 3 chunks
+2025-04-03 18:40:04,780 - lightrag - INFO - Global query uses 46 entites, 60 relations, 3 chunks
+2025-04-03 18:40:06,817 - uvicorn.access - INFO - 127.0.0.1:54040 - "GET / HTTP/1.1" 307
+2025-04-03 18:40:06,835 - uvicorn.access - INFO - 127.0.0.1:54040 - "GET /webui HTTP/1.1" 307
+2025-04-03 18:40:08,374 - uvicorn.access - INFO - 127.0.0.1:54040 - "GET /docs HTTP/1.1" 200
+2025-04-03 18:40:08,426 - uvicorn.access - INFO - 127.0.0.1:54040 - "GET /auth-status HTTP/1.1" 200
+2025-04-03 18:40:08,452 - uvicorn.access - INFO - 127.0.0.1:54040 - "GET /graph/label/list HTTP/1.1" 200
+2025-04-03 18:40:08,608 - lightrag - INFO - Reduced graph from 1590 nodes to 1000 nodes (depth=3)
+2025-04-03 18:40:08,624 - lightrag - INFO - Subgraph query successful | Node count: 1000 | Edge count: 1136
+2025-04-03 18:40:08,694 - uvicorn.access - INFO - 127.0.0.1:54040 - "GET /graphs?label=*&max_depth=3&min_degree=0 HTTP/1.1" 200
+2025-04-03 18:40:08,793 - uvicorn.access - INFO - 127.0.0.1:54042 - "GET /openapi.json HTTP/1.1" 200
+2025-04-03 18:40:09,301 - uvicorn.access - INFO - 127.0.0.1:58804 - "POST /query/stream HTTP/1.1" 200
+2025-04-03 19:12:14,381 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 19:12:14,381 - lightrag - INFO - Process 3851 buidling query context...
+2025-04-03 19:12:14,382 - lightrag - INFO - Query nodes: 교통사고, 상해, 사망, 법률 비용, 의료 비용, top_k: 60, cosine: 0.2
+2025-04-03 19:12:14,463 - lightrag - INFO - Query edges: 운전자 보험, 유용한 상황, top_k: 60, cosine: 0.2
+2025-04-03 19:12:15,525 - lightrag - INFO - Local query uses 60 entites, 118 relations, 3 chunks
+2025-04-03 19:12:15,595 - lightrag - INFO - Global query uses 41 entites, 60 relations, 3 chunks
+2025-04-03 19:12:21,477 - lightrag - INFO - Process 3851 KV writting 359 records to llm_response_cache
+2025-04-03 19:12:21,571 - uvicorn.access - INFO - 127.0.0.1:47392 - "POST /query/stream HTTP/1.1" 200
+2025-04-03 19:29:14,808 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 19:29:14,808 - lightrag - INFO - Process 3851 buidling query context...
+2025-04-03 19:29:14,808 - lightrag - INFO - Query edges: Global, Pythagorean theorem, top_k: 60, cosine: 0.2
+2025-04-03 19:29:15,947 - lightrag - INFO - Global query uses 43 entites, 60 relations, 3 chunks
+2025-04-03 19:29:18,801 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 19:29:18,802 - lightrag - INFO - Process 3851 KV writting 361 records to llm_response_cache
+2025-04-03 19:29:18,874 - uvicorn.access - INFO - 127.0.0.1:51002 - "POST /query HTTP/1.1" 200
+2025-04-03 19:32:35,592 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 19:32:35,593 - lightrag - INFO - Process 3851 buidling query context...
+2025-04-03 19:32:35,593 - lightrag - INFO - Query edges: Hanwha, Insurance, Automobile industry, South Korean conglomerate, top_k: 10, cosine: 0.2
+2025-04-03 19:32:36,314 - lightrag - INFO - Global query uses 13 entites, 10 relations, 3 chunks
+2025-04-03 19:32:37,558 - lightrag - INFO - Process 3851 KV writting 362 records to llm_response_cache
+2025-04-03 19:32:37,631 - uvicorn.access - INFO - 127.0.0.1:47382 - "POST /query/stream HTTP/1.1" 200
+2025-04-03 19:34:39,010 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 19:34:39,010 - lightrag - INFO - Process 3851 buidling query context...
+2025-04-03 19:34:39,011 - lightrag - INFO - Query edges: Global, Insurance, top_k: 60, cosine: 0.2
+2025-04-03 19:34:40,154 - lightrag - INFO - Global query uses 39 entites, 60 relations, 3 chunks
+2025-04-03 19:34:44,086 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 19:34:44,086 - lightrag - INFO - Process 3851 KV writting 364 records to llm_response_cache
+2025-04-03 19:34:44,151 - uvicorn.access - INFO - 127.0.0.1:54822 - "POST /query HTTP/1.1" 200
+2025-04-03 19:36:28,562 - lightrag - ERROR - Error in get_vector_context: 'file_path'
+2025-04-03 19:36:30,544 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 19:36:30,545 - lightrag - INFO - Process 3851 buidling query context...
+2025-04-03 19:36:30,545 - lightrag - INFO - Query nodes: Mix, Hanwha, Damage Insurance, Policy, top_k: 60, cosine: 0.2
+2025-04-03 19:36:30,609 - lightrag - INFO - Query edges: Insurance, Hanwha Damage Insurance, top_k: 60, cosine: 0.2
+2025-04-03 19:36:31,790 - lightrag - INFO - Local query uses 60 entites, 152 relations, 3 chunks
+2025-04-03 19:36:31,861 - lightrag - INFO - Global query uses 29 entites, 60 relations, 3 chunks
+2025-04-03 19:36:32,398 - lightrag - ERROR - OpenAI API Call Failed,
+Model: solar-pro,
+Params: {'stream': False, 'temperature': 0.5}, Got: Error code: 400 - {'error': {'message': "This model's maximum context length is 32768 tokens. However, you requested 36245 tokens. Please reduce the length of the messages or completion. You can find correct request body form at our API reference page (https://console.upstage.ai/api/chat)", 'type': 'invalid_request_error', 'param': None, 'code': 'context_length_exceeded'}}
+2025-04-03 19:36:32,400 - uvicorn.access - INFO - 127.0.0.1:57772 - "POST /query HTTP/1.1" 500
+2025-04-03 19:36:53,545 - lightrag - ERROR - Error in get_vector_context: 'file_path'
+2025-04-03 19:36:55,184 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 19:36:55,185 - lightrag - INFO - Process 3851 buidling query context...
+2025-04-03 19:36:55,185 - lightrag - INFO - Query nodes: Right triangle, Square of the hypotenuse, Sum of squares of the other two sides, top_k: 60, cosine: 0.2
+2025-04-03 19:36:55,264 - lightrag - INFO - Query edges: Mathematical theorem, Pythagorean theorem, top_k: 60, cosine: 0.2
+2025-04-03 19:36:56,385 - lightrag - INFO - Local query uses 60 entites, 46 relations, 3 chunks
+2025-04-03 19:36:56,453 - lightrag - INFO - Global query uses 31 entites, 60 relations, 3 chunks
+2025-04-03 19:37:01,528 - lightrag - INFO - Process 3851 KV writting 366 records to llm_response_cache
+2025-04-03 19:37:01,597 - uvicorn.access - INFO - 127.0.0.1:52848 - "POST /query HTTP/1.1" 200
+2025-04-03 19:37:14,050 - lightrag - ERROR - Error in get_vector_context: 'file_path'
+2025-04-03 19:37:16,168 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 19:37:16,169 - lightrag - INFO - Process 3851 buidling query context...
+2025-04-03 19:37:16,169 - lightrag - INFO - Query nodes: Insurance type, Coverage amount, Policyholder's age, Health status, Smoking status, Driving record, top_k: 60, cosine: 0.2
+2025-04-03 19:37:16,239 - lightrag - INFO - Query edges: Insurance premium calculation, Hanwha Life Insurance, top_k: 60, cosine: 0.2
+2025-04-03 19:37:17,372 - lightrag - INFO - Global query uses 34 entites, 60 relations, 3 chunks
+2025-04-03 19:37:17,385 - lightrag - INFO - Local query uses 60 entites, 73 relations, 3 chunks
+2025-04-03 19:37:26,428 - lightrag - INFO - Process 3851 KV writting 367 records to llm_response_cache
+2025-04-03 19:37:26,502 - uvicorn.access - INFO - 127.0.0.1:52428 - "POST /query HTTP/1.1" 200
+2025-04-03 19:50:07,606 - lightrag - INFO - Loaded graph from /root/lightrag/my_server_data/graph_chunk_entity_relation.graphml with 1590 nodes, 1155 edges
+2025-04-03 19:50:08,148 - uvicorn.error - INFO - Started server process [13098]
+2025-04-03 19:50:08,148 - uvicorn.error - INFO - Waiting for application startup.
+2025-04-03 19:50:08,151 - lightrag - INFO - Process 13098 KV load full_docs with 2 records
+2025-04-03 19:50:08,154 - lightrag - INFO - Process 13098 KV load text_chunks with 178 records
+2025-04-03 19:50:08,190 - lightrag - INFO - Process 13098 KV load llm_response_cache with 367 records
+2025-04-03 19:50:08,192 - lightrag - INFO - Process 13098 doc status load doc_status with 2 records
+2025-04-03 19:50:08,193 - lightrag - INFO - Process 13098 auto scan task started at startup.
+2025-04-03 19:50:08,196 - lightrag - INFO - Found 0 new files to index.
+2025-04-03 19:50:08,196 - uvicorn.error - INFO - Application startup complete.
+2025-04-03 19:50:08,196 - uvicorn.error - INFO - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-04-03 19:51:43,400 - uvicorn.error - INFO - Shutting down
+2025-04-03 19:51:43,502 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-04-03 19:51:43,502 - uvicorn.error - INFO - Application shutdown complete.
+2025-04-03 19:51:43,503 - uvicorn.error - INFO - Finished server process [3851]
+2025-04-03 19:51:58,000 - lightrag - INFO - Loaded graph from /root/lightrag/my_server_data/graph_chunk_entity_relation.graphml with 1590 nodes, 1155 edges
+2025-04-03 19:51:58,585 - uvicorn.error - INFO - Started server process [13479]
+2025-04-03 19:51:58,585 - uvicorn.error - INFO - Waiting for application startup.
+2025-04-03 19:51:58,588 - lightrag - INFO - Process 13479 KV load full_docs with 2 records
+2025-04-03 19:51:58,590 - lightrag - INFO - Process 13479 KV load text_chunks with 178 records
+2025-04-03 19:51:58,626 - lightrag - INFO - Process 13479 KV load llm_response_cache with 367 records
+2025-04-03 19:51:58,629 - lightrag - INFO - Process 13479 doc status load doc_status with 2 records
+2025-04-03 19:51:58,629 - lightrag - INFO - Process 13479 auto scan task started at startup.
+2025-04-03 19:51:58,632 - lightrag - INFO - Found 0 new files to index.
+2025-04-03 19:51:58,632 - uvicorn.error - INFO - Application startup complete.
+2025-04-03 19:51:58,633 - uvicorn.error - ERROR - [Errno 98] error while attempting to bind on address ('0.0.0.0', 8000): address already in use
+2025-04-03 19:51:58,633 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-04-03 19:51:58,633 - uvicorn.error - INFO - Application shutdown complete.
+2025-04-03 19:52:07,890 - uvicorn.access - INFO - 127.0.0.1:43472 - "GET /webui HTTP/1.1" 307
+2025-04-03 19:52:09,225 - uvicorn.access - INFO - 127.0.0.1:43472 - "GET /docs HTTP/1.1" 200
+2025-04-03 19:52:09,287 - uvicorn.access - INFO - 127.0.0.1:43482 - "GET /auth-status HTTP/1.1" 200
+2025-04-03 19:52:09,296 - uvicorn.access - INFO - 127.0.0.1:43484 - "GET /graph/label/list HTTP/1.1" 200
+2025-04-03 19:52:09,427 - lightrag - INFO - Reduced graph from 1590 nodes to 1000 nodes (depth=3)
+2025-04-03 19:52:09,452 - lightrag - INFO - Subgraph query successful | Node count: 1000 | Edge count: 1136
+2025-04-03 19:52:09,793 - uvicorn.access - INFO - 127.0.0.1:43472 - "GET /graphs?label=*&max_depth=3&min_degree=0 HTTP/1.1" 200
+2025-04-03 19:52:09,825 - uvicorn.access - INFO - 127.0.0.1:43482 - "GET /openapi.json HTTP/1.1" 200
+2025-04-03 19:52:27,865 - uvicorn.access - INFO - 10.1.1.10:26574 - "GET / HTTP/1.1" 307
+2025-04-03 19:52:27,894 - uvicorn.access - INFO - 10.1.1.10:26574 - "GET /webui HTTP/1.1" 307
+2025-04-03 19:52:27,925 - uvicorn.access - INFO - 10.1.1.10:26574 - "GET / HTTP/1.1" 200
+2025-04-03 19:52:28,024 - uvicorn.access - INFO - 10.1.1.10:26574 - "GET /assets/index-raheqJeu.js HTTP/1.1" 200
+2025-04-03 19:52:28,025 - uvicorn.access - INFO - 10.1.1.10:21960 - "GET /assets/index-CD5HxTy1.css HTTP/1.1" 200
+2025-04-03 19:52:31,622 - uvicorn.access - INFO - 10.1.1.10:13093 - "GET / HTTP/1.1" 200
+2025-04-03 19:52:31,655 - uvicorn.access - INFO - 10.1.1.10:23411 - "GET /auth-status HTTP/1.1" 200
+2025-04-03 19:52:31,797 - uvicorn.access - INFO - 10.1.1.10:23411 - "GET /logo.png HTTP/1.1" 200
+2025-04-03 19:52:32,567 - uvicorn.access - INFO - 10.1.1.10:23411 - "GET /docs HTTP/1.1" 200
+2025-04-03 19:52:32,608 - uvicorn.access - INFO - 10.1.1.10:28367 - "GET /graph/label/list HTTP/1.1" 200
+2025-04-03 19:52:32,734 - lightrag - INFO - Reduced graph from 1590 nodes to 1000 nodes (depth=3)
+2025-04-03 19:52:32,767 - lightrag - INFO - Subgraph query successful | Node count: 1000 | Edge count: 1136
+2025-04-03 19:52:32,867 - uvicorn.access - INFO - 10.1.1.10:28367 - "GET /graphs?label=*&max_depth=3&min_degree=0 HTTP/1.1" 200
+2025-04-03 19:52:33,134 - uvicorn.access - INFO - 10.1.1.10:23411 - "GET /openapi.json HTTP/1.1" 200
+2025-04-03 20:19:20,764 - uvicorn.access - INFO - 10.1.1.10:57636 - "GET / HTTP/1.1" 307
+2025-04-03 20:19:20,778 - uvicorn.access - INFO - 10.1.1.10:57636 - "GET /webui HTTP/1.1" 307
+2025-04-03 20:19:20,789 - uvicorn.access - INFO - 10.1.1.10:57636 - "GET / HTTP/1.1" 304
+2025-04-03 20:19:20,827 - uvicorn.access - INFO - 10.1.1.10:57636 - "GET /assets/index-raheqJeu.js HTTP/1.1" 304
+2025-04-03 20:19:20,828 - uvicorn.access - INFO - 10.1.1.10:45570 - "GET /assets/index-CD5HxTy1.css HTTP/1.1" 304
+2025-04-03 20:19:22,944 - uvicorn.access - INFO - 10.1.1.10:55156 - "GET / HTTP/1.1" 304
+2025-04-03 20:19:23,409 - uvicorn.access - INFO - 10.1.1.10:45570 - "GET /docs HTTP/1.1" 200
+2025-04-03 20:19:23,432 - uvicorn.access - INFO - 10.1.1.10:57636 - "GET /auth-status HTTP/1.1" 200
+2025-04-03 20:19:23,443 - uvicorn.access - INFO - 10.1.1.10:26113 - "GET /graph/label/list HTTP/1.1" 200
+2025-04-03 20:19:23,654 - lightrag - INFO - Reduced graph from 1590 nodes to 1000 nodes (depth=3)
+2025-04-03 20:19:23,669 - lightrag - INFO - Subgraph query successful | Node count: 1000 | Edge count: 1136
+2025-04-03 20:19:23,734 - uvicorn.access - INFO - 10.1.1.10:26113 - "GET /graphs?label=*&max_depth=3&min_degree=0 HTTP/1.1" 200
+2025-04-03 20:19:23,796 - uvicorn.access - INFO - 10.1.1.10:45570 - "GET /openapi.json HTTP/1.1" 200
+2025-04-03 20:19:32,803 - uvicorn.access - INFO - 10.1.1.10:51512 - "GET /query HTTP/1.1" 405
+2025-04-03 20:19:33,101 - uvicorn.access - INFO - 10.1.1.10:1516 - "GET /query HTTP/1.1" 405
+2025-04-03 20:19:33,138 - uvicorn.access - INFO - 10.1.1.10:51512 - "GET /favicon.ico HTTP/1.1" 404
+2025-04-03 20:44:04,202 - uvicorn.access - INFO - 127.0.0.1:46130 - "GET / HTTP/1.1" 200
+2025-04-03 20:44:04,412 - uvicorn.access - INFO - 127.0.0.1:46130 - "GET /assets/index-raheqJeu.js HTTP/1.1" 200
+2025-04-03 20:44:04,489 - uvicorn.access - INFO - 127.0.0.1:46144 - "GET /assets/index-CD5HxTy1.css HTTP/1.1" 200
+2025-04-03 20:44:05,858 - uvicorn.access - INFO - 127.0.0.1:46130 - "GET /docs HTTP/1.1" 200
+2025-04-03 20:44:05,900 - uvicorn.access - INFO - 127.0.0.1:46130 - "GET /graph/label/list HTTP/1.1" 200
+2025-04-03 20:44:05,916 - uvicorn.access - INFO - 127.0.0.1:46144 - "GET /logo.png HTTP/1.1" 200
+2025-04-03 20:44:06,025 - lightrag - INFO - Reduced graph from 1590 nodes to 1000 nodes (depth=3)
+2025-04-03 20:44:06,057 - lightrag - INFO - Subgraph query successful | Node count: 1000 | Edge count: 1136
+2025-04-03 20:44:06,141 - uvicorn.access - INFO - 127.0.0.1:46144 - "GET /graphs?label=*&max_depth=3&min_degree=0 HTTP/1.1" 200
+2025-04-03 20:44:06,191 - uvicorn.access - INFO - 127.0.0.1:46130 - "GET /openapi.json HTTP/1.1" 200
+2025-04-03 20:44:39,903 - uvicorn.access - INFO - 127.0.0.1:43492 - "GET /webui HTTP/1.1" 307
+2025-04-03 20:44:39,937 - uvicorn.access - INFO - 127.0.0.1:43492 - "GET / HTTP/1.1" 304
+2025-04-03 20:44:41,305 - uvicorn.access - INFO - 127.0.0.1:43492 - "GET /docs HTTP/1.1" 200
+2025-04-03 20:44:41,365 - uvicorn.access - INFO - 127.0.0.1:43492 - "GET /auth-status HTTP/1.1" 200
+2025-04-03 20:44:41,373 - uvicorn.access - INFO - 127.0.0.1:43494 - "GET /graph/label/list HTTP/1.1" 200
+2025-04-03 20:44:41,530 - lightrag - INFO - Reduced graph from 1590 nodes to 1000 nodes (depth=3)
+2025-04-03 20:44:41,564 - lightrag - INFO - Subgraph query successful | Node count: 1000 | Edge count: 1136
+2025-04-03 20:44:41,641 - uvicorn.access - INFO - 127.0.0.1:43494 - "GET /graphs?label=*&max_depth=3&min_degree=0 HTTP/1.1" 200
+2025-04-03 20:44:41,726 - uvicorn.access - INFO - 127.0.0.1:43492 - "GET /openapi.json HTTP/1.1" 200
+2025-04-03 23:48:50,884 - uvicorn.access - INFO - 10.1.1.10:43809 - "GET / HTTP/1.1" 304
+2025-04-03 23:48:51,575 - uvicorn.access - INFO - 10.1.1.10:1386 - "GET /docs HTTP/1.1" 200
+2025-04-03 23:48:56,781 - uvicorn.access - INFO - 10.1.1.10:38719 - "GET /documents HTTP/1.1" 401
+2025-04-03 23:48:56,881 - uvicorn.access - INFO - 10.1.1.10:38719 - "GET /auth-status HTTP/1.1" 200
+2025-04-03 23:48:57,723 - uvicorn.access - INFO - 10.1.1.10:38719 - "GET /docs HTTP/1.1" 200
+2025-04-03 23:48:57,821 - lightrag - INFO - Reduced graph from 1590 nodes to 1000 nodes (depth=3)
+2025-04-03 23:48:57,855 - lightrag - INFO - Subgraph query successful | Node count: 1000 | Edge count: 1136
+2025-04-03 23:48:57,949 - uvicorn.access - INFO - 10.1.1.10:33072 - "GET /graphs?label=*&max_depth=3&min_degree=0 HTTP/1.1" 200
+2025-04-03 23:48:57,957 - uvicorn.access - INFO - 10.1.1.10:64833 - "GET /openapi.json HTTP/1.1" 200
+2025-04-03 23:55:45,357 - uvicorn.access - INFO - 10.1.1.10:64867 - "GET / HTTP/1.1" 304
+2025-04-03 23:55:45,526 - uvicorn.access - INFO - 10.1.1.10:64867 - "GET /assets/index-raheqJeu.js HTTP/1.1" 304
+2025-04-03 23:55:45,527 - uvicorn.access - INFO - 10.1.1.10:19746 - "GET /assets/index-CD5HxTy1.css HTTP/1.1" 304
+2025-04-03 23:55:49,752 - uvicorn.access - INFO - 10.1.1.10:42640 - "GET /docs HTTP/1.1" 200
+2025-04-03 23:55:49,809 - uvicorn.access - INFO - 10.1.1.10:56822 - "GET /graph/label/list HTTP/1.1" 200
+2025-04-03 23:55:49,986 - lightrag - INFO - Reduced graph from 1590 nodes to 1000 nodes (depth=3)
+2025-04-03 23:55:50,019 - lightrag - INFO - Subgraph query successful | Node count: 1000 | Edge count: 1136
+2025-04-03 23:55:50,109 - uvicorn.access - INFO - 10.1.1.10:56822 - "GET /graphs?label=*&max_depth=3&min_degree=0 HTTP/1.1" 200
+2025-04-03 23:55:51,696 - uvicorn.access - INFO - 10.1.1.10:56822 - "GET /openapi.json HTTP/1.1" 200
+2025-04-03 23:55:52,563 - uvicorn.access - INFO - 10.1.1.10:56822 - "GET /logo.png HTTP/1.1" 304
+2025-04-03 23:58:18,130 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 23:58:18,131 - lightrag - INFO - Process 13098 buidling query context...
+2025-04-03 23:58:18,131 - lightrag - INFO - Query edges: Insurance, Premium calculation, top_k: 60, cosine: 0.2
+2025-04-03 23:58:19,183 - lightrag - INFO - Global query uses 44 entites, 60 relations, 3 chunks
+2025-04-03 23:59:13,714 - uvicorn.access - INFO - 10.1.1.10:4865 - "POST /documents/scan HTTP/1.1" 200
+2025-04-03 23:59:13,716 - lightrag - INFO - Found 0 new files to index.
+2025-04-03 23:59:26,715 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-03 23:59:26,715 - lightrag - INFO - Process 13098 KV writting 369 records to llm_response_cache
+2025-04-03 23:59:26,783 - uvicorn.access - INFO - 10.1.1.10:54437 - "POST /query HTTP/1.1" 200
+2025-04-04 00:02:37,506 - uvicorn.access - INFO - 10.1.1.10:50828 - "GET / HTTP/1.1" 304
+2025-04-04 00:02:39,647 - uvicorn.access - INFO - 10.1.1.10:50828 - "GET /docs HTTP/1.1" 200
+2025-04-04 00:02:39,666 - uvicorn.access - INFO - 10.1.1.10:42551 - "GET /graph/label/list HTTP/1.1" 200
+2025-04-04 00:02:39,798 - lightrag - INFO - Reduced graph from 1590 nodes to 1000 nodes (depth=3)
+2025-04-04 00:02:39,813 - lightrag - INFO - Subgraph query successful | Node count: 1000 | Edge count: 1136
+2025-04-04 00:02:39,888 - uvicorn.access - INFO - 10.1.1.10:42551 - "GET /graphs?label=*&max_depth=3&min_degree=0 HTTP/1.1" 200
+2025-04-04 00:02:39,909 - uvicorn.access - INFO - 10.1.1.10:50828 - "GET /openapi.json HTTP/1.1" 200
+2025-04-04 00:02:42,445 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:02:42,445 - lightrag - INFO - Process 13098 buidling query context...
+2025-04-04 00:02:42,445 - lightrag - INFO - Query edges: Insurance premium calculation, Risk assessment, top_k: 60, cosine: 0.2
+2025-04-04 00:02:43,510 - lightrag - INFO - Global query uses 47 entites, 60 relations, 3 chunks
+2025-04-04 00:03:02,486 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:03:02,486 - lightrag - INFO - Process 13098 KV writting 371 records to llm_response_cache
+2025-04-04 00:03:02,570 - uvicorn.access - INFO - 10.1.1.10:12804 - "POST /query HTTP/1.1" 200
+2025-04-04 00:03:09,936 - uvicorn.access - INFO - 10.1.1.10:10702 - "GET /query HTTP/1.1" 405
+2025-04-04 00:03:11,813 - uvicorn.access - INFO - 10.1.1.10:56987 - "GET /query HTTP/1.1" 405
+2025-04-04 00:03:35,200 - uvicorn.access - INFO - 10.1.1.10:14953 - "POST /query/stream HTTP/1.1" 200
+2025-04-04 00:03:57,920 - uvicorn.access - INFO - 10.1.1.10:52794 - "POST /query HTTP/1.1" 200
+2025-04-04 00:04:20,799 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:04:20,799 - lightrag - INFO - Process 13098 buidling query context...
+2025-04-04 00:04:20,799 - lightrag - INFO - Query edges: 보험, 운전자, 보상, top_k: 60, cosine: 0.2
+2025-04-04 00:04:21,514 - lightrag - INFO - Global query uses 23 entites, 60 relations, 3 chunks
+2025-04-04 00:04:28,426 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:04:28,426 - lightrag - INFO - Process 13098 KV writting 373 records to llm_response_cache
+2025-04-04 00:04:28,492 - uvicorn.access - INFO - 10.1.1.10:4318 - "POST /query HTTP/1.1" 200
+2025-04-04 00:05:33,676 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:05:33,677 - lightrag - INFO - Process 13098 buidling query context...
+2025-04-04 00:05:33,677 - lightrag - INFO - Query edges: Insurance, Driver insurance, Car insurance, Difference between insurance types, top_k: 60, cosine: 0.2
+2025-04-04 00:05:34,804 - lightrag - INFO - Global query uses 47 entites, 60 relations, 3 chunks
+2025-04-04 00:05:40,003 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:05:40,003 - lightrag - INFO - Process 13098 KV writting 375 records to llm_response_cache
+2025-04-04 00:05:40,071 - uvicorn.access - INFO - 10.1.1.10:19353 - "POST /query HTTP/1.1" 200
+2025-04-04 00:07:03,110 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:07:03,110 - lightrag - INFO - Process 13098 buidling query context...
+2025-04-04 00:07:03,110 - lightrag - INFO - Query nodes: Driver insurance, Car insurance, Premium rates, Coverage, Deductibles, top_k: 60, cosine: 0.2
+2025-04-04 00:07:03,218 - lightrag - INFO - Query edges: Insurance types, Difference between policies, Premium calculation, top_k: 60, cosine: 0.2
+2025-04-04 00:07:03,925 - lightrag - INFO - Global query uses 36 entites, 60 relations, 3 chunks
+2025-04-04 00:07:04,402 - lightrag - INFO - Local query uses 60 entites, 145 relations, 3 chunks
+2025-04-04 00:07:04,930 - lightrag - ERROR - OpenAI API Call Failed,
+Model: solar-pro,
+Params: {'stream': False, 'temperature': 0.5}, Got: Error code: 400 - {'error': {'message': "This model's maximum context length is 32768 tokens. However, you requested 34547 tokens. Please reduce the length of the messages or completion. You can find correct request body form at our API reference page (https://console.upstage.ai/api/chat)", 'type': 'invalid_request_error', 'param': None, 'code': 'context_length_exceeded'}}
+2025-04-04 00:07:04,934 - uvicorn.access - INFO - 10.1.1.10:45996 - "POST /query HTTP/1.1" 500
+2025-04-04 00:07:08,506 - lightrag - INFO - Process 13098 buidling query context...
+2025-04-04 00:07:08,506 - lightrag - INFO - Query nodes: Coverage, Premiums, Deductibles, Liability, Accidents, Legal fees, top_k: 60, cosine: 0.2
+2025-04-04 00:07:08,570 - lightrag - INFO - Query edges: Insurance comparison, Driver insurance, Car insurance, top_k: 60, cosine: 0.2
+2025-04-04 00:07:09,761 - lightrag - INFO - Local query uses 60 entites, 66 relations, 3 chunks
+2025-04-04 00:07:09,776 - lightrag - INFO - Global query uses 46 entites, 60 relations, 3 chunks
+2025-04-04 00:07:52,989 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:07:52,990 - lightrag - INFO - Process 13098 KV writting 377 records to llm_response_cache
+2025-04-04 00:07:53,076 - uvicorn.access - INFO - 10.1.1.10:63412 - "POST /query HTTP/1.1" 200
+2025-04-04 00:07:55,823 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:07:55,823 - lightrag - INFO - Process 13098 buidling query context...
+2025-04-04 00:07:55,824 - lightrag - INFO - Query nodes: Risk assessment, Coverage, Policyholder's profile, Claim history, top_k: 60, cosine: 0.2
+2025-04-04 00:07:55,893 - lightrag - INFO - Query edges: Insurance premium, Premium calculation, top_k: 60, cosine: 0.2
+2025-04-04 00:07:56,559 - lightrag - INFO - Local query uses 60 entites, 48 relations, 3 chunks
+2025-04-04 00:07:56,973 - lightrag - INFO - Global query uses 45 entites, 60 relations, 3 chunks
+2025-04-04 00:08:05,067 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:08:05,068 - lightrag - INFO - Process 13098 KV writting 379 records to llm_response_cache
+2025-04-04 00:08:05,155 - uvicorn.access - INFO - 10.1.1.10:43950 - "POST /query HTTP/1.1" 200
+2025-04-04 00:09:00,984 - uvicorn.access - INFO - 127.0.0.1:35658 - "GET / HTTP/1.1" 200
+2025-04-04 00:09:01,103 - uvicorn.access - INFO - 127.0.0.1:35658 - "GET /assets/index-raheqJeu.js HTTP/1.1" 200
+2025-04-04 00:09:01,179 - uvicorn.access - INFO - 127.0.0.1:35652 - "GET /assets/index-CD5HxTy1.css HTTP/1.1" 200
+2025-04-04 00:09:02,545 - uvicorn.access - INFO - 127.0.0.1:35658 - "GET /auth-status HTTP/1.1" 200
+2025-04-04 00:09:02,550 - uvicorn.access - INFO - 127.0.0.1:35652 - "GET /logo.png HTTP/1.1" 200
+2025-04-04 00:09:03,192 - uvicorn.access - INFO - 127.0.0.1:35652 - "GET /docs HTTP/1.1" 200
+2025-04-04 00:09:03,233 - uvicorn.access - INFO - 127.0.0.1:35658 - "GET /graph/label/list HTTP/1.1" 200
+2025-04-04 00:09:03,323 - lightrag - INFO - Reduced graph from 1590 nodes to 1000 nodes (depth=3)
+2025-04-04 00:09:03,338 - lightrag - INFO - Subgraph query successful | Node count: 1000 | Edge count: 1136
+2025-04-04 00:09:03,403 - uvicorn.access - INFO - 127.0.0.1:35652 - "GET /graphs?label=*&max_depth=3&min_degree=0 HTTP/1.1" 200
+2025-04-04 00:09:04,374 - uvicorn.access - INFO - 127.0.0.1:35652 - "GET /openapi.json HTTP/1.1" 200
+2025-04-04 00:09:28,569 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:09:28,569 - lightrag - INFO - Process 13098 buidling query context...
+2025-04-04 00:09:28,569 - lightrag - INFO - Query edges: Insurance types, Car insurance, Personal injury insurance, top_k: 10, cosine: 0.2
+2025-04-04 00:09:29,629 - lightrag - INFO - Global query uses 14 entites, 10 relations, 3 chunks
+2025-04-04 00:09:31,026 - lightrag - INFO - Process 13098 KV writting 380 records to llm_response_cache
+2025-04-04 00:09:31,097 - uvicorn.access - INFO - 127.0.0.1:52850 - "POST /query/stream HTTP/1.1" 200
+2025-04-04 00:09:44,570 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:09:44,570 - lightrag - INFO - Process 13098 buidling query context...
+2025-04-04 00:09:44,571 - lightrag - INFO - Query nodes: Coverage, Premiums, Liability, Accidents, Damage, top_k: 60, cosine: 0.2
+2025-04-04 00:09:44,660 - lightrag - INFO - Query edges: Insurance, Driver's insurance, Car insurance, Comparison, top_k: 60, cosine: 0.2
+2025-04-04 00:09:45,312 - lightrag - INFO - Global query uses 48 entites, 60 relations, 3 chunks
+2025-04-04 00:09:45,734 - lightrag - INFO - Local query uses 60 entites, 89 relations, 3 chunks
+2025-04-04 00:09:51,742 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:09:51,743 - lightrag - INFO - Process 13098 KV writting 382 records to llm_response_cache
+2025-04-04 00:09:51,807 - uvicorn.access - INFO - 10.1.1.10:60331 - "POST /query HTTP/1.1" 200
+2025-04-04 00:09:52,455 - uvicorn.access - INFO - 10.1.1.10:55283 - "POST /query HTTP/1.1" 200
+2025-04-04 00:09:55,861 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:09:55,862 - lightrag - INFO - Process 13098 buidling query context...
+2025-04-04 00:09:55,862 - lightrag - INFO - Query nodes: Insurance application, Personal information, Proof of identity, Proof of income, Proof of address, top_k: 60, cosine: 0.2
+2025-04-04 00:09:55,965 - lightrag - INFO - Query edges: Insurance requirements, Mandatory documents, top_k: 60, cosine: 0.2
+2025-04-04 00:09:56,643 - lightrag - INFO - Global query uses 36 entites, 60 relations, 3 chunks
+2025-04-04 00:09:57,029 - lightrag - INFO - Local query uses 60 entites, 47 relations, 3 chunks
+2025-04-04 00:10:09,926 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:10:09,926 - lightrag - INFO - Process 13098 KV writting 384 records to llm_response_cache
+2025-04-04 00:10:09,991 - uvicorn.access - INFO - 10.1.1.10:39659 - "POST /query HTTP/1.1" 200
+2025-04-04 00:10:13,142 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:10:13,142 - lightrag - INFO - Process 13098 buidling query context...
+2025-04-04 00:10:13,142 - lightrag - INFO - Query nodes: Premium due date, Late fee, Policy lapse, Reinstatement, Grace period, top_k: 60, cosine: 0.2
+2025-04-04 00:10:13,228 - lightrag - INFO - Query edges: Insurance premium, Payment deadline, Late payment, top_k: 60, cosine: 0.2
+2025-04-04 00:10:13,898 - lightrag - INFO - Global query uses 40 entites, 60 relations, 3 chunks
+2025-04-04 00:10:14,282 - lightrag - INFO - Local query uses 60 entites, 32 relations, 3 chunks
+2025-04-04 00:10:21,006 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:10:21,006 - lightrag - INFO - Process 13098 KV writting 386 records to llm_response_cache
+2025-04-04 00:10:21,092 - uvicorn.access - INFO - 10.1.1.10:30441 - "POST /query HTTP/1.1" 200
+2025-04-04 00:10:25,637 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:10:25,637 - lightrag - INFO - Process 13098 buidling query context...
+2025-04-04 00:10:25,638 - lightrag - INFO - Query nodes: 자차 보험, 대인 보험, 차량 손상 보상, 인적 피해 보상, top_k: 60, cosine: 0.2
+2025-04-04 00:10:25,706 - lightrag - INFO - Query edges: Insurance types, Auto insurance, Liability insurance, top_k: 60, cosine: 0.2
+2025-04-04 00:10:26,366 - lightrag - INFO - Global query uses 44 entites, 60 relations, 3 chunks
+2025-04-04 00:10:26,780 - lightrag - INFO - Local query uses 60 entites, 126 relations, 4 chunks
+2025-04-04 00:10:39,534 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:10:39,534 - lightrag - INFO - Process 13098 KV writting 388 records to llm_response_cache
+2025-04-04 00:10:39,635 - uvicorn.access - INFO - 10.1.1.10:63118 - "POST /query HTTP/1.1" 200
+2025-04-04 00:11:49,191 - uvicorn.access - INFO - 127.0.0.1:53892 - "POST /query HTTP/1.1" 422
+2025-04-04 00:12:11,799 - uvicorn.access - INFO - 10.1.1.10:36534 - "POST /query HTTP/1.1" 422
+2025-04-04 00:12:11,815 - uvicorn.access - INFO - 10.1.1.10:13831 - "POST /query HTTP/1.1" 422
+2025-04-04 00:12:13,835 - uvicorn.access - INFO - 10.1.1.10:8352 - "POST /query HTTP/1.1" 422
+2025-04-04 00:12:13,852 - uvicorn.access - INFO - 10.1.1.10:62876 - "POST /query HTTP/1.1" 422
+2025-04-04 00:12:23,355 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:12:23,356 - lightrag - INFO - Process 13098 buidling query context...
+2025-04-04 00:12:23,356 - lightrag - INFO - Query edges: Insurance, Policy cancellation, Refund amount, top_k: 10, cosine: 0.2
+2025-04-04 00:12:24,433 - lightrag - INFO - Global query uses 16 entites, 10 relations, 3 chunks
+2025-04-04 00:12:25,972 - lightrag - INFO - Process 13098 KV writting 389 records to llm_response_cache
+2025-04-04 00:12:26,038 - uvicorn.access - INFO - 127.0.0.1:54288 - "POST /query/stream HTTP/1.1" 200
+2025-04-04 00:14:48,090 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:14:48,090 - lightrag - INFO - Process 13098 buidling query context...
+2025-04-04 00:14:48,090 - lightrag - INFO - Query edges: Insurance, Refund, Insurance contract, top_k: 10, cosine: 0.2
+2025-04-04 00:14:48,695 - lightrag - INFO - Global query uses 13 entites, 10 relations, 3 chunks
+2025-04-04 00:14:50,082 - lightrag - INFO - Process 13098 KV writting 390 records to llm_response_cache
+2025-04-04 00:14:50,152 - uvicorn.access - INFO - 127.0.0.1:54870 - "POST /query/stream HTTP/1.1" 200
+2025-04-04 00:15:11,309 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:15:11,310 - lightrag - INFO - Process 13098 buidling query context...
+2025-04-04 00:15:11,310 - lightrag - INFO - Query edges: 보험 해지, 환급금, 보험 계약, 자동차 보험, top_k: 10, cosine: 0.2
+2025-04-04 00:15:12,390 - lightrag - INFO - Global query uses 16 entites, 10 relations, 3 chunks
+2025-04-04 00:15:13,756 - lightrag - INFO - Process 13098 KV writting 391 records to llm_response_cache
+2025-04-04 00:15:13,826 - uvicorn.access - INFO - 127.0.0.1:54740 - "POST /query/stream HTTP/1.1" 200
+2025-04-04 00:16:33,846 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:16:33,847 - lightrag - INFO - Process 13098 buidling query context...
+2025-04-04 00:16:33,847 - lightrag - INFO - Query nodes: 계약자의 청약, 회사의 승낙, 피보험자, 청약의 철회, 보험료 납입연체, 보험계약대출, 해지환급금, 보험금 청구서류, 사망, 장해, 진단, 입원, 수술, 실손, top_k: 10, cosine: 0.2
+2025-04-04 00:16:33,958 - lightrag - INFO - Query edges: 보험 계약, 약관, 청약 철회, 보험료 납입연체, 보험계약 해지, 보험금 청구절차, top_k: 10, cosine: 0.2
+2025-04-04 00:16:34,604 - lightrag - INFO - Global query uses 17 entites, 10 relations, 3 chunks
+2025-04-04 00:16:35,027 - lightrag - INFO - Local query uses 10 entites, 13 relations, 3 chunks
+2025-04-04 00:16:37,034 - lightrag - INFO - Process 13098 KV writting 392 records to llm_response_cache
+2025-04-04 00:16:37,102 - uvicorn.access - INFO - 127.0.0.1:50390 - "POST /query/stream HTTP/1.1" 200
+2025-04-04 00:18:07,668 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:18:07,668 - lightrag - INFO - Process 13098 buidling query context...
+2025-04-04 00:18:07,668 - lightrag - INFO - Query nodes: Accident scene, First aid, Police report, Insurance company contact, Claim process, top_k: 10, cosine: 0.2
+2025-04-04 00:18:07,745 - lightrag - INFO - Query edges: Traffic accident, Emergency response, Insurance claim, top_k: 10, cosine: 0.2
+2025-04-04 00:18:08,340 - lightrag - INFO - Global query uses 16 entites, 10 relations, 3 chunks
+2025-04-04 00:18:08,790 - lightrag - INFO - Local query uses 10 entites, 8 relations, 3 chunks
+2025-04-04 00:18:10,849 - lightrag - INFO - Process 13098 KV writting 393 records to llm_response_cache
+2025-04-04 00:18:10,920 - uvicorn.access - INFO - 127.0.0.1:41380 - "POST /query/stream HTTP/1.1" 200
+2025-04-04 00:20:53,143 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:20:53,143 - lightrag - INFO - Process 13098 buidling query context...
+2025-04-04 00:20:53,143 - lightrag - INFO - Query nodes: 사고 현장 유지, 인명 구조, 경찰 신고, 정보 교환, 보험사 연락, 병원 치료, 보험금 청구 절차, 진단서 발급, 한화 운전자 보험, top_k: 10, cosine: 0.2
+2025-04-04 00:20:53,231 - lightrag - INFO - Query edges: 보험금 청구, 교통사고 대처법, 보험 약관, top_k: 10, cosine: 0.2
+2025-04-04 00:20:54,360 - lightrag - INFO - Global query uses 14 entites, 10 relations, 3 chunks
+2025-04-04 00:20:54,361 - lightrag - INFO - Local query uses 10 entites, 34 relations, 3 chunks
+2025-04-04 00:20:56,703 - lightrag - INFO - Process 13098 KV writting 394 records to llm_response_cache
+2025-04-04 00:20:56,776 - uvicorn.access - INFO - 127.0.0.1:51764 - "POST /query/stream HTTP/1.1" 200
+2025-04-04 00:25:52,815 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:25:52,816 - lightrag - INFO - Process 13098 buidling query context...
+2025-04-04 00:25:52,816 - lightrag - INFO - Query nodes: Premium, Deductible, Exclusions, Claims process, Policy term, top_k: 60, cosine: 0.2
+2025-04-04 00:25:52,924 - lightrag - INFO - Query edges: Insurance, Policy, Coverage, Risk management, top_k: 60, cosine: 0.2
+2025-04-04 00:25:53,585 - lightrag - INFO - Global query uses 38 entites, 60 relations, 3 chunks
+2025-04-04 00:25:53,986 - lightrag - INFO - Local query uses 60 entites, 35 relations, 3 chunks
+2025-04-04 00:25:58,426 - uvicorn.access - INFO - 127.0.0.1:46228 - "GET / HTTP/1.1" 307
+2025-04-04 00:25:58,442 - uvicorn.access - INFO - 127.0.0.1:46228 - "GET /webui HTTP/1.1" 307
+2025-04-04 00:25:58,458 - uvicorn.access - INFO - 127.0.0.1:46228 - "GET / HTTP/1.1" 200
+2025-04-04 00:25:58,534 - uvicorn.access - INFO - 127.0.0.1:46228 - "GET /assets/index-raheqJeu.js HTTP/1.1" 304
+2025-04-04 00:25:58,544 - uvicorn.access - INFO - 127.0.0.1:46242 - "GET /assets/index-CD5HxTy1.css HTTP/1.1" 304
+2025-04-04 00:26:00,574 - uvicorn.access - INFO - 127.0.0.1:46242 - "GET /docs HTTP/1.1" 200
+2025-04-04 00:26:00,683 - uvicorn.access - INFO - 127.0.0.1:46242 - "GET /auth-status HTTP/1.1" 200
+2025-04-04 00:26:00,686 - uvicorn.access - INFO - 127.0.0.1:46228 - "GET /graph/label/list HTTP/1.1" 401
+2025-04-04 00:26:00,688 - uvicorn.access - INFO - 127.0.0.1:46254 - "GET /logo.png HTTP/1.1" 304
+2025-04-04 00:26:00,957 - lightrag - INFO - Reduced graph from 1590 nodes to 1000 nodes (depth=3)
+2025-04-04 00:26:00,973 - lightrag - INFO - Subgraph query successful | Node count: 1000 | Edge count: 1136
+2025-04-04 00:26:01,039 - uvicorn.access - INFO - 127.0.0.1:46254 - "GET /graphs?label=*&max_depth=3&min_degree=0 HTTP/1.1" 200
+2025-04-04 00:26:01,045 - uvicorn.access - INFO - 127.0.0.1:46228 - "GET /auth-status HTTP/1.1" 200
+2025-04-04 00:26:01,815 - uvicorn.access - INFO - 127.0.0.1:46254 - "GET /docs HTTP/1.1" 200
+2025-04-04 00:26:03,922 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:26:03,922 - lightrag - INFO - Process 13098 KV writting 396 records to llm_response_cache
+2025-04-04 00:26:04,023 - uvicorn.access - INFO - 127.0.0.1:34766 - "POST /query HTTP/1.1" 200
+2025-04-04 00:26:04,050 - lightrag - INFO - Reduced graph from 1590 nodes to 1000 nodes (depth=3)
+2025-04-04 00:26:04,084 - lightrag - INFO - Subgraph query successful | Node count: 1000 | Edge count: 1136
+2025-04-04 00:26:04,437 - uvicorn.access - INFO - 127.0.0.1:47500 - "GET /graphs?label=*&max_depth=3&min_degree=0 HTTP/1.1" 200
+2025-04-04 00:26:04,452 - uvicorn.access - INFO - 127.0.0.1:47510 - "GET /openapi.json HTTP/1.1" 200
+2025-04-04 00:26:53,649 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:26:53,649 - lightrag - INFO - Process 13098 buidling query context...
+2025-04-04 00:26:53,649 - lightrag - INFO - Query nodes: 무면허 운전, 형사합의금 지급 조건, 보험 약관, top_k: 10, cosine: 0.2
+2025-04-04 00:26:53,718 - lightrag - INFO - Query edges: 무면허 사고, 형사합의금, 보험금 지급, top_k: 10, cosine: 0.2
+2025-04-04 00:26:54,344 - lightrag - INFO - Global query uses 14 entites, 10 relations, 3 chunks
+2025-04-04 00:26:54,777 - lightrag - INFO - Local query uses 10 entites, 22 relations, 3 chunks
+2025-04-04 00:26:57,122 - lightrag - INFO - Process 13098 KV writting 397 records to llm_response_cache
+2025-04-04 00:26:57,192 - uvicorn.access - INFO - 127.0.0.1:39494 - "POST /query/stream HTTP/1.1" 200
+2025-04-04 00:28:10,823 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:28:10,823 - lightrag - INFO - Process 13098 buidling query context...
+2025-04-04 00:28:10,823 - lightrag - INFO - Query nodes: 무면허 사고, 형사합의금 지급 여부, 무면허 운전 사고, 보험금 지급 제외, top_k: 10, cosine: 0.2
+2025-04-04 00:28:10,891 - lightrag - INFO - Query edges: 보험금 지급 제외사유, 무면허 운전, 형사합의금, top_k: 10, cosine: 0.2
+2025-04-04 00:28:11,515 - lightrag - INFO - Global query uses 13 entites, 10 relations, 3 chunks
+2025-04-04 00:28:11,916 - lightrag - INFO - Local query uses 10 entites, 19 relations, 3 chunks
+2025-04-04 00:28:13,985 - lightrag - INFO - Process 13098 KV writting 398 records to llm_response_cache
+2025-04-04 00:28:14,086 - uvicorn.access - INFO - 127.0.0.1:38514 - "POST /query/stream HTTP/1.1" 200
+2025-04-04 00:29:19,027 - uvicorn.access - INFO - 10.1.1.10:14898 - "GET /query HTTP/1.1" 405
+2025-04-04 00:29:22,140 - uvicorn.access - INFO - 10.1.1.10:38490 - "GET / HTTP/1.1" 307
+2025-04-04 00:29:22,149 - uvicorn.access - INFO - 10.1.1.10:38490 - "GET /webui HTTP/1.1" 307
+2025-04-04 00:29:23,175 - uvicorn.access - INFO - 10.1.1.10:38490 - "GET /docs HTTP/1.1" 200
+2025-04-04 00:29:23,213 - uvicorn.access - INFO - 10.1.1.10:56907 - "GET /graph/label/list HTTP/1.1" 200
+2025-04-04 00:29:23,215 - uvicorn.access - INFO - 10.1.1.10:54457 - "GET /auth-status HTTP/1.1" 200
+2025-04-04 00:29:23,318 - lightrag - INFO - Reduced graph from 1590 nodes to 1000 nodes (depth=3)
+2025-04-04 00:29:23,348 - lightrag - INFO - Subgraph query successful | Node count: 1000 | Edge count: 1136
+2025-04-04 00:29:23,431 - uvicorn.access - INFO - 10.1.1.10:54457 - "GET /graphs?label=*&max_depth=3&min_degree=0 HTTP/1.1" 200
+2025-04-04 00:29:23,516 - uvicorn.access - INFO - 10.1.1.10:56907 - "GET /openapi.json HTTP/1.1" 200
+2025-04-04 00:29:36,665 - uvicorn.access - INFO - 10.1.1.10:6252 - "GET / HTTP/1.1" 200
+2025-04-04 00:29:36,691 - uvicorn.access - INFO - 10.1.1.10:6252 - "GET /assets/index-raheqJeu.js HTTP/1.1" 200
+2025-04-04 00:29:36,699 - uvicorn.access - INFO - 10.1.1.10:24107 - "GET /assets/index-CD5HxTy1.css HTTP/1.1" 200
+2025-04-04 00:29:37,536 - uvicorn.access - INFO - 10.1.1.10:24107 - "GET /logo.png HTTP/1.1" 200
+2025-04-04 00:29:37,541 - uvicorn.access - INFO - 10.1.1.10:6252 - "GET /auth-status HTTP/1.1" 200
+2025-04-04 00:29:38,117 - uvicorn.access - INFO - 10.1.1.10:24107 - "GET /graph/label/list HTTP/1.1" 200
+2025-04-04 00:29:38,137 - uvicorn.access - INFO - 10.1.1.10:21088 - "GET /docs HTTP/1.1" 200
+2025-04-04 00:29:38,184 - lightrag - INFO - Reduced graph from 1590 nodes to 1000 nodes (depth=3)
+2025-04-04 00:29:38,206 - lightrag - INFO - Subgraph query successful | Node count: 1000 | Edge count: 1136
+2025-04-04 00:29:38,271 - uvicorn.access - INFO - 10.1.1.10:24107 - "GET /graphs?label=*&max_depth=3&min_degree=0 HTTP/1.1" 200
+2025-04-04 00:29:38,407 - uvicorn.access - INFO - 10.1.1.10:23084 - "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404
+2025-04-04 00:29:38,410 - uvicorn.access - INFO - 10.1.1.10:56948 - "GET /apple-touch-icon.png HTTP/1.1" 404
+2025-04-04 00:29:38,410 - uvicorn.access - INFO - 10.1.1.10:40514 - "GET /favicon.ico HTTP/1.1" 404
+2025-04-04 00:29:38,412 - uvicorn.access - INFO - 10.1.1.10:5475 - "GET /logo.png HTTP/1.1" 200
+2025-04-04 00:29:38,485 - uvicorn.access - INFO - 10.1.1.10:6252 - "GET /openapi.json HTTP/1.1" 200
+2025-04-04 00:29:44,407 - uvicorn.access - INFO - 10.1.1.10:14802 - "GET / HTTP/1.1" 200
+2025-04-04 00:29:44,421 - uvicorn.access - INFO - 10.1.1.10:14802 - "GET /assets/index-raheqJeu.js HTTP/1.1" 200
+2025-04-04 00:29:44,424 - uvicorn.access - INFO - 10.1.1.10:7178 - "GET /assets/index-CD5HxTy1.css HTTP/1.1" 200
+2025-04-04 00:29:45,235 - uvicorn.access - INFO - 10.1.1.10:14802 - "GET /auth-status HTTP/1.1" 200
+2025-04-04 00:29:45,237 - uvicorn.access - INFO - 10.1.1.10:7178 - "GET /logo.png HTTP/1.1" 200
+2025-04-04 00:29:45,692 - uvicorn.access - INFO - 10.1.1.10:7178 - "GET /docs HTTP/1.1" 200
+2025-04-04 00:29:45,707 - uvicorn.access - INFO - 10.1.1.10:7178 - "GET /graph/label/list HTTP/1.1" 200
+2025-04-04 00:29:45,751 - lightrag - INFO - Reduced graph from 1590 nodes to 1000 nodes (depth=3)
+2025-04-04 00:29:45,783 - lightrag - INFO - Subgraph query successful | Node count: 1000 | Edge count: 1136
+2025-04-04 00:29:45,865 - uvicorn.access - INFO - 10.1.1.10:7178 - "GET /graphs?label=*&max_depth=3&min_degree=0 HTTP/1.1" 200
+2025-04-04 00:29:45,927 - uvicorn.access - INFO - 10.1.1.10:14802 - "GET /openapi.json HTTP/1.1" 200
+2025-04-04 00:30:50,012 - lightrag - INFO - Process 13098 buidling query context...
+2025-04-04 00:30:50,012 - lightrag - INFO - Query nodes: 무면허 운전, 형사합의금 지급 조건, 보험 약관, top_k: 10, cosine: 0.2
+2025-04-04 00:30:50,076 - lightrag - INFO - Query edges: 무면허 사고, 형사합의금, 보험금 지급, top_k: 10, cosine: 0.2
+2025-04-04 00:30:50,683 - lightrag - INFO - Local query uses 10 entites, 22 relations, 3 chunks
+2025-04-04 00:30:51,137 - lightrag - INFO - Global query uses 14 entites, 10 relations, 3 chunks
+2025-04-04 00:30:53,103 - uvicorn.access - INFO - 10.1.1.10:34532 - "POST /query/stream HTTP/1.1" 200
+2025-04-04 00:32:08,636 - uvicorn.access - INFO - 127.0.0.1:56516 - "POST /query HTTP/1.1" 200
+2025-04-04 00:32:23,089 - uvicorn.access - INFO - 127.0.0.1:43178 - "POST /query HTTP/1.1" 200
+2025-04-04 00:33:24,952 - lightrag - INFO - Process 13098 buidling query context...
+2025-04-04 00:33:24,952 - lightrag - INFO - Query nodes: 무면허 사고, 형사합의금 지급 여부, 무면허 운전 사고, 보험금 지급 제외, top_k: 60, cosine: 0.2
+2025-04-04 00:33:25,016 - lightrag - INFO - Query edges: 보험금 지급 제외사유, 무면허 운전, 형사합의금, top_k: 60, cosine: 0.2
+2025-04-04 00:33:26,166 - lightrag - INFO - Global query uses 52 entites, 60 relations, 3 chunks
+2025-04-04 00:33:26,168 - lightrag - INFO - Local query uses 60 entites, 42 relations, 3 chunks
+2025-04-04 00:33:32,149 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:33:32,150 - lightrag - INFO - Process 13098 KV writting 399 records to llm_response_cache
+2025-04-04 00:33:32,216 - uvicorn.access - INFO - 127.0.0.1:51510 - "POST /query HTTP/1.1" 200
+2025-04-04 00:34:17,709 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:34:17,710 - lightrag - INFO - Process 13098 buidling query context...
+2025-04-04 00:34:17,710 - lightrag - INFO - Query nodes: Legal representation, Insurance policy, Contract terms, Cost recovery, top_k: 60, cosine: 0.2
+2025-04-04 00:34:17,777 - lightrag - INFO - Query edges: Car accident, Not guilty verdict, Attorney fees, top_k: 60, cosine: 0.2
+2025-04-04 00:34:18,811 - lightrag - INFO - Global query uses 43 entites, 60 relations, 3 chunks
+2025-04-04 00:34:18,866 - lightrag - INFO - Local query uses 60 entites, 21 relations, 3 chunks
+2025-04-04 00:34:24,795 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:34:24,795 - lightrag - INFO - Process 13098 KV writting 401 records to llm_response_cache
+2025-04-04 00:34:24,882 - uvicorn.access - INFO - 127.0.0.1:39014 - "POST /query HTTP/1.1" 200
+2025-04-04 00:35:57,828 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:35:57,829 - lightrag - INFO - Process 13098 buidling query context...
+2025-04-04 00:35:57,829 - lightrag - INFO - Query edges: Insurance premium payment, Policy termination, top_k: 60, cosine: 0.2
+2025-04-04 00:35:58,930 - lightrag - INFO - Global query uses 32 entites, 60 relations, 3 chunks
+2025-04-04 00:36:04,673 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:36:04,673 - lightrag - INFO - Process 13098 KV writting 403 records to llm_response_cache
+2025-04-04 00:36:04,777 - uvicorn.access - INFO - 127.0.0.1:45770 - "POST /query HTTP/1.1" 200
+2025-04-04 00:36:28,363 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:36:28,364 - lightrag - INFO - Process 13098 buidling query context...
+2025-04-04 00:36:28,364 - lightrag - INFO - Query nodes: Policy expiration, Claims process, Policy renewal, Policy cancellation, Coverage details, top_k: 60, cosine: 0.2
+2025-04-04 00:36:28,456 - lightrag - INFO - Query edges: Insurance policy, Premium payment period, Policy termination, top_k: 60, cosine: 0.2
+2025-04-04 00:36:29,513 - lightrag - INFO - Local query uses 60 entites, 27 relations, 3 chunks
+2025-04-04 00:36:29,559 - lightrag - INFO - Global query uses 36 entites, 60 relations, 3 chunks
+2025-04-04 00:36:37,235 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:36:37,236 - lightrag - INFO - Process 13098 KV writting 405 records to llm_response_cache
+2025-04-04 00:36:37,306 - uvicorn.access - INFO - 127.0.0.1:56512 - "POST /query HTTP/1.1" 200
+2025-04-04 00:40:30,623 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:40:30,623 - lightrag - INFO - Process 13098 buidling query context...
+2025-04-04 00:40:30,623 - lightrag - INFO - Query nodes: 무면허 사고, 무죄 판결, 변호사 선임비용, 중대법규위반 교통사고, 약관 확인, top_k: 10, cosine: 0.2
+2025-04-04 00:40:30,709 - lightrag - INFO - Query edges: 보험금 지급 제외사유, 교통사고 처리 지원금, 벌금 보장, 중복 지급, top_k: 10, cosine: 0.2
+2025-04-04 00:40:31,763 - lightrag - INFO - Global query uses 13 entites, 10 relations, 3 chunks
+2025-04-04 00:40:31,860 - lightrag - INFO - Local query uses 10 entites, 29 relations, 3 chunks
+2025-04-04 00:40:34,108 - lightrag - INFO - Process 13098 KV writting 406 records to llm_response_cache
+2025-04-04 00:40:34,195 - uvicorn.access - INFO - 127.0.0.1:40126 - "POST /query/stream HTTP/1.1" 200
+2025-04-04 00:45:39,989 - lightrag - INFO - Process 13098 buidling query context...
+2025-04-04 00:45:39,989 - lightrag - INFO - Query nodes: 무면허 사고, 무죄 판결, 변호사 선임비용, 중대법규위반 교통사고, 약관 확인, top_k: 10, cosine: 0.2
+2025-04-04 00:45:40,053 - lightrag - INFO - Query edges: 보험금 지급 제외사유, 교통사고 처리 지원금, 벌금 보장, 중복 지급, top_k: 10, cosine: 0.2
+2025-04-04 00:45:41,106 - lightrag - INFO - Local query uses 10 entites, 29 relations, 3 chunks
+2025-04-04 00:45:41,175 - lightrag - INFO - Global query uses 13 entites, 10 relations, 3 chunks
+2025-04-04 00:45:43,311 - uvicorn.access - INFO - 10.1.1.10:55745 - "POST /query/stream HTTP/1.1" 200
+2025-04-04 00:47:51,110 - uvicorn.access - INFO - 10.1.1.10:26234 - "POST /query HTTP/1.1" 422
+2025-04-04 00:47:51,715 - uvicorn.access - INFO - 10.1.1.10:62185 - "POST /query HTTP/1.1" 422
+2025-04-04 00:51:10,031 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-04-04 00:51:10,031 - lightrag - INFO - Process 13098 buidling query context...
+2025-04-04 00:51:10,031 - lightrag - INFO - Query nodes: 음주운전 사고, 치료비 보장, 보험금 지급 제외사유, 음주운전 벌금, top_k: 10, cosine: 0.2
+2025-04-04 00:51:10,138 - lightrag - INFO - Query edges: 음주운전, 교통사고, 치료비 지급, 보험금, top_k: 10, cosine: 0.2
+2025-04-04 00:51:11,147 - lightrag - INFO - Local query uses 10 entites, 25 relations, 3 chunks
+2025-04-04 00:51:11,191 - lightrag - INFO - Global query uses 15 entites, 10 relations, 3 chunks
+2025-04-04 00:51:13,494 - lightrag - INFO - Process 13098 KV writting 407 records to llm_response_cache
+2025-04-04 00:51:13,563 - uvicorn.access - INFO - 10.1.1.10:48385 - "POST /query/stream HTTP/1.1" 200
+2025-04-04 07:21:46,292 - uvicorn.access - INFO - 127.0.0.1:55934 - "GET / HTTP/1.1" 307
+2025-04-04 07:21:46,357 - uvicorn.access - INFO - 127.0.0.1:55934 - "GET /webui HTTP/1.1" 307
+2025-04-04 07:21:46,379 - uvicorn.access - INFO - 127.0.0.1:55934 - "GET / HTTP/1.1" 200
+2025-04-04 07:21:46,428 - uvicorn.access - INFO - 127.0.0.1:55934 - "GET /assets/index-raheqJeu.js HTTP/1.1" 200
+2025-04-04 07:21:46,430 - uvicorn.access - INFO - 127.0.0.1:55936 - "GET /assets/index-CD5HxTy1.css HTTP/1.1" 200
+2025-04-04 07:21:47,924 - uvicorn.access - INFO - 127.0.0.1:55934 - "GET /docs HTTP/1.1" 200
+2025-04-04 07:21:47,980 - uvicorn.access - INFO - 127.0.0.1:55934 - "GET /auth-status HTTP/1.1" 200
+2025-04-04 07:21:47,982 - uvicorn.access - INFO - 127.0.0.1:55936 - "GET /graph/label/list HTTP/1.1" 401
+2025-04-04 07:21:48,115 - lightrag - INFO - Reduced graph from 1590 nodes to 1000 nodes (depth=3)
+2025-04-04 07:21:48,151 - lightrag - INFO - Subgraph query successful | Node count: 1000 | Edge count: 1136
+2025-04-04 07:21:48,224 - uvicorn.access - INFO - 127.0.0.1:55936 - "GET /graphs?label=*&max_depth=3&min_degree=0 HTTP/1.1" 200
+2025-04-04 07:21:48,231 - uvicorn.access - INFO - 127.0.0.1:55934 - "GET /auth-status HTTP/1.1" 200
+2025-04-04 07:21:48,687 - uvicorn.access - INFO - 127.0.0.1:55936 - "GET /docs HTTP/1.1" 200
+2025-04-04 07:21:49,166 - lightrag - INFO - Reduced graph from 1590 nodes to 1000 nodes (depth=3)
+2025-04-04 07:21:49,181 - lightrag - INFO - Subgraph query successful | Node count: 1000 | Edge count: 1136
+2025-04-04 07:21:49,246 - uvicorn.access - INFO - 127.0.0.1:55936 - "GET /graphs?label=*&max_depth=3&min_degree=0 HTTP/1.1" 200
+2025-04-04 07:21:49,995 - uvicorn.access - INFO - 127.0.0.1:55936 - "GET /openapi.json HTTP/1.1" 200
+2025-04-04 07:22:07,898 - uvicorn.access - INFO - 10.1.1.10:4907 - "GET / HTTP/1.1" 200
+2025-04-04 07:22:08,068 - uvicorn.access - INFO - 10.1.1.10:4907 - "GET /assets/index-raheqJeu.js HTTP/1.1" 200
+2025-04-04 07:22:08,079 - uvicorn.access - INFO - 10.1.1.10:44842 - "GET /assets/index-CD5HxTy1.css HTTP/1.1" 200
+2025-04-04 07:22:09,544 - uvicorn.access - INFO - 10.1.1.10:4907 - "GET /auth-status HTTP/1.1" 200
+2025-04-04 07:22:09,545 - uvicorn.access - INFO - 10.1.1.10:44842 - "GET /logo.png HTTP/1.1" 200
+2025-04-04 07:22:10,303 - uvicorn.access - INFO - 10.1.1.10:44842 - "GET /docs HTTP/1.1" 200
+2025-04-04 07:22:10,343 - uvicorn.access - INFO - 10.1.1.10:4907 - "GET /graph/label/list HTTP/1.1" 200
+2025-04-04 07:22:10,436 - lightrag - INFO - Reduced graph from 1590 nodes to 1000 nodes (depth=3)
+2025-04-04 07:22:10,468 - lightrag - INFO - Subgraph query successful | Node count: 1000 | Edge count: 1136
+2025-04-04 07:22:10,583 - uvicorn.access - INFO - 10.1.1.10:4907 - "GET /graphs?label=*&max_depth=3&min_degree=0 HTTP/1.1" 200
+2025-04-04 07:22:11,433 - uvicorn.access - INFO - 10.1.1.10:4907 - "GET /openapi.json HTTP/1.1" 200
