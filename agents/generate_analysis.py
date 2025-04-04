@@ -78,17 +78,16 @@ def analyze_conversation(user_info, conversation_log):
     return analysis.content.strip()
 
 # Function to process all files in the provided directory
-def process_conversation_logs(directory):
+def process_conversation_logs(json_files_list):
     reports = []
     
-    for filename in os.listdir(directory):
+    for filename in json_files_list:
         if filename.endswith(".json"):
-            filepath = os.path.join(directory, filename)
-            
+            filepath = filename
             # Read JSON file
             with open(filepath, 'r', encoding='utf-8') as file:
                 log_data = json.load(file)
-            
+
             # Extract user information and conversation logs
             user_info = log_data['user_info']
             conversation_log = '\n'.join([f"Turn {turn['turn']}: {turn['user_reply']} -> {turn['agent_response']}" for turn in log_data['turns']])
@@ -102,40 +101,56 @@ def process_conversation_logs(directory):
             # Parse the analysis JSON string into a Python dictionary
             try:
                 analysis_data = json.loads(analysis)
-                report = {
+                final_report = {
                     "상담자의 전반적인 성과": analysis_data.get("상담자의 전반적인 성과", "N/A"),
                     "대화가 실패한 이유": analysis_data.get("대화가 실패한 이유", "N/A"),
                     "개선을 위한 제안": analysis_data.get("개선을 위한 제안", "N/A"),
                     "대화의 효과성 및 설득 전략 분석": analysis_data.get("대화의 효과성 및 설득 전략 분석", "N/A"),
                     "사용자 만족도 추정": analysis_data.get("사용자 만족도 추정", "N/A"),
-                    # "conversation_log": conversation_log  # Include full conversation log for reference
+                    "conversation_log": conversation_log  # Include full conversation log for reference
                 }
+                log_data['final_report'] = final_report
+                with open(filepath, "w", encoding="utf-8") as updated_file:
+                    json.dump(log_data, updated_file, ensure_ascii=False, indent=4)
+                    
+                reports.append(final_report)
             except json.JSONDecodeError:
                 report = {
                     "error": "Failed to parse analysis JSON",
                     "raw_analysis": analysis,
                     "conversation_log": conversation_log
                 }
-
-            reports.append(report)
-    
+                log_data['final_report'] = report
+                with open(filepath, "w", encoding="utf-8") as updated_file:
+                    json.dump(log_data, updated_file, ensure_ascii=False, indent=4)
+                
+                reports.append(report)
     return reports
 
 # Function to generate a final report in JSON format
 def generate_report(directory):
-    reports = process_conversation_logs(directory)
+    # Ensure the directory exists
+    if not os.path.isdir(directory):
+        raise FileNotFoundError(f"The directory '{directory}' does not exist.")
+    
+    # List all JSON files in the directory
+    json_files = [os.path.join(directory, file) for file in os.listdir(directory) if file.endswith(".json")]
+    reports = process_conversation_logs(json_files)
     
     # Output the analysis as JSON
+    # Optionally, save the report to a file
     final_report = json.dumps(reports, ensure_ascii=False, indent=4)
+
     return final_report
 
-# Example usage
-directory_path = "./agents/results"
-final_report = generate_report(directory_path)
+if __name__ == "__main__":
+    # Example usage
+    directory_path = os.getenv("RESULT_PATH")
 
-# Print the final report
-print(final_report)
+    final_report = generate_report(directory_path)
 
-# Optionally, save the report to a file
-with open("conversation_analysis_report.json", "w", encoding="utf-8") as report_file:
-    report_file.write(final_report)
+    # Print the final report
+    print(final_report)
+    with open(f"{directory_path}_conversation_analysis_report.json", "w", encoding="utf-8") as report_file:
+        report_file.write(final_report)
+    

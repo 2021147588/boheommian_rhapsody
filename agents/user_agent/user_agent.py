@@ -3,8 +3,9 @@ from langchain.prompts import ChatPromptTemplate, SystemMessagePromptTemplate, H
 from langchain.schema.runnable import Runnable
 from dotenv import load_dotenv
 import os
-
-from backend.view import UserInfo
+import json
+import re
+from app.view import UserInfo
 
 load_dotenv()
 
@@ -101,28 +102,28 @@ class UserAgent:
 
     def predict_personality(self) -> dict:
         """성향을 예측하는 메소드"""
-        
+
         user_info_summary = f"""
-            사용자 정보:
-            - 이름: {self.user.name}
-            - 운전 경력: {self.user.driving_experience_years}년
-            - 사고 이력: {"있음" if self.user.accident_history else "없음"}
-            - 거주 지역: {self.user.region}
-            - 직업: {self.user.job}
-            - 취미: {self.user.hobby}
-            - 운전 스타일: {self.user.driving_style}
-            - 사고 이력 정보: {self.user.accident_history_info}
-            - 보험 성향: {self.user.insurance_tendency}
-            - 기본 옵션 기대: {self.user.basic_option_expectation}
-            - 예상 보험 등급: {self.user.expected_insurance_grade}
-            - 추가 참고사항: {self.user.additional_notes}
-            - 차량 사고 이력: {"있음" if self.vehicle.accident_history else "없음"}
-            - 차량 가치: {self.vehicle.market_value}원
+        사용자 정보:
+        - 이름: {self.user.name}
+        - 운전 경력: {self.user.driving_experience_years}년
+        - 사고 이력: {"있음" if self.user.accident_history else "없음"}
+        - 거주 지역: {self.user.region}
+        - 직업: {self.user.job}
+        - 취미: {self.user.hobby}
+        - 운전 스타일: {self.user.driving_style}
+        - 사고 이력 정보: {self.user.accident_history_info}
+        - 보험 성향: {self.user.insurance_tendency}
+        - 기본 옵션 기대: {self.user.basic_option_expectation}
+        - 예상 보험 등급: {self.user.expected_insurance_grade}
+        - 추가 참고사항: {self.user.additional_notes}
+        - 차량 사고 이력: {"있음" if self.vehicle.accident_history else "없음"}
+        - 차량 가치: {self.vehicle.market_value}원
         """
-        
+
         personality_prompt = f"""
         아래의 사용자 정보를 바탕으로 **운전 습관**, **재정 상태**, **위험 수용 능력**을 예측하세요.
-        성향을 예측할 때, 다음 정보들을 종합적으로 고려하여 예측을 진행해주세요:
+         성향을 예측할 때, 다음 정보들을 종합적으로 고려하여 예측을 진행해주세요:
 
         1. **운전 습관**: 
            - 운전 스타일 정보
@@ -159,31 +160,53 @@ class UserAgent:
            - 사고 이력이 있으면 위험 수용 능력이 높을 수 있음
            - "확장된 보장"을 선호하면 위험 수용 능력이 높음
            - 운전 스타일이 과속/급제동을 포함하면 위험 수용 능력이 높음
+           
+        반드시 다음 JSON 형식으로만 출력하세요:
 
+        ```json
+        {{
+        "predicted_drive_habit": "...",
+        "predicted_financial_status": "...",
+        "predicted_risk_tolerance": "..."
+        }}
+        ```
+
+        - 각 항목은 1~2문장으로 설명해 주세요.
+        - JSON 이외의 문장이나 주석은 포함하지 마세요.
+        - 정보를 바탕으로 판단할 수 없는 경우, 해당 항목의 값을 반드시 "N/A"로 설정하세요.
         ### 사용자 정보
         {user_info_summary}
         """
 
-        # 성향 예측을 실행하여 결과를 반환
-        response = self.llm.invoke(personality_prompt)
-        predictions = response.content.strip().split("\n")[2:]
-        
-        self.user.predicted_drive_habit =  predictions[0].strip() if len(predictions) > 0 else "운전 습관 정보 없음"
-        self.user.predicted_financial_status =  predictions[1].strip() if len(predictions) > 1 else "재정 상태 정보 없음"
-        self.user.predicted_risk_tolerance = predictions[2].strip() if len(predictions) > 2 else "위험 수용 능력 정보 없음"
-        # 성향 예측 결과를 딕셔너리 형태로 파싱
-        personality = {
-            "predicted_drive_habit": self.user.predicted_drive_habit,
-            "predicted_financial_status": self.user.predicted_financial_status, 
-            "predicted_risk_tolerance": self.user.predicted_risk_tolerance
-        }
-        
-        print("=== 성향 예측 결과 ===")
-        print(f"운전 습관: {personality['predicted_drive_habit']}")
-        print(f"재정 상태: {personality['predicted_financial_status']}")
-        print(f"위험 수용 능력: {personality['predicted_risk_tolerance']}")
-        print("==================")
-        return personality
+        try:
+            # LLM에 요청
+            response = self.llm.invoke(personality_prompt)
+            # JSON 파싱 시도
+            match = re.search(r"```json\s*(\{.*?\})\s*```", response.content, re.DOTALL)
+            if not match:
+                raise ValueError("No JSON code block found")
+
+            json_str = match.group(1)
+            predictions = json.loads(json_str)
+
+            # 예측 결과를 User 객체에 저장
+            self.user.predicted_drive_habit = predictions.get("predicted_drive_habit", "운전 습관 정보 없음")
+            self.user.predicted_financial_status = predictions.get("predicted_financial_status", "재정 상태 정보 없음")
+            self.user.predicted_risk_tolerance = predictions.get("predicted_risk_tolerance", "위험 수용 능력 정보 없음")
+    
+            return predictions
+
+        except (json.JSONDecodeError, AttributeError, KeyError) as e:
+            print(f"성향 예측 실패: {e}")
+            self.user.predicted_drive_habit = "운전 습관 정보 없음"
+            self.user.predicted_financial_status = "재정 상태 정보 없음"
+            self.user.predicted_risk_tolerance = "위험 수용 능력 정보 없음"
+
+            return {
+                "predicted_drive_habit": self.user.predicted_drive_habit,
+                "predicted_financial_status": self.user.predicted_financial_status,
+                "predicted_risk_tolerance": self.user.predicted_risk_tolerance
+            }
 
     def update_system_prompt(self) -> str:
         """성향 예측 결과를 포함한 시스템 프롬프트를 동적으로 생성"""
