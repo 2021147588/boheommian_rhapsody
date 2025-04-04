@@ -70,7 +70,6 @@ class GraphRAGAgent(AdvancedBaseAgent):
         """
         **[핵심 정보 검색 도구] 사용자가 개념, 관계, 사실 정보 등에 대해 질문할 때 사용합니다.**
         이 도구는 GraphDB에서 관련 정보를 검색하고, 그 내용을 바탕으로 답변을 생성합니다.
-        예: '피타고라스의 정리는 무엇인가요?', '인공지능과 머신러닝의 차이점은?', '양자 컴퓨팅이란 무엇인가요?'
         """
         # 도구 호출 시 명확한 로그 추가
         print(f"\n--- [Graph RAG Agent Tool Execution Start: search_graph] ---")
