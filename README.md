@@ -10,20 +10,24 @@ This project aims to simulate personalized insurance recommendation conversation
 - ✅ **Graph + Vector Hybrid RAG**: Integrates LightRAG with Upstage Embedding API and GraphDB for insurance document retrieval.
 
 ### 🖼️ Demo / Screenshots
-![screenshot](./assets/screenshot.png)
+![screenshot](./assets/analysis.png)
 
-> Optional: [Demo Video](https://youtu.be/example)
+![screenshot](./assets/conversation_log.png)
+
+![screenshot](./assets/dashboard.png)
+
+![screenshot](./assets/run_simulation.png)
 
 ---
 
 ### 🧩 Tech Stack
 - **Frontend**: HTML/CSS, JS (served from FastAPI static files)
 - **Backend**: Python (FastAPI)
-- **Database**: MongoDB (cloud), ChromaDB (local vector DB)
+- **Database**: MongoDB (cloud), ChromaDB (local vector DB), GraphDB
 - **Others**:
   - OpenAI API (Chat-based simulation)
   - Upstage API (Document embedding & parsing)
-  - LangChain (Agent orchestration)
+  - LangChain (User Agent orchestration)
   - LightRAG (Hybrid RAG engine)
 
 ---
