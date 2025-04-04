@@ -173,4 +173,3 @@ lightrag-server --input-dir ./processed --working-dir ./my_server_data --auto-sc
 
 ---
 
-Let me know if you'd like a diagram, architecture overview, or usage examples added!
