@@ -259,7 +259,6 @@ class AgentConversation:
                 
         return {
             "user_name": self.user_info.user.name,
-            "success": self.success,
             "dialogue": exchanges
         }
     
