@@ -28,7 +28,8 @@ Upstage X YBIGTA Hackathon Project
 
 - To run the code:
     ```bash
-    export PYTHONPATH= **/your/local/path/to/boheommian_rhapsody** # example: /Users/happy/Desktop/boheommian_rhapsody/ 
+    export PYTHONPATH= **/your/local/path/to/boheommian_rhapsody**
+    # example: /Users/happy/Desktop/boheommian_rhapsody/ 
     cd backend
     python main.py
     ```
