@@ -233,7 +233,7 @@ More info: https://github.com/HKUDS/LightRAG
 
 | Name     | Role                    | GitHub                                |
 |----------|-------------------------|---------------------------------------|
-| 문찬우   | Team Lead & GraphDB     | [@urbanking](https://github.com/urbanking) |
+| 문찬우   | Team Lead & GraphDB/Rag     | [@urbanking](https://github.com/urbanking) |
 | 정다연   | App & LLM Workflow & User Agent Modeling    | [@dayeon86](https://github.com/2021147588) |
 | 고정훈   | LLM Workflow & Planner Agent Modeling  | [@hoonestly](https://github.com/hoonestly)       |
 | 김성환   | Planner Agent Modeling & Conversation Analysis | [@seongmin-k](https://github.com/happysnail06) |
