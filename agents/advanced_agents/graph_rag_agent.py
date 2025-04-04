@@ -11,7 +11,7 @@ load_dotenv()
 class GraphRAGAgent(AdvancedBaseAgent):
     def __init__(self):
         # GraphDB API 엔드포인트 설정
-        self.graphdb_endpoint = os.environ.get("GRAPHDB_ENDPOINT", "http://165.132.46.89:32133/query")
+        self.graphdb_endpoint = os.environ.get("GRAPHDB_ENDPOINT")
         
         # OpenAI 클라이언트 초기화 (LLM 호출용)
         self.openai_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
@@ -48,7 +48,15 @@ class GraphRAGAgent(AdvancedBaseAgent):
                 "query": query,
                 "mode": mode
             }
-            
+            headers = {
+                "Content-Type": "application/json"
+            }
+            response = requests.post(self.url, json=payload, headers=headers)
+            response.raise_for_status()  # 오류 발생 시 예외 처리
+
+            print("응답 내용:")
+            print(response.json())
+
             response = requests.post(self.graphdb_endpoint, json=payload)
             
             if response.status_code == 200:
