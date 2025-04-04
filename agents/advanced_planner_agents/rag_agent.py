@@ -62,7 +62,7 @@ class AdvancedRAGAgent(AdvancedBaseAgent):
     def __init__(self):
         # ChromaDB 설정
         self.collection_name = "insurance_docs_v2"
-        self.db_path = "./vector_db"
+        self.db_path = 'C:/Users/woorifill hafs.kr/Documents/GitHub/boheommian_rhapsody/database/vector_db'
 
         # Upstage 임베딩 모델 인스턴스 생성
         try:

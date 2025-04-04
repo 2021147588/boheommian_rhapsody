@@ -6,7 +6,7 @@ import os
 import datetime
 
 class AgentConversation:
-    def __init__(self, user_info: UserInfo, max_turns: int = 1):
+    def __init__(self, user_info: UserInfo, max_turns: int = 10):
         self.user_agent = UserAgent(user_info)
         self.orchestrator = AdvancedOrchestrator()
         self.chat_log = []

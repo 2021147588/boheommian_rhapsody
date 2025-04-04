@@ -1,4 +1,6 @@
 from agents.advanced_planner_agents.advanced_base_agent import AdvancedBaseAgent
+from agents.advanced_planner_agents.graph_rag_agent import GraphRAGAgent
+
 import os
 import json
 from openai import OpenAI
@@ -402,5 +404,4 @@ class AdvancedRecommendationAgent(AdvancedBaseAgent):
         """
         고객이 보장 내용 등 약관에 대한 상세 정보를 원할 때 RAG 에이전트로 전환합니다.
         """
-        from agents.advanced_planner_agents.rag_agent import AdvancedRAGAgent
-        return AdvancedRAGAgent() 
+        return GraphRAGAgent() 
