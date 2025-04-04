@@ -105,7 +105,6 @@ git clone https://github.com/2021147588/boheommian_rhapsody.git
 cd boheommian_rhapsody
 
 # 2. Switch to dev branch and install dependencies
-git switch dev
 pip install -r requirements.txt
 
 # 3. Create .env file (see .env.template for guidance)
