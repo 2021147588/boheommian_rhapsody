@@ -1,4 +1,4 @@
-from agents.advanced_orchestrator import AdvancedOrchestrator
+from agents.advanced_planner_agents.advanced_orchestrator import AdvancedOrchestrator
 from agents.user_agent.user_agent import UserAgent
 from app.view import *
 import json

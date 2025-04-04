@@ -1,28 +1,14 @@
 import os
 import json
 import openai
-import dotenv
-from langchain.chat_models import ChatOpenAI
-from langchain.prompts import PromptTemplate
-from langchain.chains import LLMChain
 from dotenv import load_dotenv
+from langchain_community.chat_models import ChatOpenAI
+from langchain.prompts import PromptTemplate
+
 load_dotenv()
 # Set OpenAI API key (if not set in environment)
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-import os
-import json
-import openai
-from dotenv import load_dotenv
-from langchain_community.chat_models import ChatOpenAI  # Updated import
-from langchain.prompts import PromptTemplate
-from langchain.schema.runnable import RunnableSequence  # For updated LLMChain functionality
-
-# Load environment variables from .env file
-load_dotenv()
-
-# Set OpenAI API key from environment
-openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # Define the function to call LangChain to analyze conversation
 def analyze_conversation(user_info, conversation_log):
