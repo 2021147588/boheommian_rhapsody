@@ -37,7 +37,7 @@ class AdvancedOrchestrator:
         
         # 메시지 목록에 사용자 메시지 추가
         self.messages.append({"role": "user", "content": message})
-        # breakpoint()
+        
         
         # 현재 활성 에이전트 확인
         if self.active_agent_name is None:

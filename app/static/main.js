@@ -745,46 +745,70 @@ function updateChatMessages(conversation) {
     const chatMessages = document.getElementById('chat-messages');
     chatMessages.innerHTML = '';
     
-    conversation.turns.forEach(turn => {
-        // Add agent message
-        if (turn.agent_response) {
-            const agentMessage = document.createElement('div');
-            agentMessage.className = 'message agent';
-            
-            const sender = document.createElement('div');
-            sender.className = 'sender';
-            sender.textContent = `${turn.current_agent} 에이전트`;
-            
-            const content = document.createElement('div');
-            content.className = 'content';
-            content.textContent = turn.agent_response;
-            
-            agentMessage.appendChild(sender);
-            agentMessage.appendChild(content);
-            chatMessages.appendChild(agentMessage);
-        }
+    // 첫 번째 턴 처리 - 사용자 메시지가 먼저 와야 함
+    if (conversation.turns.length > 0) {
+        const firstTurn = conversation.turns[0];
         
-        // Add user message
-        if (turn.user_reply) {
-            const userMessage = document.createElement('div');
-            userMessage.className = 'message user';
+        // 첫 번째 턴의 사용자 메시지 표시
+        // if (firstTurn.user_reply) {
+        //     addUserMessage(chatMessages, firstTurn.user_reply);
+        // }
+        
+        // // 첫 번째 턴의 에이전트 응답 표시
+        // if (firstTurn.agent_response) {
+        //     addAgentMessage(chatMessages, firstTurn.agent_response, firstTurn.current_agent);
+        // }
+        
+        // 두 번째 턴부터 처리 - 에이전트 응답 후 사용자 응답 순서
+        for (let i = 0; i < conversation.turns.length; i++) {
+            const turn = conversation.turns[i];
             
-            const sender = document.createElement('div');
-            sender.className = 'sender';
-            sender.textContent = '고객';
+            // 사용자 응답 표시
+            addUserMessage(chatMessages, turn.user_reply);
             
-            const content = document.createElement('div');
-            content.className = 'content';
-            content.textContent = turn.user_reply;
+            addAgentMessage(chatMessages, turn.agent_response, turn.current_agent);
             
-            userMessage.appendChild(sender);
-            userMessage.appendChild(content);
-            chatMessages.appendChild(userMessage);
         }
-    });
+    }
     
     // Scroll to bottom
     chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+// 사용자 메시지 추가 헬퍼 함수
+function addUserMessage(container, message) {
+    const userMessage = document.createElement('div');
+    userMessage.className = 'message user';
+    
+    const sender = document.createElement('div');
+    sender.className = 'sender';
+    sender.textContent = '고객';
+    
+    const content = document.createElement('div');
+    content.className = 'content';
+    content.textContent = message;
+    
+    userMessage.appendChild(sender);
+    userMessage.appendChild(content);
+    container.appendChild(userMessage);
+}
+
+// 에이전트 메시지 추가 헬퍼 함수
+function addAgentMessage(container, message, agentType) {
+    const agentMessage = document.createElement('div');
+    agentMessage.className = 'message agent';
+    
+    const sender = document.createElement('div');
+    sender.className = 'sender';
+    sender.textContent = `${agentType} 에이전트`;
+    
+    const content = document.createElement('div');
+    content.className = 'content';
+    content.textContent = message;
+    
+    agentMessage.appendChild(sender);
+    agentMessage.appendChild(content);
+    container.appendChild(agentMessage);
 }
 
 // Update agent activity
