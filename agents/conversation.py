@@ -43,22 +43,24 @@ class AgentConversation:
     def simulate_conversation(self, initial_input: str = "운전자 보험 추천해주세요."):
         print("=== 에이전트 간 자동 대화 시뮬레이션 시작 ===")
         user_message = initial_input
+        
         self.chat_history += f"User: {initial_input}\nOrchestrator: "
         self.chat_log.append({"role": "user", "content": user_message})
 
         # 매번 사용자 정보를 대화 흐름에 포함시켜서 대화가 지속적으로 이어지도록
-        self.chat_history = self.user_info_summary + "\n" + self.chat_history
+        # self.chat_history = self.user_info_summary + "\n" + self.chat_history
         
         # 추천 과정 추적을 위한 변수
         recommendation_made = False
         
         for turn in range(self.max_turns):
             print(f"\n🔁 [Turn {turn+1}]")
-
-            # 턴별 로그 초기화
+            if turn == 0:
+                user_message = initial_input
+                # 턴별 로그 초기화
             turn_log = {
                 "turn": turn + 1,
-                "user_reply": user_message if turn == 0 else None,  # 첫 턴에만 초기 사용자 메시지 포함
+                "user_reply": None,  # 첫 턴에만 초기 사용자 메시지 포함
                 "agent_response": None,
                 "current_agent": "Router",  # 기본값, Orchestrator가 실제 에이전트 식별
                 "rag_performed": False,
@@ -70,7 +72,7 @@ class AgentConversation:
                 self.chat_history,
                 user_message
             )
-            print(f"[Orchestrator]: {orchestrator_response}")
+            # print(f"[Orchestrator]: {orchestrator_response}")
             
             # 현재 활성화된 에이전트 추출 (로그 메시지나 응답에서 식별)
             current_agent = self._identify_current_agent(orchestrator_response)
@@ -79,6 +81,7 @@ class AgentConversation:
             rag_performed, rag_sources = self._extract_rag_info(orchestrator_response)
             
             # 로그 업데이트
+            turn_log['user_reply'] = user_message
             turn_log["agent_response"] = orchestrator_response
             turn_log["current_agent"] = current_agent
             turn_log["rag_performed"] = rag_performed
@@ -93,15 +96,16 @@ class AgentConversation:
             self.chat_log.append({"role": "orchestrator", "content": orchestrator_response})
 
             # 2. UserAgent가 응답
-            user_response = self.user_agent.run(self.chat_history, orchestrator_response)
-            print(f"[User] {user_response}")
+            # breakpoint()
+            user_response = self.user_agent.run(orchestrator_response)
+            # print(f"[User] {user_response}")
             self.chat_log.append({"role": "user", "content": user_response})
 
             self.chat_history = self._truncate_chat_history()
             
             # 사용자 응답 로그 업데이트
-            if turn != 0:  # 첫 턴이 아닌 경우에만 업데이트 (첫 턴은 이미 설정됨)
-                turn_log["user_reply"] = user_response
+            # if turn != 0:  # 첫 턴이 아닌 경우에만 업데이트 (첫 턴은 이미 설정됨)
+            #     turn_log["user_reply"] = user_response
             
             # 최종 턴 로그 저장
             self.enhanced_log.append(turn_log)

@@ -1,4 +1,3 @@
-
 from langchain_community.chat_models import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate
 from langchain.schema.runnable import Runnable
@@ -16,7 +15,7 @@ class UserAgent:
         self.user = self.user_info.user
         self.vehicle = self.user_info.vehicle
         self.settings = self.user_info.insurance_settings
-
+        self.chat_history = ""
         self.llm = ChatOpenAI(
             model_name="gpt-4o-mini",
             temperature=0.7,
@@ -89,21 +88,22 @@ class UserAgent:
             6. 에이전트가 제시하는 설명에 대해 최소 한 번은 "구체적으로 제 상황에서 어떤 이점이 있나요?"와 같이 더 자세한 설명을 요구하세요.
             7. 대화 기록이 별로 없다면, 가격이 비싸다거나, 보장 내용이 충분하지 않다는 의견을 제시하며 의구심을 표현하세요.
             8. 만약 에이전트가 충분히 설득력 있는 개인화된 이유를 제시하면 "그렇군요, 가입하겠습니다" 또는 "설명 감사합니다. 신청할게요"와 같이 명확하게 가입 의사를 표현하세요.
-            9. 당신은 보험 가입자입니다. 절대 잊지 마세요. 
-                
+            9. 당신은 보험 가입자입니다. 절대 잊지 마세요.
+            
         """.strip()
+        
         self.updated_system_prompt = self.update_system_prompt()
         
         self.llm = ChatOpenAI(
             model_name="gpt-4o-mini",
-            temperature=0.9,
+            temperature=0.3,
             openai_api_key=os.getenv("OPENAI_API_KEY")
         )
         
         # 사용자가 입력한 내용과 채팅 기록을 바탕으로 LLM을 호출
         self.prompt = ChatPromptTemplate.from_messages([
             SystemMessagePromptTemplate.from_template(self.updated_system_prompt),
-            HumanMessagePromptTemplate.from_template("{chat_history}\nUser: {user_input}")
+            HumanMessagePromptTemplate.from_template("{response}")
         ])
 
         self.chain: Runnable = self.prompt | self.llm
@@ -253,14 +253,15 @@ class UserAgent:
             predicted_drive_habit=personality["predicted_drive_habit"],
             predicted_financial_status=personality["predicted_financial_status"],
             predicted_risk_tolerance=personality["predicted_risk_tolerance"],
+            chat_history=""
         )
 
         return system_prompt
 
 
-    def run(self, chat_history: str, user_input: str) -> str:
+    def run(self, chat_history: str) -> str:
         response = self.chain.invoke({
-            "chat_history": chat_history.strip(),
-            "user_input": user_input.strip()
+            "response": chat_history.strip()
         })
+        
         return response.content.strip()

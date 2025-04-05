@@ -67,7 +67,7 @@ class AdvancedBaseAgent:
         current_agent = self
         num_init_messages = len(messages)
         messages = messages.copy()
-        
+        # breakpoint()
         while True:
             # 도구 스키마와 도구 맵 준비
             tool_schemas = [function_to_schema(tool) for tool in current_agent.tools]

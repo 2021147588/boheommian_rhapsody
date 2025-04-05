@@ -37,6 +37,7 @@ class AdvancedOrchestrator:
         
         # 메시지 목록에 사용자 메시지 추가
         self.messages.append({"role": "user", "content": message})
+        # breakpoint()
         
         # 현재 활성 에이전트 확인
         if self.active_agent_name is None:
@@ -48,6 +49,8 @@ class AdvancedOrchestrator:
         # 에이전트에 메시지 전달 - run_interaction 사용
         print(f"[AdvancedOrchestrator] Sending message to agent: {self.active_agent.name}")
         response = self.active_agent.run_interaction(self.messages)
+        
+        self.messages.append({"role": "assistant", "content": response.messages[-1]["content"]})
         
         # 에이전트 객체가 직접 반환된 경우 처리
         if isinstance(response, AdvancedBaseAgent):
@@ -173,7 +176,7 @@ class AdvancedOrchestrator:
         대화 이력을 기반으로 에이전트의 응답을 생성합니다.
         """
         # 수동 대화 로그 삽입
-        self.messages = []  # 새 세션처럼 처리
+        # self.messages = []  # 새 세션처럼 처리
         self.conversation_history = chat_history.split("\n") if chat_history else []
 
         print(f"[System] 대화 기록과 함께 메시지 처리 시작")
