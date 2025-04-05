@@ -24,7 +24,7 @@ app.add_middleware(
 )
 
 # Mount static files directory
-static_directory = "app/static"
+static_directory = "./static"
 app.mount("/static", StaticFiles(directory=static_directory, html=True), name="static")
 
 # Serve the main HTML file
@@ -46,8 +46,6 @@ async def submit_data(
     file_content = await file.read()
     user_info_list = json.loads(file_content)
 
-    detailed_chat_log = []
-    simplified_chat_log = []
     enhanced_chat_log = []  # 새로운 향상된 로그
     success_count = 0
     total_samples = min(len(user_info_list), max_samples)  # 사용자가 지정한 최대 샘플 수만큼만 처리
@@ -70,14 +68,6 @@ async def submit_data(
         # 성공 여부 집계
         if conversation.success:
             success_count += 1
-            
-        # 상세 대화 내용 저장 (메모리에만 저장, 파일 저장 안 함)
-        detailed_data = conversation.get_conversation_dict()
-        detailed_chat_log.append(detailed_data)
-        
-        # 간소화된 대화 내용 저장 (메모리에만 저장, 파일 저장 안 함)
-        simplified_data = conversation.get_simplified_conversation()
-        simplified_chat_log.append(simplified_data)
         
         # 향상된 로그 저장
         enhanced_data = conversation.get_enhanced_log()
@@ -108,10 +98,7 @@ async def submit_data(
     print(f"성공 샘플: {count}")
     print(f"성공률: {(count/len(final_report))*100:.1f}%")
     
-    # 모든 대화 통합 파일 저장 (향상된 로그 버전만)
-    enhanced_all_file = f"{results_dir}/{timestamp}_all_enhanced.json"
-    with open(enhanced_all_file, "w", encoding='utf-8') as file:
-        result_data = {
+    result_data = {
             "summary": {
                 "total_samples": len(final_report),
                 "success_count": {count},
@@ -120,8 +107,11 @@ async def submit_data(
             },
             "conversations": enhanced_chat_log,
         }
-        # json.dump(result_data, file, ensure_ascii=False, indent=4)
-        print(f"모든 향상된 로그를 '{enhanced_all_file}' 파일에 저장했습니다.")
+    # # 모든 대화 통합 파일 저장 (향상된 로그 버전만)
+    # enhanced_all_file = f"{results_dir}/{timestamp}_all_enhanced.json"
+    # with open(enhanced_all_file, "w", encoding='utf-8') as file:
+    #     # json.dump(result_data, file, ensure_ascii=False, indent=4)
+    #     print(f"모든 향상된 로그를 '{enhanced_all_file}' 파일에 저장했습니다.")
 
     return {"message": "success", "data": result_data}
 
