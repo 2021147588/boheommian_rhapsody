@@ -1,4 +1,4 @@
-from fastapi import FastAPI, UploadFile, File, Form
+from fastapi import FastAPI, UploadFile, File, Form, Query, HTTPException
 from app.view import *
 import json
 import os
@@ -6,11 +6,15 @@ import datetime
 from agents.conversation import AgentConversation
 import uvicorn
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import HTMLResponse, FileResponse
+from fastapi.responses import HTMLResponse, FileResponse, JSONResponse
 from pathlib import Path
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from agents.generate_analysis import *
+from app.test import generate_html
+from io import StringIO
+from fastapi.responses import Response
+import glob
 load_dotenv()
 app = FastAPI()
 
@@ -115,5 +119,61 @@ async def submit_data(
 
     return {"message": "success", "data": result_data}
 
+@app.post("/generate-report")
+async def generate_html_report(conversation: dict):
+    try:
+        # Generate a temporary file path for the HTML report
+        timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+        user_name = conversation.get("user_info", {}).get("user", {}).get("name", "unknown")
+        output_file = f"temp_report_{timestamp}_{user_name}.html"
+        
+        # Generate HTML report
+        generate_html(conversation, output_file)
+        
+        # Return the file as a response
+        return FileResponse(
+            output_file, 
+            media_type="text/html", 
+            filename=f"insurance_report_{user_name}.html"
+        )
+    except Exception as e:
+        return {"error": str(e)}
+
+@app.get("/load-report")
+async def load_report(name: str = Query(..., description="사용자 이름 또는 ID")):
+    try:
+        # 결과 디렉토리 설정
+        results_dir = os.getenv('RESULT_PATH', 'database/result')
+        
+        # 지정된 사용자 이름을 포함하는 모든 JSON 파일 찾기
+        file_pattern = f"{results_dir}/*{name}*_enhanced.json"
+        matching_files = glob.glob(file_pattern)
+        
+        if not matching_files:
+            # 사용자 이름으로 찾지 못한 경우 모든 enhanced.json 파일 중 가장 최신 파일 선택
+            file_pattern = f"{results_dir}/*_enhanced.json"
+            matching_files = glob.glob(file_pattern)
+            
+        if not matching_files:
+            return JSONResponse(
+                status_code=404,
+                content={"message": f"사용자 '{name}'에 대한 보고서 파일을 찾을 수 없습니다."}
+            )
+            
+        # 파일 수정 시간 기준으로 가장 최신 파일 선택
+        latest_file = max(matching_files, key=os.path.getmtime)
+        print(f"Loading report from file: {latest_file}")
+        
+        # JSON 파일 읽기
+        with open(latest_file, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+            
+        # 응답 반환
+        return JSONResponse(content=data)
+        
+    except Exception as e:
+        print(f"Error loading report: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"보고서 로딩 중 오류 발생: {str(e)}")
+
 if __name__=='__main__':
-    uvicorn.run(app="main:app", port=8001, reload=True, host='127.0.0.1')
+    uvicorn.run(app="main:app", port=8000, reload=True, host='127.0.0.1')

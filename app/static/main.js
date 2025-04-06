@@ -374,34 +374,35 @@ function updateProgressBar(percent, message) {
 
 // Process simulation results
 function processResults(data) {
-    console.log('Received data:', data);
-    
     // Store results globally
     simulationResults = data.data;
-    console.log('Stored simulation results:', simulationResults);
+    
+    // Hide progress, show results
+    document.querySelector('.simulation-progress').style.display = 'none';
+    document.querySelector('.simulation-results').style.display = 'block';
     
     // Update summary
     document.getElementById('result-total').textContent = data.data.summary.total_samples;
-    document.getElementById('result-success').textContent = data.data.summary.success_count;
+    document.getElementById('result-success').textContent = Array.from(data.data.summary.success_count)[0];
     document.getElementById('result-rate').textContent = `${data.data.summary.success_rate.toFixed(1)}%`;
     
     // Update dashboard metrics
     document.getElementById('total-customers').textContent = data.data.summary.total_samples;
-    document.getElementById('success-count').textContent = data.data.summary.success_count;
+    document.getElementById('success-count').textContent = Array.from(data.data.summary.success_count)[0];
     document.getElementById('success-rate').textContent = `${data.data.summary.success_rate.toFixed(1)}%`;
-    document.getElementById('last-run').textContent = data.data.summary.timestamp;
+    document.getElementById('last-run').textContent = formatTimestamp(data.data.summary.timestamp);
     
     // Update charts
     updateChartsWithData(data.data);
     
-    // Update recent simulations table
+    // Update simulations table
     updateSimulationsTable(data.data);
     
-    // Update customer dropdown
+    // Update customer dropdown for conversation viewer
     updateCustomerDropdown(data.data);
     
-    // Prepare detail modal content
-    prepareDetailModalContent(data.data);
+    // Update customer dropdown for final report visualization
+    updateReportCustomerDropdown(data.data);
 }
 
 // Update charts with actual data
@@ -910,4 +911,549 @@ function prepareDetailModalContent(data) {
 // Open a modal by ID
 function openModal(modalId) {
     document.getElementById(modalId).classList.add('active');
+}
+
+// After the handleCustomerSelect function, add the functions for final report visualization
+function updateReportCustomerDropdown(data) {
+    const reportCustomerSelect = document.getElementById('report-customer-select');
+    reportCustomerSelect.innerHTML = '<option value="">고객을 선택하세요</option>';
+    
+    if (!data || !data.conversations || data.conversations.length === 0) {
+        return;
+    }
+    
+    data.conversations.forEach((conversation, index) => {
+        const userInfo = conversation.user_info.user;
+        const option = document.createElement('option');
+        option.value = index;
+        option.textContent = `${userInfo.name} (${userInfo.gender}, ${calculateAge(userInfo.birth_date)}세)`;
+        reportCustomerSelect.appendChild(option);
+    });
+    
+    reportCustomerSelect.addEventListener('change', handleReportCustomerSelect);
+}
+
+function handleReportCustomerSelect(e) {
+    const selectedIndex = e.target.value;
+    
+    if (!selectedIndex || !simulationResults || !simulationResults.conversations) {
+        const reportContent = document.getElementById('report-content');
+        reportContent.innerHTML = '<p class="empty-message">고객을 선택하면 최종 보고서가 표시됩니다.</p>';
+        return;
+    }
+    
+    const conversation = simulationResults.conversations[selectedIndex];
+    renderFinalReport(conversation);
+}
+
+function renderFinalReport(conversation) {
+    const reportContent = document.getElementById('report-content');
+    
+    // Check if final_report exists
+    if (!conversation.final_report) {
+        // Try to load from a result file if not in memory
+        console.log("No final_report found in conversation data, attempting to load from file...");
+        loadFinalReportFromFile(conversation, reportContent);
+        return;
+    }
+    
+    displayFinalReport(conversation, conversation.final_report, reportContent);
+}
+
+// 새 함수: 파일에서 final_report 데이터 로드
+function loadFinalReportFromFile(conversation, reportContent) {
+    const userInfo = conversation.user_info && conversation.user_info.user ? conversation.user_info.user : { name: "Unknown" };
+    const userName = userInfo.name || "Unknown";
+    
+    // 임시로 로딩 메시지 표시
+    reportContent.innerHTML = '<p class="loading-message">최종 보고서 데이터를 불러오는 중입니다...</p>';
+    
+    // 파일 경로 생성 (주의: 실제 경로는 서버 설정에 따라 달라질 수 있음)
+    // 현재 JSON 파일은 database/result/ 디렉토리에 있을 것으로 가정
+    fetch(`/load-report?name=${encodeURIComponent(userName)}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('최종 보고서 데이터를 불러오는데 실패했습니다.');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data && data.final_report) {
+                // 성공적으로 불러온 경우 데이터를 메모리에 저장하고 표시
+                conversation.final_report = data.final_report;
+                displayFinalReport(conversation, data.final_report, reportContent);
+            } else {
+                // 데이터를 찾을 수 없는 경우
+                reportContent.innerHTML = '<p class="no-report-data">이 대화에 대한 최종 보고서 데이터를 찾을 수 없습니다.</p>';
+            }
+        })
+        .catch(error => {
+            console.error('Error loading final report:', error);
+            reportContent.innerHTML = `<p class="error-message">최종 보고서 데이터를 불러오는 중 오류가 발생했습니다: ${error.message}</p>`;
+        });
+}
+
+// 새 함수: 최종 보고서 표시 로직을 분리
+function displayFinalReport(conversation, finalReport, reportContent) {
+    const userInfo = conversation.user_info.user;
+    
+    // Create HTML for the report
+    let html = `
+        <div class="report-header">
+            <h4>${userInfo.name}님의 최종 보고서</h4>
+            <div class="report-actions">
+                <button class="report-button" onclick="generateReportHTML(${JSON.stringify(conversation.id || '').replace(/"/g, '&quot;')})">
+                    <i class="fas fa-file-export"></i> HTML 보고서 생성
+                </button>
+                <button class="report-button" onclick="downloadReportPDF(${JSON.stringify(conversation.id || '').replace(/"/g, '&quot;')})">
+                    <i class="fas fa-file-pdf"></i> PDF 다운로드
+                </button>
+            </div>
+        </div>
+        <div class="report-visualization">
+            <div class="report-summary-cards">
+                <div class="report-card">
+                    <div class="card-icon"><i class="fas fa-check-circle"></i></div>
+                    <div class="card-content">
+                        <h5>최종 결과</h5>
+                        <div class="status-badge ${conversation.success ? 'success' : 'failed'}">${conversation.success ? '성공' : '실패'}</div>
+                    </div>
+                </div>
+                <div class="report-card">
+                    <div class="card-icon"><i class="fas fa-comment-dots"></i></div>
+                    <div class="card-content">
+                        <h5>대화 턴 수</h5>
+                        <div class="card-value">${conversation.turns ? conversation.turns.length : 0}</div>
+                    </div>
+                </div>
+                <div class="report-card">
+                    <div class="card-icon"><i class="fas fa-smile"></i></div>
+                    <div class="card-content">
+                        <h5>만족도</h5>
+                        <div class="satisfaction-display">
+                            ${getSatisfactionDisplay(finalReport['사용자 만족도 추정'] || '알 수 없음')}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="report-sections">
+`;
+
+    // Organize report items into sections
+    const sections = organizeReportSections(finalReport);
+
+    // Add each section to HTML
+    Object.entries(sections).forEach(([sectionName, items]) => {
+        html += `
+                <div class="report-section">
+                    <div class="section-header">
+                        <h5>${sectionName}</h5>
+                    </div>
+                    <div class="section-content">
+        `;
+
+        // Add items for this section
+        items.forEach(item => {
+            let valueClass = '';
+            
+            // Apply special formatting for certain keys
+            if (item.key === '사용자 만족도 추정') {
+                valueClass = getSatisfactionClass(item.value);
+            } else if (item.key === '주요 논점' || item.key === '핵심 고객 요구사항') {
+                valueClass = 'highlight-item';
+            } else if (item.key.includes('추천') || item.key.includes('제안')) {
+                valueClass = 'recommendation-item';
+            }
+            
+            html += `
+                        <div class="report-item">
+                            <div class="report-label">${item.key}</div>
+                            <div class="report-value ${valueClass}">${formatReportValue(item.value)}</div>
+                        </div>
+            `;
+        });
+
+        html += `
+                    </div>
+                </div>
+        `;
+    });
+
+    // Close the report sections div
+    html += `
+            </div>
+        </div>
+    `;
+    
+    reportContent.innerHTML = html;
+    
+    // Add visualization charts if applicable
+    if (finalReport['상품 적합도 점수'] || finalReport['상담 성과 지표']) {
+        renderReportCharts(finalReport, conversation);
+    }
+}
+
+// Format report values for better display
+function formatReportValue(value) {
+    if (!value) return '정보 없음';
+    
+    // If value contains list items with - or * bullets, format as a list
+    if (value.includes('- ') || value.includes('* ')) {
+        const items = value.split(/\n/);
+        let formattedValue = '<ul>';
+        
+        items.forEach(item => {
+            const trimmedItem = item.trim();
+            if (trimmedItem.startsWith('- ') || trimmedItem.startsWith('* ')) {
+                formattedValue += `<li>${trimmedItem.substring(2)}</li>`;
+            } else if (trimmedItem) {
+                formattedValue += `<li>${trimmedItem}</li>`;
+            }
+        });
+        
+        formattedValue += '</ul>';
+        return formattedValue;
+    }
+    
+    // Format percentage values
+    if (/\d+%/.test(value)) {
+        return value.replace(/(\d+)%/g, '<span class="percentage">$1%</span>');
+    }
+    
+    return value;
+}
+
+// Organize report items into logical sections
+function organizeReportSections(finalReport) {
+    const sections = {
+        '고객 정보 요약': [],
+        '상담 결과': [],
+        '추천 상품 정보': [],
+        '상담 분석': []
+    };
+    
+    // Skip the conversation log
+    Object.entries(finalReport).forEach(([key, value]) => {
+        if (key === 'conversation_log') return;
+        
+        if (key.includes('고객') || key.includes('사용자') || key.includes('요구')) {
+            sections['고객 정보 요약'].push({ key, value });
+        } else if (key.includes('추천') || key.includes('상품') || key.includes('플랜')) {
+            sections['추천 상품 정보'].push({ key, value });
+        } else if (key.includes('문제점') || key.includes('개선') || key.includes('분석') || key.includes('제안')) {
+            sections['상담 분석'].push({ key, value });
+        } else {
+            sections['상담 결과'].push({ key, value });
+        }
+    });
+    
+    // Remove empty sections
+    Object.keys(sections).forEach(key => {
+        if (sections[key].length === 0) {
+            delete sections[key];
+        }
+    });
+    
+    return sections;
+}
+
+// Get satisfaction display based on text
+function getSatisfactionDisplay(satisfactionText) {
+    let level = 0;
+    
+    if (satisfactionText.includes('높') || satisfactionText.includes('만족')) {
+        level = 3;
+    } else if (satisfactionText.includes('중간') || satisfactionText.includes('보통')) {
+        level = 2;
+    } else if (satisfactionText.includes('낮') || satisfactionText.includes('불만족')) {
+        level = 1;
+    }
+    
+    let display = '';
+    for (let i = 0; i < 3; i++) {
+        if (i < level) {
+            display += '<i class="fas fa-smile satisfaction-high"></i>';
+        } else {
+            display += '<i class="far fa-smile satisfaction-low"></i>';
+        }
+    }
+    
+    return display;
+}
+
+// Get CSS class for satisfaction level
+function getSatisfactionClass(satisfactionText) {
+    if (satisfactionText.includes('높') || satisfactionText.includes('만족')) {
+        return 'satisfaction-badge satisfaction-high';
+    } else if (satisfactionText.includes('중간') || satisfactionText.includes('보통')) {
+        return 'satisfaction-badge satisfaction-medium';
+    } else if (satisfactionText.includes('낮') || satisfactionText.includes('불만족')) {
+        return 'satisfaction-badge satisfaction-low';
+    }
+    return '';
+}
+
+// Render charts for the report data
+function renderReportCharts(finalReport, conversation) {
+    // Add canvas elements for charts
+    const reportContent = document.getElementById('report-content');
+    const chartsContainer = document.createElement('div');
+    chartsContainer.className = 'report-charts';
+    chartsContainer.innerHTML = `
+        <div class="report-chart-row">
+            <div class="report-chart-container">
+                <canvas id="product-fit-chart"></canvas>
+            </div>
+            <div class="report-chart-container">
+                <canvas id="consultation-metrics-chart"></canvas>
+            </div>
+        </div>
+    `;
+    reportContent.appendChild(chartsContainer);
+    
+    // Extract product fit data if available
+    if (finalReport['상품 적합도 점수'] || finalReport['상품 적합성']) {
+        let productFitData = extractProductFitData(finalReport);
+        renderProductFitChart(productFitData);
+    }
+    
+    // Extract consultation metrics if available
+    if (finalReport['상담 성과 지표'] || finalReport['대화 효율성']) {
+        let metricsData = extractConsultationMetrics(finalReport, conversation);
+        renderConsultationMetricsChart(metricsData);
+    }
+}
+
+// Extract product fit data from the report
+function extractProductFitData(finalReport) {
+    // Try to find product fit data in various possible keys
+    let fitDataText = finalReport['상품 적합도 점수'] || 
+                      finalReport['상품 적합성'] || 
+                      finalReport['추천 상품 적합도'];
+    
+    if (!fitDataText) return null;
+    
+    // Default data if we can't parse from text
+    const defaultData = [
+        { name: '고급형', score: 70 },
+        { name: '표준형', score: 50 },
+        { name: '3400형', score: 30 }
+    ];
+    
+    // Try to extract percentages or scores from text
+    const percentageMatches = fitDataText.match(/(\d+)%/g);
+    const scoreMatches = fitDataText.match(/(\d+)[^%]/g);
+    
+    if (percentageMatches && percentageMatches.length > 0) {
+        // Extract plan names too if possible
+        const planMatches = fitDataText.match(/(고급형|표준형|3400형|기본형)/g);
+        
+        return percentageMatches.map((percent, index) => {
+            return {
+                name: planMatches && planMatches[index] ? planMatches[index] : `상품 ${index + 1}`,
+                score: parseInt(percent)
+            };
+        });
+    } else if (scoreMatches && scoreMatches.length > 0) {
+        // Try score format
+        const planMatches = fitDataText.match(/(고급형|표준형|3400형|기본형)/g);
+        
+        return scoreMatches.map((score, index) => {
+            return {
+                name: planMatches && planMatches[index] ? planMatches[index] : `상품 ${index + 1}`,
+                score: parseInt(score)
+            };
+        });
+    }
+    
+    return defaultData;
+}
+
+// Extract consultation metrics from the report
+function extractConsultationMetrics(finalReport, conversation) {
+    // Try to find metrics in various possible keys
+    let metricsText = finalReport['상담 성과 지표'] || 
+                      finalReport['대화 효율성'] || 
+                      finalReport['상담 분석'];
+    
+    // Default metrics based on conversation data
+    const metrics = [
+        { name: '응답 시간', score: 75 },
+        { name: '정보 제공', score: 80 },
+        { name: '고객 만족도', score: 65 },
+        { name: '문제 해결', score: 70 }
+    ];
+    
+    // If we have conversation turns, calculate some metrics
+    if (conversation.turns) {
+        // Calculate satisfaction based on the final satisfaction estimate
+        if (finalReport['사용자 만족도 추정']) {
+            let satisfactionText = finalReport['사용자 만족도 추정'];
+            let satisfactionScore = 50; // default
+            
+            if (satisfactionText.includes('높') || satisfactionText.includes('만족')) {
+                satisfactionScore = 85;
+            } else if (satisfactionText.includes('중간') || satisfactionText.includes('보통')) {
+                satisfactionScore = 65;
+            } else if (satisfactionText.includes('낮') || satisfactionText.includes('불만족')) {
+                satisfactionScore = 35;
+            }
+            
+            // Update customer satisfaction score
+            metrics.find(m => m.name === '고객 만족도').score = satisfactionScore;
+        }
+        
+        // Update problem solving score based on success
+        metrics.find(m => m.name === '문제 해결').score = conversation.success ? 90 : 40;
+    }
+    
+    return metrics;
+}
+
+// Render product fit chart
+function renderProductFitChart(productFitData) {
+    if (!productFitData) return;
+    
+    const ctx = document.getElementById('product-fit-chart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: productFitData.map(item => item.name),
+            datasets: [{
+                label: '상품 적합도 점수',
+                data: productFitData.map(item => item.score),
+                backgroundColor: ['#28a745', '#4a6bff', '#ffc107'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            indexAxis: 'y',
+            plugins: {
+                title: {
+                    display: true,
+                    text: '상품 적합도 분석'
+                },
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    max: 100,
+                    ticks: {
+                        callback: function(value) {
+                            return value + '%';
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+// Render consultation metrics chart
+function renderConsultationMetricsChart(metricsData) {
+    if (!metricsData) return;
+    
+    const ctx = document.getElementById('consultation-metrics-chart').getContext('2d');
+    new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: metricsData.map(item => item.name),
+            datasets: [{
+                label: '상담 효율성 지표',
+                data: metricsData.map(item => item.score),
+                backgroundColor: 'rgba(74, 107, 255, 0.2)',
+                borderColor: '#4a6bff',
+                borderWidth: 2,
+                pointBackgroundColor: '#4a6bff'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                r: {
+                    min: 0,
+                    max: 100,
+                    ticks: {
+                        display: false
+                    }
+                }
+            },
+            plugins: {
+                title: {
+                    display: true,
+                    text: '상담 성과 분석'
+                }
+            }
+        }
+    });
+}
+
+// Function to download report as PDF (stub for now)
+function downloadReportPDF(conversationId) {
+    alert('PDF 다운로드 기능은 개발 중입니다.');
+}
+
+// Generate HTML report
+function generateReportHTML(conversationId) {
+    if (!simulationResults || !simulationResults.conversations) {
+        alert('시뮬레이션 결과가 없습니다.');
+        return;
+    }
+    
+    const conversation = simulationResults.conversations.find(conv => conv.id === conversationId) || 
+                         simulationResults.conversations[conversationId];
+    
+    if (!conversation) {
+        alert('선택된 대화를 찾을 수 없습니다.');
+        return;
+    }
+                         
+    // Call the backend to generate HTML report
+    fetch('/generate-report', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(conversation)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.blob();
+    })
+    .then(blob => {
+        // Create a download link for the HTML file
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.style.display = 'none';
+        a.href = url;
+        a.download = `insurance_report_${conversation.user_info.user.name}.html`;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+    })
+    .catch(error => {
+        console.error('Error generating HTML report:', error);
+        alert('HTML 보고서 생성에 실패했습니다.');
+    });
+}
+
+// Helper function to format timestamp
+function formatTimestamp(timestamp) {
+    // Format: "YYYYMMdd_HHmmss" to "YYYY-MM-DD HH:mm"
+    const year = timestamp.substring(0, 4);
+    const month = timestamp.substring(4, 6);
+    const day = timestamp.substring(6, 8);
+    const hour = timestamp.substring(9, 11);
+    const minute = timestamp.substring(11, 13);
+    
+    return `${year}-${month}-${day} ${hour}:${minute}`;
 } 
